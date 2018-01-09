@@ -1,0 +1,27 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TransC1.cs">
+    <Files>
+      <File FileName="Assets\GoogleARCore\SDK\Scripts\SessionComponent.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\Timer.cs" Line="107" Column="3" NotebookId="1" />
+      <File FileName="Assets\CameraMove.cs" Line="25" Column="38" NotebookId="1" />
+      <File FileName="Assets\waypoints.cs" Line="17" Column="36" NotebookId="1" />
+      <File FileName="Assets\guestviewmove.cs" Line="27" Column="54" NotebookId="1" />
+      <File FileName="Assets\Button.cs" Line="62" Column="2" NotebookId="1" />
+      <File FileName="Assets\MuseumPlace.cs" Line="16" Column="28" NotebookId="1" />
+      <File FileName="Assets\GoogleARCore\HelloARExample\Scripts\HelloARController.cs" Line="19" Column="74" NotebookId="1" />
+    </Files>
+    <FloatingWindows>
+      <FloatingWindow WindowId="1" X="-30080" Y="-32000" Width="1920" Height="1017">
+        <Files>
+          <File FileName="Assets\TransC1.cs" Line="15" Column="79" />
+          <File FileName="Assets\guestStand1.cs" Line="6" Column="27" />
+        </Files>
+      </FloatingWindow>
+    </FloatingWindows>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
