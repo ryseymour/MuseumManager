@@ -14,6 +14,11 @@ public class Button : MonoBehaviour {
 	public Canvas MainScreen;
 	public Canvas Exhibit1a;
 
+	public static float donatevalue;
+	public static float updateDonateValue;
+	public static bool donateNow;
+	public Text donateText;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -21,6 +26,9 @@ public class Button : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		//donateText.text = "Donations" + updateDonateValue.ToString ();
+
 		//if (cswitch == true) {
 			//camera1.gameObject.SetActive (false);
 			//camera2.gameObject.SetActive (true);

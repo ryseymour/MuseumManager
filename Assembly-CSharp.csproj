@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{6410A81B-98CF-DDB4-09DC-9752760C8C05}</ProjectGuid>
+    <ProjectGuid>{F8894339-24CB-A5CA-9ED0-448D985AB3F8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -108,7 +108,9 @@
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\ProvidedSingleton.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\SingletonComponentProvider.cs" />
      <Compile Include="Assets\guestStand1.cs" />
+     <Compile Include="Assets\GuestTimer.cs" />
      <Compile Include="Assets\guestviewmove.cs" />
+     <Compile Include="Assets\GuestWaypointMove.cs" />
      <Compile Include="Assets\MuseumPlace.cs" />
      <Compile Include="Assets\ShopandPlant.cs" />
      <Compile Include="Assets\ShopandPlant2.cs" />
@@ -150,7 +152,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
  <Reference Include="GoogleAR.UnityNative">
- <HintPath>C:/Users/ry.seymour/Desktop/ARCoreVersion/ARCore2/ARCore/Assets/GoogleARCore/SDK/Plugins/GoogleAR.UnityNative.dll</HintPath>
+ <HintPath>C:/Users/ry.seymour/Documents/GitHub/MuseumManager/Assets/GoogleARCore/SDK/Plugins/GoogleAR.UnityNative.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/ry.seymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>

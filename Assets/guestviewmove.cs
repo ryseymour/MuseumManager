@@ -27,12 +27,12 @@ public class guestviewmove : MonoBehaviour {
 		Vector3 dir = target.position - transform.position;
 		transform.Translate (dir.normalized * speed * Time.deltaTime, Space.World);
 
-		//if (Vector3.Distance (transform.position, target.position) <= 0.7f) {
-			//GetNextWaypoint ();
-		//}
-			if (Vector3.Distance (transform.position, target.position) <= 0.01f) {
-				speed = 0f;
+		if (Vector3.Distance (transform.position, target.position) <= 0.2f) {
+			GetNextWaypoint ();
 		}
+			//if (Vector3.Distance (transform.position, target.position) <= 0.01f) {
+				//speed = 0f;
+		//}
 			//if (ModelOn == false) {
 				//return;
 			//}
@@ -42,7 +42,7 @@ public class guestviewmove : MonoBehaviour {
 	void GetNextWaypoint ()
 	{
 		if (wavepointIndex >= waypoints.points.Length - 1) {
-			wavepointIndex = -1;
+			//wavepointIndex = -1;
 		}
 		wavepointIndex++;
 		target = waypoints.points [wavepointIndex];
