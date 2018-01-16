@@ -27,7 +27,7 @@ public class Button : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//donateText.text = "Donations" + updateDonateValue.ToString ();
+		donateText.text = "Donations" + updateDonateValue.ToString ();
 
 		//if (cswitch == true) {
 			//camera1.gameObject.SetActive (false);

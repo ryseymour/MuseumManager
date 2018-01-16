@@ -1223,7 +1223,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1620957103108528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1088.6094, y: 1796.4512, z: -912.893}
+  m_LocalPosition: {x: 1084.8483, y: 1790.0363, z: -910.149}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4125120294290928}
@@ -2573,7 +2573,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4755608299684424}
   rend: {fileID: 23245691708481280}
-  gueststay: {fileID: 1096089706943394, guid: b6117bc254614e547ba920e384d02f98, type: 2}
+  guest2: {fileID: 0}
 --- !u!114 &114086827165121166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2600,7 +2600,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4894564988248812}
   rend: {fileID: 23012549687121016}
-  gueststay: {fileID: 0}
+  guest2: {fileID: 0}
 --- !u!114 &114179018230426866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2616,7 +2616,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4836873496765738}
   rend: {fileID: 23138094899669350}
-  gueststay: {fileID: 0}
+  guest2: {fileID: 0}
 --- !u!114 &114292530445878476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2668,7 +2668,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4712475803535200}
   rend: {fileID: 23378137983479920}
-  gueststay: {fileID: 0}
+  guest2: {fileID: 0}
 --- !u!114 &114644840079070844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2684,7 +2684,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4934697749111926}
   rend: {fileID: 23879611300794022}
-  gueststay: {fileID: 0}
+  guest2: {fileID: 0}
 --- !u!114 &114745880063161386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2700,7 +2700,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4700789670808844}
   rend: {fileID: 23875083152473240}
-  gueststay: {fileID: 0}
+  guest2: {fileID: 0}
 --- !u!114 &114793470106489846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2716,7 +2716,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4259814045863560}
   rend: {fileID: 23863634703338714}
-  gueststay: {fileID: 0}
+  guest2: {fileID: 0}
 --- !u!114 &114847995266454394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2732,7 +2732,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4439449307649882}
   rend: {fileID: 23999124383414188}
-  gueststay: {fileID: 0}
+  guest2: {fileID: 0}
 --- !u!114 &114979792714596606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2748,7 +2748,7 @@ MonoBehaviour:
     type: 2}
   spawnPoint: {fileID: 4440194053061188}
   rend: {fileID: 23166455361713850}
-  gueststay: {fileID: 0}
+  guest2: {fileID: 0}
 --- !u!124 &124374824361979360
 Behaviour:
   m_ObjectHideFlags: 1

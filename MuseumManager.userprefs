@@ -2,13 +2,13 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GuestWaypointMove.cs">
     <Files>
-      <File FileName="Assets\TransC1.cs" Line="24" Column="2" />
-      <File FileName="Assets\guestviewmove.cs" Line="52" Column="3" />
-      <File FileName="Assets\exhibitplace.cs" Line="21" Column="3" />
-      <File FileName="Assets\GuestTimer.cs" Line="44" Column="1" />
-      <File FileName="Assets\GuestWaypointMove.cs" Line="28" Column="73" />
-      <File FileName="Assets\ArtifactPlace.cs" Line="9" Column="41" />
-      <File FileName="Assets\Button.cs" Line="30" Column="5" />
+      <File FileName="Assets\TransC1.cs" Line="1" Column="1" />
+      <File FileName="Assets\guestviewmove.cs" Line="1" Column="1" />
+      <File FileName="Assets\exhibitplace.cs" Line="1" Column="1" />
+      <File FileName="Assets\GuestTimer.cs" Line="1" Column="1" />
+      <File FileName="Assets\GuestWaypointMove.cs" Line="70" Column="50" />
+      <File FileName="Assets\ArtifactPlace.cs" Line="1" Column="1" />
+      <File FileName="Assets\Button.cs" Line="39" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
