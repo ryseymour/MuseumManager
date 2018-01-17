@@ -19,15 +19,20 @@ public class Button : MonoBehaviour {
 	public static bool donateNow;
 	public Text donateText;
 
+    public int artifactScore;
+
+
 	// Use this for initialization
 	void Start () {
+
+        artifactScore = 1;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		donateText.text = "Donations" + updateDonateValue.ToString ();
+		donateText.text = "Donations x" + artifactScore.ToString() + " : " + updateDonateValue.ToString ();
 
 		//if (cswitch == true) {
 			//camera1.gameObject.SetActive (false);

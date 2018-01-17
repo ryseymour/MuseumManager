@@ -68,7 +68,7 @@ public class GuestWaypointMove : MonoBehaviour {
 		yield return new WaitForSeconds (20.0f);
 		//remove this at a later point
 		PersonalDonateScore = PersonalDonateScore + 1f;
-		Button.updateDonateValue = Button.donatevalue + PersonalDonateScore;
+		Button.updateDonateValue = Button.donatevalue + PersonalDonateScore + (0.1f * GameObject.Find("Manager").GetComponent<Button>().artifactScore);
 		Button.donatevalue = Button.updateDonateValue;
 		//Button.donateNow = true;
 		Destroy (gameObject);
