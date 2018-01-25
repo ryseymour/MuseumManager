@@ -51,11 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ArtifactPlace.cs" />
-     <Compile Include="Assets\Button.cs" />
-     <Compile Include="Assets\CameraMove.cs" />
-     <Compile Include="Assets\exhibitplace.cs" />
-     <Compile Include="Assets\farmingscript.cs" />
      <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\HelloARController.cs" />
      <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\PlaneAttachment.cs" />
      <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\PointcloudVisualizer.cs" />
@@ -107,16 +102,22 @@
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\MarshalingHelper.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\ProvidedSingleton.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\SingletonComponentProvider.cs" />
-     <Compile Include="Assets\guestStand1.cs" />
-     <Compile Include="Assets\GuestTimer.cs" />
-     <Compile Include="Assets\guestviewmove.cs" />
-     <Compile Include="Assets\GuestWaypointMove.cs" />
-     <Compile Include="Assets\MuseumPlace.cs" />
-     <Compile Include="Assets\ShopandPlant.cs" />
-     <Compile Include="Assets\ShopandPlant2.cs" />
-     <Compile Include="Assets\Timer.cs" />
-     <Compile Include="Assets\TransC1.cs" />
-     <Compile Include="Assets\waypoints.cs" />
+     <Compile Include="Assets\Scenes\Scripts\TexturePainter.cs" />
+     <Compile Include="Assets\ScriptBazzar\ArtifactPlace.cs" />
+     <Compile Include="Assets\ScriptBazzar\Button.cs" />
+     <Compile Include="Assets\ScriptBazzar\CameraMove.cs" />
+     <Compile Include="Assets\ScriptBazzar\exhibitplace.cs" />
+     <Compile Include="Assets\ScriptBazzar\farmingscript.cs" />
+     <Compile Include="Assets\ScriptBazzar\guestStand1.cs" />
+     <Compile Include="Assets\ScriptBazzar\GuestTimer.cs" />
+     <Compile Include="Assets\ScriptBazzar\guestviewmove.cs" />
+     <Compile Include="Assets\ScriptBazzar\GuestWaypointMove.cs" />
+     <Compile Include="Assets\ScriptBazzar\MuseumPlace.cs" />
+     <Compile Include="Assets\ScriptBazzar\ShopandPlant.cs" />
+     <Compile Include="Assets\ScriptBazzar\ShopandPlant2.cs" />
+     <Compile Include="Assets\ScriptBazzar\Timer.cs" />
+     <Compile Include="Assets\ScriptBazzar\TransC1.cs" />
+     <Compile Include="Assets\ScriptBazzar\waypoints.cs" />
      <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\PlaneGrid.shader" />
      <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\MobileDiffuseWithLightEstimation.shader" />
      <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\PointCloud.shader" />

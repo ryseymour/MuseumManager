@@ -1,14 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\GuestWaypointMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scenes\Scripts\TexturePainter.cs">
     <Files>
-      <File FileName="Assets\TransC1.cs" Line="1" Column="1" />
-      <File FileName="Assets\guestviewmove.cs" Line="1" Column="1" />
-      <File FileName="Assets\exhibitplace.cs" Line="1" Column="1" />
-      <File FileName="Assets\GuestTimer.cs" Line="1" Column="1" />
-      <File FileName="Assets\GuestWaypointMove.cs" Line="70" Column="50" />
-      <File FileName="Assets\ArtifactPlace.cs" Line="1" Column="1" />
-      <File FileName="Assets\Button.cs" Line="39" Column="6" />
+      <File FileName="Assets\Scenes\Scripts\TexturePainter.cs" Line="68" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
