@@ -10,11 +10,11 @@ RenderTexture:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
   m_Width: 800
-  m_Height: 557
+  m_Height: 800
   m_AntiAliasing: 1
   m_DepthFormat: 2
   m_ColorFormat: 0
-  m_MipMap: 0
+  m_MipMap: 1
   m_GenerateMips: 1
   m_SRGB: 0
   m_TextureSettings:

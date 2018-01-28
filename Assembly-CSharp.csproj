@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\destroyart.cs" />
      <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\HelloARController.cs" />
      <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\PlaneAttachment.cs" />
      <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\PointcloudVisualizer.cs" />
@@ -102,6 +103,8 @@
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\MarshalingHelper.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\ProvidedSingleton.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\SingletonComponentProvider.cs" />
+     <Compile Include="Assets\paintdust.cs" />
+     <Compile Include="Assets\paintrestore.cs" />
      <Compile Include="Assets\Scenes\Scripts\TexturePainter.cs" />
      <Compile Include="Assets\ScriptBazzar\ArtifactPlace.cs" />
      <Compile Include="Assets\ScriptBazzar\Button.cs" />
@@ -113,6 +116,8 @@
      <Compile Include="Assets\ScriptBazzar\guestviewmove.cs" />
      <Compile Include="Assets\ScriptBazzar\GuestWaypointMove.cs" />
      <Compile Include="Assets\ScriptBazzar\MuseumPlace.cs" />
+     <Compile Include="Assets\ScriptBazzar\restoreinstantiate.cs" />
+     <Compile Include="Assets\ScriptBazzar\RestorePlace.cs" />
      <Compile Include="Assets\ScriptBazzar\ShopandPlant.cs" />
      <Compile Include="Assets\ScriptBazzar\ShopandPlant2.cs" />
      <Compile Include="Assets\ScriptBazzar\Timer.cs" />
@@ -153,7 +158,7 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
  <Reference Include="GoogleAR.UnityNative">
- <HintPath>C:/Users/ry.seymour/Documents/GitHub/MuseumManager/Assets/GoogleARCore/SDK/Plugins/GoogleAR.UnityNative.dll</HintPath>
+ <HintPath>C:/Users/ry.seymour/Documents/GitHub/MMbackup/1.25/MuseumManager/Assets/GoogleARCore/SDK/Plugins/GoogleAR.UnityNative.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/ry.seymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>

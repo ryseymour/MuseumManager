@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class exhibitplace : MonoBehaviour {
 
 	public Transform artifact1Prefab;
+	public Transform artifact2Prefab;
 
 	public Transform spawnPoint;
 
@@ -49,6 +50,12 @@ public class exhibitplace : MonoBehaviour {
 					//GuestStay += 1;
 
 
+				}
+
+				if (ArtifactPlace.artifactint == 2) {
+					Instantiate (artifact2Prefab, spawnPoint.position, spawnPoint.rotation);
+					rend.enabled = false;
+					artifactNumber = artifactNumber + 1;
 				}
 			}
 			else{

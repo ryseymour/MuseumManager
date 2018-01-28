@@ -12,7 +12,9 @@ public class Button : MonoBehaviour {
 	public bool cswitch = true;
 	public Canvas ArtifactsScreen;
 	public Canvas MainScreen;
+	public Canvas RestoreScreen;
 	public Canvas Exhibit1a;
+	public Canvas PaintRestore;
 
 	public static float donatevalue;
 	public static float updateDonateValue;
@@ -83,9 +85,20 @@ public class Button : MonoBehaviour {
 		MainScreen.gameObject.SetActive (false);
 	}
 
+	public void Restore () {
+		RestoreScreen.gameObject.SetActive (true);
+		MainScreen.gameObject.SetActive (false);
+	}
+
+	public void PaintRestoreScreen () {
+		PaintRestore.gameObject.SetActive (true);
+	}
+
 	public void Back () {
 		ArtifactsScreen.gameObject.SetActive (false);
 		Exhibit1a.gameObject.SetActive (false);
+		RestoreScreen.gameObject.SetActive (false);
 		MainScreen.gameObject.SetActive (true);
+		PaintRestore.gameObject.SetActive (false);
 	}
 }
