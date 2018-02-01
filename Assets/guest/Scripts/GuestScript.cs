@@ -69,6 +69,7 @@ public class GuestScript : MonoBehaviour {
         {
             if (!view_init)
             {
+                Debug.Log(wingTarget.arts[0].viewZone.bounds);
                 artQ.Clear();
                 pos_artQ = 0;
                 for (int i = 0; i < wingTarget.installations.Count; i++)
@@ -110,8 +111,7 @@ public class GuestScript : MonoBehaviour {
         {
             float rando = Random.RandomRange(0, GM_guestScript.instance.Wings.Count);
             if (wingTarget == GM_guestScript.instance.Wings[Mathf.FloorToInt(rando)])
-            {
-                Debug.Log(rando);
+            {                
                 return;           
             }else
             {

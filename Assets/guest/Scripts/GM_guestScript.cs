@@ -9,6 +9,8 @@ public class Section
     public List<GameObject> installations = new List<GameObject>();
 
     public Transform entrance;
+
+    public List<Art> arts = new List<Art>();
 }
 
 public class GM_guestScript : MonoBehaviour {
@@ -26,6 +28,13 @@ public class GM_guestScript : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
+        for(int i = 0; i < Wings.Count; i++)
+        {
+            for(int j =0; j < Wings[i].arts.Count; j++)
+            {
+                Instantiate(Wings[i].arts[j].artObject, Wings[i].installations[j].transform.position, Quaternion.identity);
+            }
+        }
 		
 	}
 	
