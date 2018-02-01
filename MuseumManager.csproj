@@ -361,6 +361,8 @@
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\MarshalingHelper.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\ProvidedSingleton.cs" />
     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\SingletonComponentProvider.cs" />
+    <Compile Include="Assets\guest\Scripts\GM_guestScript.cs" />
+    <Compile Include="Assets\guest\Scripts\GuestScript.cs" />
     <Compile Include="Assets\paintdust.cs" />
     <Compile Include="Assets\paintrestore.cs" />
     <Compile Include="Assets\Scenes\Scripts\TexturePainter.cs" />
