@@ -19,6 +19,10 @@ public class UI_Manager : MonoBehaviour {
 
     public int artifactScore;
 
+	public static int artifactint = 0;
+	public static int exh = 1;
+	public static bool confirmbool = false;
+
     // Use this for initialization
     void Start () {
         artifactScore = 1;
@@ -61,6 +65,27 @@ public class UI_Manager : MonoBehaviour {
     {
         Debug.Log(i);
     }
+	//Artifact Place
+	public void Artifact1 () {
+		artifactint = 1;
+	}
+
+	public void Artifact2 () {
+		artifactint = 2;
+	}
+
+	public void Artifact3 () {
+		artifactint = 3;
+	}
+
+	public void Exhibithall1 () {
+		exh = 1;
+	}
+
+	public void PlaceConfirm () {
+		confirmbool = true;
+		GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
+	}
 
 
     // Update is called once per frame
