@@ -84,7 +84,7 @@ public class UI_Manager : MonoBehaviour {
 
 	public void PlaceConfirm () {
 		confirmbool = true;
-		GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
+		//GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
 	}
 
 
