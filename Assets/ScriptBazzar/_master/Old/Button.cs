@@ -96,7 +96,7 @@ public class Button : MonoBehaviour {
 
 	public void Back () {
 		ArtifactsScreen.gameObject.SetActive (false);
-		Exhibit1a.gameObject.SetActive (false);
+		//Exhibit1a.gameObject.SetActive (false);
 		RestoreScreen.gameObject.SetActive (false);
 		MainScreen.gameObject.SetActive (true);
 		PaintRestore.gameObject.SetActive (false);

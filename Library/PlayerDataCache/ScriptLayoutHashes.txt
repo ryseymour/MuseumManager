@@ -19,9 +19,12 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 9ca6347af5ceb6b0d1c105af31b6722e UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleARCore.Anchor
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CameraRotate
 37f72ce84749c8c3f7dc26905e7d1eb5 Assembly-CSharp.dll:.ModeSwitcher
 bf47aaf1c140148eb8ae47d290448c33 Assembly-CSharp.dll:.guestStand1
+200f454a2ef7718878c2ff41a098134e Assembly-CSharp.dll:.rotatescript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ArtifactPlace
+93828800c38507e6d81d47c2a530ba76 Assembly-CSharp.dll:.RotateCamera
 655884266be5580639b03fa8b5a830a5 Assembly-CSharp.dll:GoogleARCore.SessionConfig
 516e5cc4558edc3eaf07fa540ce485bf Assembly-CSharp.dll:.ColorPickerTester
 80ac34a394a7b46237927cca3f6ee584 Assembly-CSharp.dll:.paintrestore
@@ -109,6 +112,7 @@ ff05dcdf90651c3d98a9cad3df5e471e UnityEngine.Timeline.dll:UnityEngine.Timeline.C
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.GroupTrack
 6af7378a45ad6da4992a71ef50ddc2eb UnityEngine.Timeline.dll:UnityEngine.Timeline.PlayableTrack
 9ca6347af5ceb6b0d1c105af31b6722e UnityEngine.Timeline.dll:UnityEngine.Timeline.TimelineAsset
+1d543444dd2d9d976c283ef15bda6148 Assembly-CSharp.dll:.ModelStarter
 c1465577256149eb2fdaaf3754ab7da9 Assembly-CSharp.dll:.TiltWindow
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -127,6 +131,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 47cf20cc289832e9d0a08b6a7ca8c787 Assembly-CSharp.dll:.ARCameraTracker
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 1afd7b05e680b37f6c62cbce7209ca3f Assembly-CSharp.dll:GoogleARCore.SessionComponent
+cccb55aaa9ac19facc47494208825187 Assembly-CSharp.dll:.ScaleModifierScript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GoogleARCore.EnvironmentalLight
 864f1fac2f0f34255cfd8a78624d4467 Assembly-CSharp.dll:.Master_Art
 322cb40e1e282f28af980cbef7922a90 UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsEventTracker
@@ -211,7 +216,7 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 3d1b89310e77c34bc0c8d7132231345c Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 05524b8f659e7bfe5756d1335fec24ba Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
 15bea26698002c6c4a3087131232ce5c Vuforia.UnityExtensions.dll:Vuforia.WordBehaviour
-1c6c493085c463798a1bb16f7e370dc2 Assembly-CSharp.dll:.UI_Manager
+59e911ca6521f43cef56ba189080b7c1 Assembly-CSharp.dll:.UI_Manager
 7a1ee6c718479f4d3cf744edffe2ae7b Assembly-CSharp.dll:UnityEngine.XR.iOS.UnityRemoteVideo
 63ee4d254596e7e33706786578d0fdfc Assembly-CSharp.dll:.AR3DOFCameraManager
 dd6501652c91cb163a39e051d37a965f Assembly-CSharp.dll:.Ballz
@@ -356,3 +361,4 @@ d2a2bd333db22f480a8589e167314ecc Vuforia.UnityExtensions.dll:Vuforia.UserDefined
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.UnityARCameraNearFar
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.waypoints
 7bd6c1398264b4946d4122b6386a04f0 Assembly-CSharp.dll:.Art
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GyroCamera

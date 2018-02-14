@@ -35,9 +35,9 @@ public class exhibitplace : MonoBehaviour {
 	//}
 
 	void OnMouseDown (){
-		if (ArtifactPlace.confirmbool == true) {
-			if (ArtifactPlace.exh == 1){
-				if(ArtifactPlace.artifactint ==1){
+		if (UI_Manager.confirmbool == true) {
+			if (UI_Manager.exh == 1){
+				if(UI_Manager.artifactint ==1){
 					Instantiate (artifact1Prefab, spawnPoint.position, spawnPoint.rotation);
 					rend.enabled = false;
 					artifactNumber = artifactNumber + 1;
@@ -52,7 +52,7 @@ public class exhibitplace : MonoBehaviour {
 
 				}
 
-				if (ArtifactPlace.artifactint == 2) {
+				if (UI_Manager.artifactint == 2) {
 					Instantiate (artifact2Prefab, spawnPoint.position, spawnPoint.rotation);
 					rend.enabled = false;
 					artifactNumber = artifactNumber + 1;

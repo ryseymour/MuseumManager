@@ -36,6 +36,6 @@ public class ArtifactPlace : MonoBehaviour {
 
 	public void PlaceConfirm () {
 		confirmbool = true;
-        GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
+        //GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
 	}
 }

@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour {
 
+	[Range(0.1f, 1f)]
+	public float scaleSpeed = 100f;
+
     public Canvas ArtifactsScreen;
     public Canvas MainScreen;
     public Canvas RestoreScreen;
@@ -23,9 +26,45 @@ public class UI_Manager : MonoBehaviour {
 	public static int exh = 1;
 	public static bool confirmbool = false;
 
+	public static int artifactRestoreint = 0;
+	public static bool confirmcleanbool = false;
+
+	public Vector3 targetAngleIEO = new Vector3(0f, 180f, 0f);
+	public Vector3 targetAngleO = new Vector3 (0f, 0f, 0f);
+	public Vector3 targetAngleNO = new Vector3 (0f, 90f, 0f);
+	public Vector3 targetAnglenNO = new Vector3 (0f, -90f, 0f);
+	private Vector3 currentAngle;
+
+	public GameObject objectRotate;
+	public GameObject cameraObject;
+	public GameObject CoreTech;
+
+	public bool Movementbool;
+	public Transform Cameraup;
+	public Transform EObj;
+	public bool EObjbool;
+	public Transform OneAObj;
+	public bool OneAObjbool;
+	public Transform OneBObj;
+	public bool OneBObjbool;
+	public Transform OneCObj;
+	public bool OneCObjbool;
+
+	public float rotateSpeed = 3f;
+	bool rotateStatus = false;
+
+	bool rotateStatusLeft = false;
+
+	bool up = false;
+
+
+
     // Use this for initialization
     void Start () {
         artifactScore = 1;
+		artifactRestoreint = 0;
+		OneBObjbool = false;
+		Movementbool = false;
 
 	}
 	
@@ -87,9 +126,146 @@ public class UI_Manager : MonoBehaviour {
 		//GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
 	}
 
+	//Restore Screen
+	public void ArtifactRestore1 () {
+		artifactRestoreint = 1;
+	}
+
+	public void ArtifactRestore2 () {
+		artifactRestoreint = 2;
+	}
+
+	public void ArtifactRestore3 () {
+		artifactRestoreint = 3;
+	}
+
+
+	public void PlaceRestoreConfirm () {
+		confirmcleanbool = true;
+		//GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
+	}
+
+	public void RotateYes ()
+	{
+		if (rotateStatus == false) {
+			rotateStatus = true;
+		} else {
+			rotateStatus = false;
+		}
+
+	}
+
+	public void RotateYes2 ()
+	{
+		if (rotateStatusLeft == false) {
+			rotateStatusLeft = true;
+		} else {
+			rotateStatusLeft = false;
+		}
+
+	}
+
+	public void Enlarge ()
+	{
+
+		//objectRotate.transform.localScale = new Vector3 (transform.localScale.x + 0.3f * scaleSpeed,
+			//transform.localScale.y + 0.3f * scaleSpeed, transform.localScale.z + 0.3f * scaleSpeed);
+	}
+
+	public void Decrease ()
+	{
+		up = true;
+		//objectRotate.transform.localScale = new Vector3 (transform.localScale.x - 0.3f * scaleSpeed,
+			//transform.localScale.y - 0.3f * scaleSpeed, transform.localScale.z - 0.3f * scaleSpeed);
+	}
+
+	public void E ()
+	{
+		Movementbool = true;
+		EObjbool = true;
+		StartCoroutine (Movement ());
+		//cameraObject.transform.position = Vector3.Lerp(cameraObject.transform.position, EObj.position, scaleSpeed * Time.deltaTime);
+	}
+
+	public void OneA ()
+	{
+		//cameraObject.transform.position = Vector3.Lerp(cameraObject.transform.position, OneAObj.position, scaleSpeed * Time.deltaTime);
+		Movementbool = true;
+		OneAObjbool = true;
+		StartCoroutine (Movement());
+	}
+
+	public void OneB ()
+	{
+		cameraObject.GetComponent<RotateCamera> ().enabled = false;
+		//OneBObjbool = false;
+		Movementbool = true;
+		OneBObjbool = true;
+		StartCoroutine (Movement());
+
+	}
+
+	public void OneC ()
+	{
+		Movementbool = true;
+		OneCObjbool = true;
+		StartCoroutine (Movement());
+		//cameraObject.transform.position = Vector3.Lerp(cameraObject.transform.position, OneCObj.position, scaleSpeed * Time.deltaTime);
+	}
+
+	IEnumerator Movement ()
+	{
+		yield return new WaitForSeconds (5f);
+		OneBObjbool = false;
+		OneAObjbool = false;
+		OneCObjbool = false;
+		EObjbool = false;
+		Movementbool = false;
+		cameraObject.GetComponent<RotateCamera> ().enabled = true;
+
+	}
 
     // Update is called once per frame
     void Update () {
-		
+		if (rotateStatus == true) {
+			objectRotate.transform.Rotate (Vector3.back, rotateSpeed * Time.deltaTime);
+		}
+
+		if (rotateStatusLeft == true) {
+			objectRotate.transform.Rotate (Vector3.forward, rotateSpeed * Time.deltaTime);
+		}
+
+		if (up == true){
+
+			//cameraObject.transform.Position(Vector3.up, rotateSpeed * Time.deltaTime);
+
+			cameraObject.transform.position = Vector3.Lerp(cameraObject.transform.position, Cameraup.position, scaleSpeed * Time.deltaTime);
+		}
+
+		if (Movementbool == true) {
+			if (EObjbool == true) {
+				cameraObject.transform.position = Vector3.Lerp (cameraObject.transform.position, EObj.position, scaleSpeed * Time.deltaTime);
+				cameraObject.transform.localRotation = Quaternion.Lerp (cameraObject.transform.rotation, EObj.rotation, scaleSpeed * Time.deltaTime);
+			}
+			if (OneBObjbool == true) {
+				cameraObject.transform.position = Vector3.Lerp (cameraObject.transform.position, OneBObj.position, scaleSpeed * Time.deltaTime);
+				cameraObject.transform.localRotation = Quaternion.Lerp (cameraObject.transform.rotation, OneBObj.rotation, scaleSpeed * Time.deltaTime);
+				CoreTech.transform.position = Vector3.Lerp (cameraObject.transform.position, OneBObj.position, scaleSpeed * Time.deltaTime);
+				CoreTech.transform.localRotation = Quaternion.Lerp (cameraObject.transform.rotation, OneBObj.rotation, scaleSpeed * Time.deltaTime);
+				//cameraObject.GetComponent<RotateCamera> ().enabled = false;
+			}
+			if (OneAObjbool == true) {
+				cameraObject.transform.position = Vector3.Lerp (cameraObject.transform.position, OneAObj.position, scaleSpeed * Time.deltaTime);
+				cameraObject.transform.localRotation = Quaternion.Lerp (cameraObject.transform.rotation, OneAObj.rotation, scaleSpeed * Time.deltaTime);
+			}
+			if (OneCObjbool == true) {
+				cameraObject.transform.position = Vector3.Lerp (cameraObject.transform.position, OneCObj.position, scaleSpeed * Time.deltaTime);
+				cameraObject.transform.localRotation = Quaternion.Lerp (cameraObject.transform.rotation, OneCObj.rotation, scaleSpeed * Time.deltaTime);
+			}
+
+		} else {
+		}
+
+
 	}
 }

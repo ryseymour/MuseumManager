@@ -44,3 +44,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/workshop/guest/test.unity
     guid: 12421be1676112240a43fd0dbbebf6df
+  - enabled: 0
+    path: Assets/LeanTouch/Examples/Select3DTransform.unity
+    guid: 982cce8599efa9241a47d9c360164f09

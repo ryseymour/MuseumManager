@@ -73,9 +73,11 @@
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\TangoClientApi.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Async\WaitForTaskCompletionYieldInstruction.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\AsyncTask.cs" />
+     <Compile Include="Assets\GoogleARCore\SDK\Scripts\CameraRotate.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\EnvironmentalLight.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Frame.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\FrameTrackingState.cs" />
+     <Compile Include="Assets\GoogleARCore\SDK\Scripts\GyroCamera.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\InvalidSessionAccessException.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\LightEstimate.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Managers\AnchorManager.cs" />
@@ -89,6 +91,7 @@
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Math\DVector3.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Math\DVector4.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\PointCloud.cs" />
+     <Compile Include="Assets\GoogleARCore\SDK\Scripts\RotateCamera.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Session.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\SessionComponent.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\SessionConfig.cs" />
@@ -102,6 +105,7 @@
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\MarshalingHelper.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\ProvidedSingleton.cs" />
      <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\SingletonComponentProvider.cs" />
+     <Compile Include="Assets\ModelStarter.cs" />
      <Compile Include="Assets\Scenes\Scripts\TexturePainter.cs" />
      <Compile Include="Assets\ScriptBazzar\_master\ArtifactPlace.cs" />
      <Compile Include="Assets\ScriptBazzar\_master\exhibitplace.cs" />
@@ -123,12 +127,15 @@
      <Compile Include="Assets\ScriptBazzar\_master\TransC1.cs" />
      <Compile Include="Assets\ScriptBazzar\_master\UI_Manager.cs" />
      <Compile Include="Assets\ScriptBazzar\Art.cs" />
+     <Compile Include="Assets\ScriptBazzar\Camera2.cs" />
      <Compile Include="Assets\ScriptBazzar\GM_guestScript.cs" />
      <Compile Include="Assets\ScriptBazzar\GuestScript.cs" />
      <Compile Include="Assets\ScriptBazzar\Paint\destroyart.cs" />
      <Compile Include="Assets\ScriptBazzar\Paint\paintdust.cs" />
      <Compile Include="Assets\ScriptBazzar\Paint\paintrestore.cs" />
      <Compile Include="Assets\ScriptBazzar\RearchScript.cs" />
+     <Compile Include="Assets\ScriptBazzar\rotatescript.cs" />
+     <Compile Include="Assets\ScriptBazzar\ScaleModifierScript.cs" />
      <Compile Include="Assets\UnityARKitPlugin\ARKitRemote\ARKitFaceTrackingRemoteConnection.cs" />
      <Compile Include="Assets\UnityARKitPlugin\ARKitRemote\ARKitRemoteConnection.cs" />
      <Compile Include="Assets\UnityARKitPlugin\ARKitRemote\ConnectionMessageIds.cs" />
