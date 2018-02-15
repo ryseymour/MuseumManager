@@ -1659,6 +1659,59 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 567149827}
+--- !u!1 &617674792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 617674794}
+  - component: {fileID: 617674793}
+  m_Layer: 0
+  m_Name: LeanTouch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &617674793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617674792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fc98219a83dff145947365dc914d06e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TapThreshold: 0.5
+  SwipeThreshold: 50
+  ReferenceDpi: 200
+  GuiLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  RecordFingers: 1
+  RecordThreshold: 5
+  RecordLimit: 10
+  SimulateMultiFingers: 1
+  PinchTwistKey: 306
+  MultiDragKey: 308
+  FingerTexture: {fileID: 2800000, guid: 25c48be3a87ea0f489a6d41c9c9a2194, type: 3}
+--- !u!4 &617674794
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617674792}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &625863804
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3268,9 @@ GameObject:
   - component: {fileID: 1286427982}
   - component: {fileID: 1286427986}
   - component: {fileID: 1286427987}
+  - component: {fileID: 1286427988}
+  - component: {fileID: 1286427990}
+  - component: {fileID: 1286427989}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3278,7 +3334,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1286427981}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3291,7 +3347,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1286427981}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 134660e0d10b2864bbbb4d9e7112044e, type: 3}
   m_Name: 
@@ -3310,6 +3366,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae72bd6bc4d05e844828f54eec0eb9d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1286427988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1286427981}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334064bb4f79ba446b51dc77ad918f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AccelerometerUpdateInterval: 0.01
+  LowPassKernelWidthInSeconds: 0.001
+  lowPassValue: {x: 0, y: 0, z: 0}
+--- !u!114 &1286427989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1286427981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977f5d3fd9348314f98f54f20f11ec55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreGuiFingers: 1
+  RequiredFingerCount: 0
+  RequiredSelectable: {fileID: 0}
+  Space: 0
+  WheelSensitivity: 0
+  Sensitivity: 10
+  Axis: {x: 0, y: 0, z: 1}
+  Dampening: 3
+--- !u!114 &1286427990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1286427981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb3664f747e0d84d9a03fc4bd328c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IgnoreGuiFingers: 1
+  RequiredFingerCount: 0
+  RequiredSelectable: {fileID: 0}
+  Camera: {fileID: 1286427984}
+  Pitch: 0
+  PitchSensitivity: 0.25
+  PitchClamp: 1
+  PitchMin: -90
+  PitchMax: 90
+  Yaw: 0
+  YawSensitivity: 0.25
+  YawClamp: 0
+  YawMin: -45
+  YawMax: 45
+  Dampening: 3
 --- !u!1 &1334953533
 GameObject:
   m_ObjectHideFlags: 0

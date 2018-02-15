@@ -66,6 +66,8 @@ public class UI_Manager : MonoBehaviour {
 		OneBObjbool = false;
 		Movementbool = false;
 
+
+
 	}
 	
     public void FP_View()
@@ -250,8 +252,8 @@ public class UI_Manager : MonoBehaviour {
 			if (OneBObjbool == true) {
 				cameraObject.transform.position = Vector3.Lerp (cameraObject.transform.position, OneBObj.position, scaleSpeed * Time.deltaTime);
 				cameraObject.transform.localRotation = Quaternion.Lerp (cameraObject.transform.rotation, OneBObj.rotation, scaleSpeed * Time.deltaTime);
-				CoreTech.transform.position = Vector3.Lerp (cameraObject.transform.position, OneBObj.position, scaleSpeed * Time.deltaTime);
-				CoreTech.transform.localRotation = Quaternion.Lerp (cameraObject.transform.rotation, OneBObj.rotation, scaleSpeed * Time.deltaTime);
+				//CoreTech.transform.position = Vector3.Lerp (cameraObject.transform.position, OneBObj.position, scaleSpeed * Time.deltaTime);
+				//CoreTech.transform.localRotation = Quaternion.Lerp (cameraObject.transform.rotation, OneBObj.rotation, scaleSpeed * Time.deltaTime);
 				//cameraObject.GetComponent<RotateCamera> ().enabled = false;
 			}
 			if (OneAObjbool == true) {

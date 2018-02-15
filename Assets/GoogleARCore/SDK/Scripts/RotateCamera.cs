@@ -40,7 +40,7 @@ public class RotateCamera : MonoBehaviour
         else
         {
             //Rotate Camera with Keyboard Arrow and Mouse
-          //  moveWithArrowAndMouse();
+            moveWithArrowAndMouse();
         }
     }
 
@@ -93,14 +93,14 @@ public class RotateCamera : MonoBehaviour
     /////////////**** Accelerometer End****////////////////////////////////////////////////////////
 
     //Move with Keyboard Arrow
-   // void moveWithArrowAndMouse()
-   // {
+   void moveWithArrowAndMouse()
+    {
         //Keyboard Arrow
-       // moveCamera(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), arrowMouseSpeed);
+        moveCamera(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), arrowMouseSpeed);
 
         //Keyboard Mouse
-       // moveCamera(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), arrowMouseSpeed);
-   // }
+        moveCamera(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), arrowMouseSpeed);
+    }
 
     //Move Parameters
     //float mouseX;
@@ -110,8 +110,8 @@ public class RotateCamera : MonoBehaviour
    // private float rotX = 0.0f; // rotation around the right/x axis
 	//private float rotZ;
 
-  //  void moveCamera(float horizontal, float verticle, float moveSpeed)
-   // {
+   void moveCamera(float horizontal, float verticle, float moveSpeed)
+    {
       //  mouseX = horizontal;
       //  mouseY = -verticle;
 
@@ -120,5 +120,5 @@ public class RotateCamera : MonoBehaviour
 
       //  localRotation = Quaternion.Euler(rotX, rotY, rotZ);
       //  transform.rotation = localRotation;
-    //}
+    }
 }
