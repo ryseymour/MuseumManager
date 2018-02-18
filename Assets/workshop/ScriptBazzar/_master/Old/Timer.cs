@@ -8,8 +8,8 @@ public class Timer: MonoBehaviour
 
 {
 
-	public Button Plot1Tomato;
-	public Button Plot1Lettuce;
+	//public Button Plot1Tomato;
+	//public Button Plot1Lettuce;
 
 
 	public static int timeLeft = 10;
@@ -21,7 +21,7 @@ public class Timer: MonoBehaviour
 	public bool finishPlot = false;
 
 	public int CommunityHealth = 50;
-	public Text HealthText;
+	//public Text HealthText;
 	public bool timerText = false;
 
 	void Start ()
@@ -106,7 +106,7 @@ public class Timer: MonoBehaviour
 
 
 
-		HealthText.text = "Community Health " + CommunityHealth.ToString ();
+		//HealthText.text = "Community Health " + CommunityHealth.ToString ();
 			
 
 

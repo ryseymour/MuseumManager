@@ -10,7 +10,7 @@ public class Section
 
     public Transform entrance;
 
-    public List<Art> arts = new List<Art>();
+	public static List<Art> arts = new List<Art>();
 }
 
 public class GM_guestScript : MonoBehaviour {
@@ -31,11 +31,11 @@ public class GM_guestScript : MonoBehaviour {
         for(int i = 0; i < Wings.Count; i++)
         {
             Debug.Log("i: " + i);
-            for(int j =0; j < Wings[i].arts.Count; j++)
-            {
-                Debug.Log("j: " + j);
-                Instantiate(Wings[i].arts[j].artObject, Wings[i].installations[j].transform.position, Quaternion.identity);
-            }
+           // for(int j =0; j < Wings[i].arts.Count; j++)
+           // {
+                //Debug.Log("j: " + j);
+                //Instantiate(Wings[i].arts[j].artObject, Wings[i].installations[j].transform.position, Quaternion.identity);
+            //}
         }
 		
 	}

@@ -9,11 +9,18 @@ public class Art : ScriptableObject {
 
     public string description;
 
+	public string artist;
+
+	public string Theme1;
+
+	public string Theme2;
+
     public float cleanScore;
     public float totalScore;
 
     public BoxCollider viewZone;
     public GameObject artObject;
+	public Sprite view;
 
     public bool researched;
     public bool restored;
