@@ -13,9 +13,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Engi1
   description: 
+  artist: 
+  Theme1: 
+  Theme2: 
   cleanScore: 0
   totalScore: 0
   viewZone: {fileID: 0}
   artObject: {fileID: 0}
-  researched: 1
+  view: {fileID: 0}
+  researched: 0
   restored: 0

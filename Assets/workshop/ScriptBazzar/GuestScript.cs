@@ -38,7 +38,8 @@ public class GuestScript : MonoBehaviour {
 
         _Travel();
         _View();
-        _Search();
+        _Search(); //need to be able to remember what they've already seen
+        
 	}
 
     void _Enter()
@@ -65,13 +66,36 @@ public class GuestScript : MonoBehaviour {
 
     void _View()
     {
+
+
         if (view)
         {
+
+            if (wingTarget.installations[0] == null) //if nothing is in the wing
+            {
+                //view_init = true;
+                
+                if (tick < timer) //timer based on patience
+                {
+                    tick += Time.deltaTime;
+                    //make angry faces
+                }
+                else
+                {
+                    Debug.Log("nothing timer timed out       time");
+                    //once they get fed up lower their overall score
+                    tick = 0;
+                    search = true;
+                    view = false;                                   
+                }
+                return;
+            }
             if (!view_init)
             {
                 //Debug.Log(wingTarget.arts[0].viewZone.bounds);
                 artQ.Clear();
                 pos_artQ = 0;
+                
                 for (int i = 0; i < wingTarget.installations.Count; i++)
                 {
                     artQ.Add(wingTarget.installations[i]);
@@ -118,6 +142,7 @@ public class GuestScript : MonoBehaviour {
                 wingTarget = GM_guestScript.instance.Wings[Mathf.FloorToInt(rando)];
                 travel = true;
                 search = false;
+                view_init = false;
             }
         }
     }

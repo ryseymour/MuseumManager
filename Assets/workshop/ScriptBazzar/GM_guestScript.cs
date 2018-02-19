@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class Section
+public class Section //this is a wing
 {
     public List<GameObject> installations = new List<GameObject>();
 
@@ -21,10 +21,7 @@ public class GM_guestScript : MonoBehaviour {
 
     private void Awake()
     {
-        if (instance == null)
-            instance = this;
-        else if (instance != null)
-            Destroy(gameObject);
+        instance = this;
     }
     // Use this for initialization
     void Start () {
