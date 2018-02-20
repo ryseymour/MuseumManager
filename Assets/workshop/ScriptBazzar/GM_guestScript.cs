@@ -30,9 +30,9 @@ public class GM_guestScript : MonoBehaviour {
             Debug.Log("i: " + i);
            // for(int j =0; j < Wings[i].arts.Count; j++)
            // {
-                //Debug.Log("j: " + j);
-                //Instantiate(Wings[i].arts[j].artObject, Wings[i].installations[j].transform.position, Quaternion.identity);
-            //}
+              //  Debug.Log("j: " + j);
+              //  Instantiate(Wings[i].arts[j].artObject, Wings[i].installations[j].transform.position, Quaternion.identity);
+           // }
         }
 		
 	}

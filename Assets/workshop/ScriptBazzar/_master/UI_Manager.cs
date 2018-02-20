@@ -13,6 +13,7 @@ public class UI_Manager : MonoBehaviour {
     public Canvas RestoreScreen;
     public Canvas FP_screen;
     public Canvas PaintRestore;
+	public Canvas ResearchScreen;
 
 
     public static float donatevalue;
@@ -100,7 +101,15 @@ public class UI_Manager : MonoBehaviour {
         RestoreScreen.gameObject.SetActive(false);
         MainScreen.gameObject.SetActive(true);
         PaintRestore.gameObject.SetActive(false);
+		ResearchScreen.gameObject.SetActive (false);
     }
+	// Research Screen
+
+	public void Research(){
+		ResearchScreen.gameObject.SetActive (true);
+		MainScreen.gameObject.SetActive (false);
+		this.GetComponent<Master_Art> ().BoolCheck ();
+	}
 
     public void ArtifactPlace(int i)
     {
