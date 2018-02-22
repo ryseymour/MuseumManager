@@ -24,7 +24,7 @@ public class Art : ScriptableObject {
 
     public bool researched;
     public bool restored;
-	public bool display;
+	public bool displayed;
 
     private void OnEnable()
     {

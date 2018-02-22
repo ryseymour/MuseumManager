@@ -83,7 +83,8 @@ public class Master_Art : MonoBehaviour {
 						Theme11.text = art1.Theme1;
 						Theme21.text = art1.Theme2;
 						artworkImage1.sprite = art1.view;
-						DisplayCheck ();
+
+						//DisplayCheck ();
 
 
 					}
@@ -94,7 +95,7 @@ public class Master_Art : MonoBehaviour {
 						Theme12.text = art2.Theme1;
 						Theme22.text = art2.Theme2;
 						artworkImage2.sprite = art2.view; 
-						DisplayCheck ();
+						//DisplayCheck ();
 
 					}
 					if (rando == 3) {
@@ -104,12 +105,13 @@ public class Master_Art : MonoBehaviour {
 						Theme13.text = art3.Theme1;
 						Theme23.text = art3.Theme2;
 						artworkImage3.sprite = art3.view;  
-						DisplayCheck ();
+						//DisplayCheck ();
 
 					}
+					Master_Art.instance.MasterArtList [i].displayed = true;
 					rando = lastrando;
 				} else {
-					Populate ();
+					return;
 				}
 
 
@@ -117,25 +119,28 @@ public class Master_Art : MonoBehaviour {
 	}
 	}
 
-	public void DisplayCheck (){
+	//public void DisplayCheck (){
 		//Art art = this.gameObject.GetComponent<Art> ();
 		//art.display = true;
-		return;
-	}
+		//return;
+	//}
 
 
 	public void BoolCheck () {
-		Debug.Log ("test");
+		
 		if (TimerActive == true) {
 			ResearchBranches.SetActive (false);
+			Debug.Log ("TimerActivetrue");
 		} else if (TimerActive == false) {
+			Debug.Log ("TimerActivefalse");
 			if (ResearchComplete == true) {
-				
+				Debug.Log ("ResearchCompletetrue");
 			} else if (ResearchComplete == false) {
 				Research1.gameObject.SetActive (true);
 				Research2.gameObject.SetActive (true);
 				Research3.gameObject.SetActive (true);
 				Populate ();
+				Debug.Log ("ResearchCompletefalse");
 			}
 				
 		}
@@ -146,24 +151,23 @@ public class Master_Art : MonoBehaviour {
 		if (tpress == false) {
 			//
 			//countdownText.text = ("Plant Tomatoes");
-			//crop = 1;
+			crop = 1;
 			//Plot1Lettuce.interactable = false;
 			timer1 = true;
 
 			Research1.gameObject.SetActive (false);
 			Research2.gameObject.SetActive (false);
 			Research3.gameObject.SetActive (false);
+			Debug.Log ("tpressfalse");
+
+
 		}
 
 
 		if (tpress == true) {
 
-
-
-
-
 			CommunityBump ();
-
+			Debug.Log ("tpresstrue");
 		}
 
 
@@ -174,6 +178,7 @@ public class Master_Art : MonoBehaviour {
 		//CommunityHealth = CommunityHealth + 5;
 		timeLeft = 10;
 		countdownText.text = ("Unlock Research");
+		//Unlock2.gameObject.SetActive (false);
 
 
 		//Plot1Lettuce.interactable = true;
@@ -188,41 +193,37 @@ public class Master_Art : MonoBehaviour {
 
 	void Update ()
 	{
+		if (timer1 == true) {
+			timerText = true;
+			TimerStart ();
+		}
+
 		if (timerText = true) {
 			if (timeLeft <= 0) {
 				StopCoroutine ("LoseTime");
 				countdownText.text = "Unlock Research";
 				finishPlot = true;
 				timerText = false;
+				Unlock2.gameObject.SetActive (true);
 				//timeLeft = 10;
 				//ShopandPlant.finishPlot = true;
 			} else if (timeLeft >= 0) {
 
 				countdownText.text = ("Time Left = " + timeLeft);
-
-
-
-
+				//Unlock2.gameObject.SetActive (false);
 			}
 		}
-
 		if (timerText = false) {
 			countdownText.text = ("Unlock Research");
 		}
-
-
-		if (timer1 == true) {
-			timerText = true;
-			TimerStart ();
-
-
-		}
-
 		if (finishPlot == true && crop == 1){
 			//Plot1Tomato.interactable = true;
+			Research1.gameObject.SetActive (true);
+			Research2.gameObject.SetActive (true);
+			Research3.gameObject.SetActive (true);
+
 			tpress = true;
 			Box1T ();
-
 		}
 
 
@@ -232,23 +233,30 @@ public class Master_Art : MonoBehaviour {
 
 
 	}
-
 	public void TimerStart (){
-
-
 		StartCoroutine ("LoseTime");
 		timer1 = false;
 	}
 
+
 	IEnumerator LoseTime()
 	{
-
 		while(true)
 		{
 			yield return new WaitForSeconds (1);
 			timeLeft--;
 		}
 
+	}
+
+
+
+	public void StartCountdown () {
+
+		timeLeft -= Time.deltaTime;
+		if (timeLeft < 0)
+			timeLeft = 0;
+		countdownText.text = ("Time Left = " + timeLeft);
 	}
 }
 
