@@ -12,6 +12,12 @@ public class Master_Art : MonoBehaviour {
 	public Art art1;
 	public Art art2;
 	public Art art3;
+
+	public GameObject Unlock2;
+
+	public GameObject Research1;
+	public GameObject Research2;
+	public GameObject Research3;
    
 	public List<Art> MasterArtList = new List<Art>();
 
@@ -33,6 +39,19 @@ public class Master_Art : MonoBehaviour {
 	public Text Theme13;
 	public Text Theme23;
 
+	public static int timeLeft = 10;
+	public Text countdownText;
+	public static bool timer1 =false;
+	public bool tpress = false;
+	public int crop = 0;
+	public int plot = 1;
+	public bool finishPlot = false;
+
+	public int CommunityHealth = 50;
+	//public Text HealthText;
+	public bool timerText = false;
+
+
 	public int lastrando;
 
 
@@ -53,7 +72,7 @@ public class Master_Art : MonoBehaviour {
 			if (!Master_Art.instance.MasterArtList[i].researched)
 			{
 				//Debug.Log(Master_Art.instance.MasterArtList[i]);
-				int rando = Random.Range(-1, 3);
+				int rando = Random.Range(0, 4);
 				Debug.Log(rando);
 
 				if (rando != lastrando) {
@@ -63,7 +82,10 @@ public class Master_Art : MonoBehaviour {
 						artist1.text = art1.artist;
 						Theme11.text = art1.Theme1;
 						Theme21.text = art1.Theme2;
-						artworkImage1.sprite = art1.view;  
+						artworkImage1.sprite = art1.view;
+						DisplayCheck ();
+
+
 					}
 					if (rando == 2) {
 						art2 = Master_Art.instance.MasterArtList [i];
@@ -71,15 +93,19 @@ public class Master_Art : MonoBehaviour {
 						artist2.text = art2.artist;
 						Theme12.text = art2.Theme1;
 						Theme22.text = art2.Theme2;
-						artworkImage2.sprite = art2.view;  
+						artworkImage2.sprite = art2.view; 
+						DisplayCheck ();
+
 					}
-					if (rando == 0) {
+					if (rando == 3) {
 						art3 = Master_Art.instance.MasterArtList [i];
 						title3.text = art3.name;
 						artist3.text = art3.artist;
 						Theme13.text = art3.Theme1;
 						Theme23.text = art3.Theme2;
 						artworkImage3.sprite = art3.view;  
+						DisplayCheck ();
+
 					}
 					rando = lastrando;
 				} else {
@@ -91,6 +117,12 @@ public class Master_Art : MonoBehaviour {
 	}
 	}
 
+	public void DisplayCheck (){
+		//Art art = this.gameObject.GetComponent<Art> ();
+		//art.display = true;
+		return;
+	}
+
 
 	public void BoolCheck () {
 		Debug.Log ("test");
@@ -100,10 +132,125 @@ public class Master_Art : MonoBehaviour {
 			if (ResearchComplete == true) {
 				
 			} else if (ResearchComplete == false) {
+				Research1.gameObject.SetActive (true);
+				Research2.gameObject.SetActive (true);
+				Research3.gameObject.SetActive (true);
 				Populate ();
 			}
 				
 		}
 	}
 
+	public void Box1T ()
+	{
+		if (tpress == false) {
+			//
+			//countdownText.text = ("Plant Tomatoes");
+			//crop = 1;
+			//Plot1Lettuce.interactable = false;
+			timer1 = true;
+
+			Research1.gameObject.SetActive (false);
+			Research2.gameObject.SetActive (false);
+			Research3.gameObject.SetActive (false);
+		}
+
+
+		if (tpress == true) {
+
+
+
+
+
+			CommunityBump ();
+
+		}
+
+
+
+	}
+
+	public void CommunityBump (){
+		//CommunityHealth = CommunityHealth + 5;
+		timeLeft = 10;
+		countdownText.text = ("Unlock Research");
+
+
+		//Plot1Lettuce.interactable = true;
+		tpress = false;
+		Box1T ();
+
+	}
+
+
+
+
+
+	void Update ()
+	{
+		if (timerText = true) {
+			if (timeLeft <= 0) {
+				StopCoroutine ("LoseTime");
+				countdownText.text = "Unlock Research";
+				finishPlot = true;
+				timerText = false;
+				//timeLeft = 10;
+				//ShopandPlant.finishPlot = true;
+			} else if (timeLeft >= 0) {
+
+				countdownText.text = ("Time Left = " + timeLeft);
+
+
+
+
+			}
+		}
+
+		if (timerText = false) {
+			countdownText.text = ("Unlock Research");
+		}
+
+
+		if (timer1 == true) {
+			timerText = true;
+			TimerStart ();
+
+
+		}
+
+		if (finishPlot == true && crop == 1){
+			//Plot1Tomato.interactable = true;
+			tpress = true;
+			Box1T ();
+
+		}
+
+
+
+		//HealthText.text = "Community Health " + CommunityHealth.ToString ();
+
+
+
+	}
+
+	public void TimerStart (){
+
+
+		StartCoroutine ("LoseTime");
+		timer1 = false;
+	}
+
+	IEnumerator LoseTime()
+	{
+
+		while(true)
+		{
+			yield return new WaitForSeconds (1);
+			timeLeft--;
+		}
+
+	}
 }
+
+
+

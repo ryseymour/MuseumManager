@@ -57,7 +57,7 @@ public class Timer: MonoBehaviour
 	public void CommunityBump (){
 		//CommunityHealth = CommunityHealth + 5;
 		timeLeft = 10;
-		countdownText.text = ("Plant Tomatoes");
+		countdownText.text = ("Unlock Research");
 		//Plot1Lettuce.interactable = true;
 		tpress = false;
 		Box1T ();
