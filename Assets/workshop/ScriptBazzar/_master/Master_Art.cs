@@ -136,11 +136,14 @@ public class Master_Art : MonoBehaviour {
 			if (ResearchComplete == true) {
 				Debug.Log ("ResearchCompletetrue");
 			} else if (ResearchComplete == false) {
+				//FIRST
 				Research1.gameObject.SetActive (true);
 				Research2.gameObject.SetActive (true);
 				Research3.gameObject.SetActive (true);
+				Unlock2.gameObject.SetActive (false);
 				Populate ();
 				Debug.Log ("ResearchCompletefalse");
+			
 			}
 				
 		}
@@ -149,16 +152,17 @@ public class Master_Art : MonoBehaviour {
 	public void Box1T ()
 	{
 		if (tpress == false) {
-			//
+			//SECOND
 			//countdownText.text = ("Plant Tomatoes");
 			crop = 1;
 			//Plot1Lettuce.interactable = false;
 			timer1 = true;
-
+			//
 			Research1.gameObject.SetActive (false);
 			Research2.gameObject.SetActive (false);
 			Research3.gameObject.SetActive (false);
 			Debug.Log ("tpressfalse");
+			TimerInitiate ();
 
 
 		}
@@ -177,9 +181,9 @@ public class Master_Art : MonoBehaviour {
 	public void CommunityBump (){
 		//CommunityHealth = CommunityHealth + 5;
 		timeLeft = 10;
-		countdownText.text = ("Unlock Research");
+		countdownText.text = ("TESTY2");
 		//Unlock2.gameObject.SetActive (false);
-
+		//crop = 0;
 
 		//Plot1Lettuce.interactable = true;
 		tpress = false;
@@ -187,34 +191,29 @@ public class Master_Art : MonoBehaviour {
 
 	}
 
-
-
-
-
-	void Update ()
-	{
+	public void TimerInitiate (){
 		if (timer1 == true) {
+			//THIRD
 			timerText = true;
 			TimerStart ();
+			TimerTextInitiate ();
 		}
 
-		if (timerText = true) {
-			if (timeLeft <= 0) {
-				StopCoroutine ("LoseTime");
-				countdownText.text = "Unlock Research";
-				finishPlot = true;
-				timerText = false;
-				Unlock2.gameObject.SetActive (true);
-				//timeLeft = 10;
-				//ShopandPlant.finishPlot = true;
-			} else if (timeLeft >= 0) {
+		if (timer1 == false) {
+			Debug.Log ("Timer Test 2");
+			timerText = false;
+			countdownText.text = ("TESTY");
+			TimerTextInitiate ();
 
-				countdownText.text = ("Time Left = " + timeLeft);
-				//Unlock2.gameObject.SetActive (false);
-			}
 		}
+
+	}
+
+	public void TimerTextInitiate ()
+	{
+		
 		if (timerText = false) {
-			countdownText.text = ("Unlock Research");
+
 		}
 		if (finishPlot == true && crop == 1){
 			//Plot1Tomato.interactable = true;
@@ -226,6 +225,35 @@ public class Master_Art : MonoBehaviour {
 			Box1T ();
 		}
 
+	}
+
+
+
+
+
+	void Update ()
+	{
+		
+		if (timerText = true) {
+
+			if (timeLeft <= 0) {
+				StopCoroutine ("LoseTime");
+				countdownText.text = "Unlock Research";
+				finishPlot = true;
+				timerText = false;
+				Unlock2.gameObject.SetActive (true);
+				//timeLeft = 10;
+				Debug.Log ("Timer");
+				//ShopandPlant.finishPlot = true;
+				//tpress = false;
+			} else if (timeLeft >= 0) {
+				//FOURTH
+				countdownText.text = ("Time Left = " + timeLeft);
+				//Unlock2.gameObject.SetActive (false);
+			}
+		}
+
+
 
 
 		//HealthText.text = "Community Health " + CommunityHealth.ToString ();
@@ -236,6 +264,9 @@ public class Master_Art : MonoBehaviour {
 	public void TimerStart (){
 		StartCoroutine ("LoseTime");
 		timer1 = false;
+		Debug.Log ("Timer1false");
+		TimerInitiate ();
+
 	}
 
 
@@ -251,13 +282,13 @@ public class Master_Art : MonoBehaviour {
 
 
 
-	public void StartCountdown () {
+	//public void StartCountdown () {
 
-		timeLeft -= Time.deltaTime;
-		if (timeLeft < 0)
-			timeLeft = 0;
-		countdownText.text = ("Time Left = " + timeLeft);
-	}
+		//timeLeft -= Time.deltaTime;
+		//if (timeLeft < 0)
+			//timeLeft = 0;
+		//countdownText.text = ("Time Left = " + timeLeft);
+	//}
 }
 
 
