@@ -52,9 +52,10 @@ public class Master_Art : MonoBehaviour {
 	//public Text HealthText;
 	public bool timerText = false;
 
-    bool repop; //only run once
+    bool repop; //only run once repopulate after thetimer
+    GameObject temp; //helps read what button is being pressed
 
-	public int lastrando;
+    public int lastrando;
 
 
 	private void Awake()
@@ -74,7 +75,7 @@ public class Master_Art : MonoBehaviour {
 			if (!Master_Art.instance.MasterArtList[i].researched)
 			{
 				//Debug.Log(Master_Art.instance.MasterArtList[i]);
-				int rando = Random.Range(0, Master_Art.instance.MasterArtList.count);
+				int rando = Random.Range(0, Master_Art.instance.MasterArtList.Count);
 				Debug.Log(rando);
 
 				if (rando != lastrando) {
@@ -130,20 +131,20 @@ public class Master_Art : MonoBehaviour {
 
     public void ResearchTest(float f)
     {
-        GameObject temp;
+        
         if(f == 1)
         {
-            temp = Research1.gameObject;           
-            
+            temp = Research1.gameObject;
+
         }
         if(f == 2)
         {
             temp = Research2.gameObject;
-            
         }
         if(f == 3)
         {
-            temp = Research3.gameObject;           
+            temp = Research3.gameObject;
+
         }
 
         StartCoroutine(LoseTime());
@@ -193,6 +194,8 @@ public class Master_Art : MonoBehaviour {
                 {
                     Populate();
                     //enable the researched bool 
+                    int tempInt = MasterArtList.IndexOf(temp.GetComponent<ResearchDisplay>().art);
+                    MasterArtList[tempInt].researched = true;
                     repop = true;                    
                 }
                     
