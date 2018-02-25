@@ -19,6 +19,8 @@ public class GM_guestScript : MonoBehaviour {
 
     public List<Section> Wings = new List<Section>();
 
+
+    public bool visible;
     private void Awake()
     {
         instance = this;

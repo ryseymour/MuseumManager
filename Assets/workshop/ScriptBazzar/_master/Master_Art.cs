@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Master_Art : MonoBehaviour {
 
@@ -51,6 +52,7 @@ public class Master_Art : MonoBehaviour {
 	//public Text HealthText;
 	public bool timerText = false;
 
+    bool repop; //only run once
 
 	public int lastrando;
 
@@ -72,7 +74,7 @@ public class Master_Art : MonoBehaviour {
 			if (!Master_Art.instance.MasterArtList[i].researched)
 			{
 				//Debug.Log(Master_Art.instance.MasterArtList[i]);
-				int rando = Random.Range(0, 4);
+				int rando = Random.Range(0, Master_Art.instance.MasterArtList.count);
 				Debug.Log(rando);
 
 				if (rando != lastrando) {
@@ -83,10 +85,7 @@ public class Master_Art : MonoBehaviour {
 						Theme11.text = art1.Theme1;
 						Theme21.text = art1.Theme2;
 						artworkImage1.sprite = art1.view;
-
 						//DisplayCheck ();
-
-
 					}
 					if (rando == 2) {
 						art2 = Master_Art.instance.MasterArtList [i];
@@ -108,12 +107,15 @@ public class Master_Art : MonoBehaviour {
 						//DisplayCheck ();
 
 					}
-					Master_Art.instance.MasterArtList [i].displayed = true;
+                    Research1.gameObject.SetActive(true);
+                    Research2.gameObject.SetActive(true);
+                    Research3.gameObject.SetActive(true);
+                    Master_Art.instance.MasterArtList [i].displayed = true;
 					rando = lastrando;
 				} else {
 					return;
 				}
-
+                
 
 	}
 	}
@@ -124,6 +126,33 @@ public class Master_Art : MonoBehaviour {
 		//art.display = true;
 		//return;
 	//}
+
+
+    public void ResearchTest(float f)
+    {
+        GameObject temp;
+        if(f == 1)
+        {
+            temp = Research1.gameObject;           
+            
+        }
+        if(f == 2)
+        {
+            temp = Research2.gameObject;
+            
+        }
+        if(f == 3)
+        {
+            temp = Research3.gameObject;           
+        }
+
+        StartCoroutine(LoseTime());
+        Research1.gameObject.SetActive(false);
+        Research2.gameObject.SetActive(false);
+        Research3.gameObject.SetActive(false);
+    }
+
+
 
 
 	public void BoolCheck () {
@@ -149,103 +178,31 @@ public class Master_Art : MonoBehaviour {
 		}
 	}
 
-	public void Box1T ()
-	{
-		if (tpress == false) {
-			//SECOND
-			//countdownText.text = ("Plant Tomatoes");
-			crop = 1;
-			//Plot1Lettuce.interactable = false;
-			timer1 = true;
-			//
-			Research1.gameObject.SetActive (false);
-			Research2.gameObject.SetActive (false);
-			Research3.gameObject.SetActive (false);
-			Debug.Log ("tpressfalse");
-			TimerInitiate ();
 
 
-		}
-
-
-		if (tpress == true) {
-
-			CommunityBump ();
-			Debug.Log ("tpresstrue");
-		}
-
-
-
-	}
-
-	public void CommunityBump (){
-		//CommunityHealth = CommunityHealth + 5;
-		timeLeft = 10;
-		countdownText.text = ("TESTY2");
-		//Unlock2.gameObject.SetActive (false);
-		//crop = 0;
-
-		//Plot1Lettuce.interactable = true;
-		tpress = false;
-		Box1T ();
-
-	}
-
-	public void TimerInitiate (){
-		if (timer1 == true) {
-			//THIRD
-			timerText = true;
-			TimerStart ();
-			TimerTextInitiate ();
-		}
-
-		if (timer1 == false) {
-			Debug.Log ("Timer Test 2");
-			timerText = false;
-			countdownText.text = ("TESTY");
-			TimerTextInitiate ();
-
-		}
-
-	}
-
-	public void TimerTextInitiate ()
-	{
-		
-		if (timerText = false) {
-
-		}
-		if (finishPlot == true && crop == 1){
-			//Plot1Tomato.interactable = true;
-			Research1.gameObject.SetActive (true);
-			Research2.gameObject.SetActive (true);
-			Research3.gameObject.SetActive (true);
-
-			tpress = true;
-			Box1T ();
-		}
-
-	}
 
 
 
 
 
 	void Update ()
-	{
-		
+    {		
 		if (timerText = true) {
-
 			if (timeLeft <= 0) {
+                if (!repop)
+                {
+                    Populate();
+                    //enable the researched bool 
+                    repop = true;                    
+                }
+                    
 				StopCoroutine ("LoseTime");
 				countdownText.text = "Unlock Research";
 				finishPlot = true;
 				timerText = false;
 				Unlock2.gameObject.SetActive (true);
-				//timeLeft = 10;
-				Debug.Log ("Timer");
-				//ShopandPlant.finishPlot = true;
-				//tpress = false;
+               
+			
 			} else if (timeLeft >= 0) {
 				//FOURTH
 				countdownText.text = ("Time Left = " + timeLeft);
@@ -261,13 +218,7 @@ public class Master_Art : MonoBehaviour {
 
 
 	}
-	public void TimerStart (){
-		StartCoroutine ("LoseTime");
-		timer1 = false;
-		Debug.Log ("Timer1false");
-		TimerInitiate ();
 
-	}
 
 
 	IEnumerator LoseTime()

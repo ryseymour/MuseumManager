@@ -15,14 +15,17 @@ public class GuestScript : MonoBehaviour {
 
     public Section wingTarget;
     public List<Art> artsQ = new List<Art>();
-    
 
+    public bool gVisible; //should model be visible
+    public float invisTravelTimer; //timer to simulate travel
+    float invisTick; //tick for travel simulation
     public float speed, patience, noise, timer, tick;
 
 	// Use this for initialization
 	void Start () {
         _Enter();
         view_init = false;
+        invisTick = 0;
 	}
 	
 	// Update is called once per frame
@@ -34,6 +37,16 @@ public class GuestScript : MonoBehaviour {
             travel = false;
             enter = true;
             _Enter();
+        }
+
+        if (GM_guestScript.instance.visible)
+        {
+            gVisible = true;
+            this.GetComponent<MeshRenderer>().enabled = true;
+        }
+        else{
+            gVisible = false;
+            this.GetComponent<MeshRenderer>().enabled = false;
         }
 
         _Travel();
@@ -60,14 +73,30 @@ public class GuestScript : MonoBehaviour {
     {
         if (travel)
         {
-            transform.position = Vector3.Lerp(this.transform.position, wingTarget.entrance.position, speed * Time.deltaTime);
+            if (gVisible)
+            {
+                transform.position = Vector3.Lerp(this.transform.position, wingTarget.entrance.position, speed * Time.deltaTime);
+            }else
+            {
+                if(invisTick < invisTravelTimer)
+                {
+                    invisTick += Time.deltaTime;
+                }else
+                {
+                    Debug.Log("simulate collision");
+                    view = true;
+                    invisTick = 0;
+                    travel = false;
+                }
+            }
+            
         }
     }
 
+    
+
     void _View()
     {
-
-
         if (view)
         {
 
@@ -106,7 +135,20 @@ public class GuestScript : MonoBehaviour {
             {
                 if (pos_artQ < artQ.Count)
                 {
-                    transform.position = Vector3.Lerp(transform.position, artQ[pos_artQ].transform.position, speed * Time.deltaTime);
+                    if (gVisible)
+                    {
+                        transform.position = Vector3.Lerp(transform.position, artQ[pos_artQ].transform.position, speed * Time.deltaTime);
+                    }else
+                    {
+                        //need a way to calculate the distance and the time it should take to travel to the exhibit, should be that final parameter in the lerp
+                        //currently just fuck it and guest snaps to art position, should add an offset eventually
+                        if(artQ[pos_artQ] != null)
+                        {
+                            transform.position = artQ[pos_artQ].transform.position;
+                        }
+                        
+                    }
+                    
                     if (tick < timer)
                     {
                         
