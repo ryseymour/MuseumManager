@@ -26,6 +26,8 @@ public class Art : ScriptableObject {
     public bool restored;
 	public bool displayed;
 
+	public bool painting;
+
     private void OnEnable()
     {
        // viewZone = artObject.GetComponent<BoxCollider>();

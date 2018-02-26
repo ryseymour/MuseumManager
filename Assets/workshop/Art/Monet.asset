@@ -13,9 +13,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Monet
   description: 
+  artist: 
+  Theme1: 
+  Theme2: 
   cleanScore: 3
   totalScore: 5
   viewZone: {fileID: 65446476101150860, guid: 8b922b637bf7762489d4a4d32f01b0a0, type: 2}
   artObject: {fileID: 1044499893127822, guid: 8b922b637bf7762489d4a4d32f01b0a0, type: 2}
+  view: {fileID: 0}
   researched: 1
   restored: 0
+  displayed: 0

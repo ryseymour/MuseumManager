@@ -19,6 +19,9 @@ public class Master_Art : MonoBehaviour {
 	public GameObject Research1;
 	public GameObject Research2;
 	public GameObject Research3;
+
+	public GameObject RestoreButton;
+	public GameObject CollectionPaintingButton;
    
 	public List<Art> MasterArtList = new List<Art>();
 
@@ -66,6 +69,44 @@ public class Master_Art : MonoBehaviour {
 			Destroy(gameObject);
 	}
 
+
+
+	public void RestorePopulate ()
+	{
+		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		{
+			if (Master_Art.instance.MasterArtList [i].researched && !Master_Art.instance.MasterArtList [i].restored) {
+				GameObject button = Instantiate (RestoreButton) as GameObject;
+				art1 = Master_Art.instance.MasterArtList [i];
+				title1.text = art1.name;
+				artist1.text = art1.artist;
+				Theme11.text = art1.Theme1;
+				Theme21.text = art1.Theme2;
+				artworkImage1.sprite = art1.view;
+
+				button.transform.SetParent (RestoreButton.transform.parent, false);
+			}
+
+	}
+	}
+
+	public void CollectionPaintingPopulate ()
+	{
+		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		{
+			if (Master_Art.instance.MasterArtList [i].researched && Master_Art.instance.MasterArtList [i].restored && Master_Art.instance.MasterArtList [i].painting) {
+				GameObject collectionbutton = Instantiate (CollectionPaintingButton) as GameObject;
+				art1 = Master_Art.instance.MasterArtList [i];
+				title1.text = art1.name;
+				artist1.text = art1.artist;
+				Theme11.text = art1.Theme1;
+				Theme21.text = art1.Theme2;
+				artworkImage1.sprite = art1.view;
+
+				collectionbutton.transform.SetParent (RestoreButton.transform.parent, false);
+			}
+	}
+	}
 
 
 	public void Populate()
