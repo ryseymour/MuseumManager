@@ -59,6 +59,7 @@ public class Master_Art : MonoBehaviour {
     GameObject temp; //helps read what button is being pressed
 
     public List<GameObject> restoreThumbnails = new List<GameObject>();
+	public List<GameObject> collectionThumbnails = new List<GameObject>();
 
     public int lastrando;
 
@@ -77,6 +78,10 @@ public class Master_Art : MonoBehaviour {
         {
             restoreThumbnails[i].gameObject.SetActive(false);
         }
+
+		for (int i = 0; i < collectionThumbnails.Count; i++) {
+			collectionThumbnails[i].gameObject.SetActive(false);
+		}
     }
 
     public void RestorePopulate ()
@@ -87,7 +92,7 @@ public class Master_Art : MonoBehaviour {
 		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
 		{
 			if (Master_Art.instance.MasterArtList [i].researched && !Master_Art.instance.MasterArtList [i].restored) {
-                art1 = Master_Art.instance.MasterArtList[i];
+				art1 = Master_Art.instance.MasterArtList [i];
                 //title1.text = art1.name;
 				//artist1.text = art1.artist;
 				//Theme11.text = art1.Theme1;
@@ -109,7 +114,7 @@ public class Master_Art : MonoBehaviour {
                 //artworkImage1.sprite = art1.view;
                // GameObject button = Instantiate (RestoreButton) as GameObject;
 				
-                
+				counter++;
                 
 
                 
@@ -122,20 +127,31 @@ public class Master_Art : MonoBehaviour {
 
 	public void CollectionPaintingPopulate ()
 	{
-    
+		int counter = 0;
 		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
 		{
 			if (Master_Art.instance.MasterArtList [i].researched && Master_Art.instance.MasterArtList [i].restored && Master_Art.instance.MasterArtList [i].painting) {
-				GameObject collectionbutton = Instantiate (CollectionPaintingButton) as GameObject;
-             
-				art1 = Master_Art.instance.MasterArtList [i];
-				title1.text = art1.name;
-				artist1.text = art1.artist;
-				Theme11.text = art1.Theme1;
-				Theme21.text = art1.Theme2;
-				artworkImage1.sprite = art1.view;
+				//GameObject collectionbutton = Instantiate (CollectionPaintingButton) as GameObject;
+				Debug.Log("collection test");
+				//art1 = Master_Art.instance.MasterArtList [i];
+				//title1.text = art1.name;
+				//artist1.text = art1.artist;
+				//Theme11.text = art1.Theme1;
+				//Theme21.text = art1.Theme2;
+				//artworkImage1.sprite = art1.view;
                
-				collectionbutton.transform.SetParent (RestoreButton.transform.parent, false);
+				//collectionbutton.transform.SetParent (RestoreButton.transform.parent, false);
+				art1 = Master_Art.instance.MasterArtList [i];
+				collectionThumbnails[counter].SetActive(true);
+				collectionThumbnails[counter].transform.GetChild(2).GetComponent<Text>().text = art1.name;
+				collectionThumbnails[counter].transform.GetChild(3).GetComponent<Text>().text = art1.artist;
+				collectionThumbnails[counter].transform.GetChild(4).GetComponent<Text>().text = art1.Theme1;
+				collectionThumbnails[counter].transform.GetChild(5).GetComponent<Text>().text = art1.Theme2;
+				collectionThumbnails[counter].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = art1.view;
+				Debug.Log (art1.name);
+				Debug.Log(art1.view.name); 
+
+				counter++;
 			}
 	}
 	}
