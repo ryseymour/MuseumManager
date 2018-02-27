@@ -58,6 +58,8 @@ public class Master_Art : MonoBehaviour {
     bool repop; //only run once repopulate after thetimer
     GameObject temp; //helps read what button is being pressed
 
+    public List<GameObject> restoreThumbnails = new List<GameObject>();
+
     public int lastrando;
 
 
@@ -69,22 +71,40 @@ public class Master_Art : MonoBehaviour {
 			Destroy(gameObject);
 	}
 
+    private void Start()
+    {
+        for(int i=0; i < restoreThumbnails.Count; i++)
+        {
+            restoreThumbnails[i].gameObject.SetActive(false);
+        }
+    }
 
-
-	public void RestorePopulate ()
+    public void RestorePopulate ()
 	{
+        int counter = 0;
+       
+        Debug.Log("restore test");
 		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
 		{
 			if (Master_Art.instance.MasterArtList [i].researched && !Master_Art.instance.MasterArtList [i].restored) {
-				GameObject button = Instantiate (RestoreButton) as GameObject;
-				art1 = Master_Art.instance.MasterArtList [i];
-				title1.text = art1.name;
-				artist1.text = art1.artist;
-				Theme11.text = art1.Theme1;
-				Theme21.text = art1.Theme2;
-				artworkImage1.sprite = art1.view;
+                art1 = Master_Art.instance.MasterArtList[i];
+                title1.text = art1.name;
 
-				button.transform.SetParent (RestoreButton.transform.parent, false);
+                restoreThumbnails[counter].SetActive(true);
+                restoreThumbnails[counter].transform.GetChild(2).GetComponent<Text>().text = art1.artist;
+                
+                //artist1.text = art1.artist;
+                Theme11.text = art1.Theme1;
+                Theme21.text = art1.Theme2;
+                artworkImage1.sprite = art1.view;
+               // GameObject button = Instantiate (RestoreButton) as GameObject;
+				
+                
+                
+
+                
+
+				//button.transform.SetParent (RestoreButton.transform.parent, false);
 			}
 
 	}
@@ -92,17 +112,19 @@ public class Master_Art : MonoBehaviour {
 
 	public void CollectionPaintingPopulate ()
 	{
+    
 		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
 		{
 			if (Master_Art.instance.MasterArtList [i].researched && Master_Art.instance.MasterArtList [i].restored && Master_Art.instance.MasterArtList [i].painting) {
 				GameObject collectionbutton = Instantiate (CollectionPaintingButton) as GameObject;
+             
 				art1 = Master_Art.instance.MasterArtList [i];
 				title1.text = art1.name;
 				artist1.text = art1.artist;
 				Theme11.text = art1.Theme1;
 				Theme21.text = art1.Theme2;
 				artworkImage1.sprite = art1.view;
-
+               
 				collectionbutton.transform.SetParent (RestoreButton.transform.parent, false);
 			}
 	}
@@ -176,7 +198,6 @@ public class Master_Art : MonoBehaviour {
         if(f == 1)
         {
             temp = Research1.gameObject;
-
         }
         if(f == 2)
         {
