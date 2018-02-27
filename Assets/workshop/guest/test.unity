@@ -1871,7 +1871,16 @@ MonoBehaviour:
   - {fileID: 896835689}
   - {fileID: 631791633}
   - {fileID: 1522803124}
-  collectionThumbnails: []
+  collectionThumbnails:
+  - {fileID: 262714794}
+  - {fileID: 924699027}
+  - {fileID: 1276680767}
+  - {fileID: 1358446758}
+  - {fileID: 1175232808}
+  - {fileID: 2079206820}
+  - {fileID: 1497504983}
+  - {fileID: 1881539901}
+  - {fileID: 1299706647}
   lastrando: 0
 --- !u!114 &114025496 stripped
 MonoBehaviour:
