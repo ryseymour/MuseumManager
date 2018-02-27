@@ -88,15 +88,25 @@ public class Master_Art : MonoBehaviour {
 		{
 			if (Master_Art.instance.MasterArtList [i].researched && !Master_Art.instance.MasterArtList [i].restored) {
                 art1 = Master_Art.instance.MasterArtList[i];
-                title1.text = art1.name;
+                //title1.text = art1.name;
+				//artist1.text = art1.artist;
+				//Theme11.text = art1.Theme1;
+				//Theme21.text = art1.Theme2;
+				//artworkImage1.sprite = art1.view;
 
                 restoreThumbnails[counter].SetActive(true);
-                restoreThumbnails[counter].transform.GetChild(2).GetComponent<Text>().text = art1.artist;
+				restoreThumbnails[counter].transform.GetChild(2).GetComponent<Text>().text = art1.name;
+				restoreThumbnails[counter].transform.GetChild(3).GetComponent<Text>().text = art1.artist;
+				restoreThumbnails[counter].transform.GetChild(4).GetComponent<Text>().text = art1.Theme1;
+				restoreThumbnails[counter].transform.GetChild(5).GetComponent<Text>().text = art1.Theme2;
+				restoreThumbnails[counter].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = art1.view;
+				Debug.Log (art1.name);
+				Debug.Log(art1.view.name); 
                 
                 //artist1.text = art1.artist;
-                Theme11.text = art1.Theme1;
-                Theme21.text = art1.Theme2;
-                artworkImage1.sprite = art1.view;
+               // Theme11.text = art1.Theme1;
+                //Theme21.text = art1.Theme2;
+                //artworkImage1.sprite = art1.view;
                // GameObject button = Instantiate (RestoreButton) as GameObject;
 				
                 

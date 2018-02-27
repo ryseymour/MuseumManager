@@ -3,7 +3,7 @@ Cmd: initializeCompiler
 Cmd: preprocess
   insize=768 outsize=316 ok=1
 Cmd: preprocess
-  insize=747 outsize=979 ok=1
+  insize=747 outsize=980 ok=1
 Cmd: preprocess
   insize=1838 outsize=333 ok=1
 Cmd: preprocess
@@ -15,7 +15,8 @@ Cmd: preprocess
 Cmd: preprocess
   insize=3343 outsize=1218 ok=1
 Cmd: preprocess
-  insize=1662 outsize=1245 ok=1
+  error: 2 plat 20 at (34): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=1662 outsize=722 ok=0
 Cmd: preprocess
   insize=860 outsize=1201 ok=1
 Cmd: preprocess
