@@ -55,6 +55,8 @@ public class Master_Art : MonoBehaviour {
 	//public Text HealthText;
 	public bool timerText = false;
 
+	public Transform spawnpoint;
+
     bool repop; //only run once repopulate after thetimer
     GameObject temp; //helps read what button is being pressed
 
@@ -62,6 +64,8 @@ public class Master_Art : MonoBehaviour {
 	public List<GameObject> collectionThumbnails = new List<GameObject>();
 
     public int lastrando;
+
+	public Renderer rend;
 
 
 	private void Awake()
@@ -131,11 +135,45 @@ public class Master_Art : MonoBehaviour {
 
 	public void ARBool ()
 	{
+		int counter = 0;
 
-		//this.gameObject;
-		//this.in
-		//Artdisplayed = true;
+		Debug.Log("restore test");
+		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		{
+			if (Master_Art.instance.MasterArtList [i].researched && !Master_Art.instance.MasterArtList [i].restored) {
+				art1 = Master_Art.instance.MasterArtList [i];
+
+				Debug.Log (art1.name);
+				Debug.Log(art1.view.name); 
+				Master_Art.instance.MasterArtList [i].AR = true;
+
+				ARInstantiate ();
+
+
+
+			}
+
+		}
+
 	}
+
+	public void ARInstantiate ()
+	{
+		int counter = 0;
+
+		Debug.Log("AR test");
+		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		{
+			if (Master_Art.instance.MasterArtList [i].AR) {
+				Debug.Log (art1.name);
+				Debug.Log(art1.view.name); 
+				art1 = Master_Art.instance.MasterArtList [i];
+				Instantiate (Master_Art.instance.MasterArtList [i].ARmodel, spawnpoint.position, spawnpoint.rotation);
+				rend.enabled = false;
+	}
+		}
+	}
+
 
 
 	public void CollectionPaintingPopulate ()

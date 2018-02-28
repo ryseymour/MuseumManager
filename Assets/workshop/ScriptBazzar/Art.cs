@@ -29,6 +29,7 @@ public class Art : ScriptableObject {
 	public bool painting;
 
 	public bool AR;
+	public GameObject ARmodel;
 
     private void OnEnable()
     {

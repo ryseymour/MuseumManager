@@ -121,8 +121,8 @@ namespace GoogleARCore.HelloAR
                     break;
                 }
             }
-
-            SearchingForPlaneUI.SetActive(showSearchingUI);
+			//Error
+            //SearchingForPlaneUI.SetActive(showSearchingUI);
 
             // If the player has not touched the screen, we are done with this update.
             Touch touch;
