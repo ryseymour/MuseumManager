@@ -145,7 +145,11 @@ public class Master_Art : MonoBehaviour {
 
 				Debug.Log (art1.name);
 				Debug.Log(art1.view.name); 
-				Master_Art.instance.MasterArtList [i].AR = true;
+				int Art = Master_Art.instance.MasterArtList.IndexOf (this);
+				Debug.Log (Art);
+				//Master_Art.instance.MasterArtList.IndexOf [this].AR = true;
+				//Art test = Master_Art.instance.MasterArtList;
+				//Debug.Log (test+ "test");
 
 				ARInstantiate ();
 
@@ -159,19 +163,24 @@ public class Master_Art : MonoBehaviour {
 
 	public void ARInstantiate ()
 	{
-		int counter = 0;
 
-		Debug.Log("AR test");
-		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
-		{
-			if (Master_Art.instance.MasterArtList [i].AR) {
-				Debug.Log (art1.name);
-				Debug.Log(art1.view.name); 
-				art1 = Master_Art.instance.MasterArtList [i];
-				Instantiate (Master_Art.instance.MasterArtList [i].ARmodel, spawnpoint.position, spawnpoint.rotation);
-				rend.enabled = false;
-	}
-		}
+		//Debug.Log = (MasterArtList.IndexOf (this.gameObject));
+		//int counter = 0;
+
+		//Debug.Log("AR test");
+		//for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		//{
+			//if (Master_Art.instance.MasterArtList [i].AR) {
+				//Debug.Log (art1.name);
+				//Debug.Log(art1.view.name); 
+				//int obj = MasterArtList.IndexOf (this);
+				//Debug.Log (MasterArtList.IndexOf (this));
+				//art1 = Master_Art.instance.MasterArtList [1];
+				//Instantiate (Master_Art.instance.MasterArtList [art1].ARmodel, spawnpoint.position, spawnpoint.rotation);
+				//Master_Art.instance.MasterArtList [i].AR = false;
+				//rend.enabled = false;
+//	}
+		//}
 	}
 
 
