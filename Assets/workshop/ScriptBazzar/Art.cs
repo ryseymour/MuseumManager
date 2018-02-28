@@ -28,6 +28,8 @@ public class Art : ScriptableObject {
 
 	public bool painting;
 
+	public bool AR;
+
     private void OnEnable()
     {
        // viewZone = artObject.GetComponent<BoxCollider>();

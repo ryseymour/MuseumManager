@@ -120,10 +120,23 @@ public class Master_Art : MonoBehaviour {
                 
 
 				//button.transform.SetParent (RestoreButton.transform.parent, false);
+
+
 			}
 
 	}
+
 	}
+
+
+	public void ARBool ()
+	{
+
+		//this.gameObject;
+		//this.in
+		//Artdisplayed = true;
+	}
+
 
 	public void CollectionPaintingPopulate ()
 	{

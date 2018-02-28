@@ -208,7 +208,7 @@ public class UI_Manager : MonoBehaviour {
 
 	public void OneB ()
 	{
-		cameraObject.GetComponent<RotateCamera> ().enabled = false;
+		//cameraObject.GetComponent<RotateCamera> ().enabled = false;
 		//OneBObjbool = false;
 		Movementbool = true;
 		OneBObjbool = true;
@@ -232,7 +232,7 @@ public class UI_Manager : MonoBehaviour {
 		OneCObjbool = false;
 		EObjbool = false;
 		Movementbool = false;
-		cameraObject.GetComponent<RotateCamera> ().enabled = true;
+		//cameraObject.GetComponent<RotateCamera> ().enabled = true;
 
 	}
 

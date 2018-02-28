@@ -1,25 +1,2 @@
-Base path: C:/Program Files/Unity/Editor/Data
+Base path: C:/ProgramFiles/Unity/Editor/Data
 Cmd: initializeCompiler
-Cmd: preprocess
-  insize=768 outsize=316 ok=1
-Cmd: preprocess
-  insize=747 outsize=980 ok=1
-Cmd: preprocess
-  insize=1838 outsize=333 ok=1
-Cmd: preprocess
-  insize=1467 outsize=1201 ok=1
-Cmd: preprocess
-  insize=1760 outsize=760 ok=1
-Cmd: preprocess
-  insize=1072 outsize=452 ok=1
-Cmd: preprocess
-  insize=3343 outsize=1218 ok=1
-Cmd: preprocess
-  error: 2 plat 20 at (34): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
-  insize=1662 outsize=722 ok=0
-Cmd: preprocess
-  insize=860 outsize=1201 ok=1
-Cmd: preprocess
-  insize=1788 outsize=325 ok=1
-Cmd: preprocess
-  insize=1820 outsize=491 ok=1
