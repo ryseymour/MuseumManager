@@ -14,6 +14,8 @@ public class Master_Art : MonoBehaviour {
 	public Art art2;
 	public Art art3;
 
+	public static int RestoreThumbnail;
+
 	public GameObject Unlock2;
 
 	public GameObject Research1;
@@ -145,11 +147,14 @@ public class Master_Art : MonoBehaviour {
 
 				Debug.Log (art1.name);
 				Debug.Log(art1.view.name); 
-				int Art = Master_Art.instance.MasterArtList.IndexOf (this);
-				Debug.Log (Art);
+
+				//int Art = Master_Art.instance.MasterArtList.IndexOf (this);
+				//Debug.Log (Art);
 				//Master_Art.instance.MasterArtList.IndexOf [this].AR = true;
 				//Art test = Master_Art.instance.MasterArtList;
 				//Debug.Log (test+ "test");
+				//string name =  EventSystem.current.currentSelectedGameObject.name;
+				Debug.Log (name);
 
 				ARInstantiate ();
 
@@ -164,6 +169,17 @@ public class Master_Art : MonoBehaviour {
 	public void ARInstantiate ()
 	{
 
+
+
+		int index = restoreThumbnails.IndexOf (restoreThumbnails [RestoreThumbnail]);
+		Debug.Log (index);
+		Debug.Log (RestoreThumbnail);
+
+		//if (Master_Art.instance.MasterArtList [RestoreThumbnail].AR) {
+			//Instantiate (Master_Art.instance.MasterArtList [art1].ARmodel, spawnpoint.position, spawnpoint.rotation);
+		//}
+		//collectionThumbnails.IndexOf (1);
+		//Art index = MasterArtList.IndexOf (0);
 		//Debug.Log = (MasterArtList.IndexOf (this.gameObject));
 		//int counter = 0;
 

@@ -6,14 +6,14 @@
       <File FileName="Assets\workshop\ScriptBazzar\GM_guestScript.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets\workshop\ScriptBazzar\_master\UI_Manager.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets\workshop\ScriptBazzar\_master\Old\Timer.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="Assets\workshop\ScriptBazzar\_master\Master_Art.cs" Line="144" Column="50" NotebookId="1" />
       <File FileName="Assets\Utilities\UnityARKitPlugin\Plugins\iOS\UnityARKit\Editor\UnityARBuildPostprocessor.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets\workshop\ScriptBazzar\ScaleModifierScript.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets\CameraMaster.cs" Line="1" Column="1" NotebookId="1" />
       <File FileName="Assets\workshop\ScriptBazzar\Art.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="Assets\workshop\ScriptBazzar\_master\Master_Art.cs" Line="168" Column="59" NotebookId="1" />
     </Files>
     <FloatingWindows>
-      <FloatingWindow WindowId="1" X="-32000" Y="-32000" Width="640" Height="480">
+      <FloatingWindow WindowId="1" X="0" Y="0" Width="640" Height="480">
         <Files>
           <File FileName="Assets\workshop\ScriptBazzar\_master\restoreinstantiate.cs" Line="24" Column="2" />
         </Files>
