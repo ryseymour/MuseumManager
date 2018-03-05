@@ -77,6 +77,9 @@ public class Master_Art : MonoBehaviour {
 	public Renderer rend;
 
 
+    GameObject temporaryRestore; //so we can isntantiate and then destroy an object that is being restored
+
+
 	private void Awake()
 	{
 		if (instance == null)
@@ -176,30 +179,34 @@ public class Master_Art : MonoBehaviour {
 
 	}
 
-	public void ARfloat (float f)
+	public void ARfloat (int f)
 	{
+        MasterArtList[f].AR = true;
+        temporaryRestore = (GameObject)Instantiate(MasterArtList[f].ARmodel, spawnpoint.position, spawnpoint.rotation);
+        ARValue = f;
 
-		if (dirtyspots == 0) {
-			Debug.Log ("dirtbegone");
-		}
-		
-		if(f == 0)
+        if (MasterArtList[f].painting == true)
+        {
+            UI_Manager UI = this.GetComponent<UI_Manager>();
+            UI.RestoreClean(1);
+        }
+
+
+        /* NO! We are generic not basic
+        if (f == 0)
 		{
 			MasterArtList[0].AR = true;
 			Debug.Log (f + "value");
 			Debug.Log ("switch");
 			Instantiate (MasterArtList [0].ARmodel, spawnpoint.position, spawnpoint.rotation);
-			f = ARValue;
+			ARValue = f;
 
 
 
 			if (MasterArtList [0].painting == true) {
 				UI_Manager UI = this.GetComponent<UI_Manager> ();
 				UI.RestoreClean (1);
-
 			}
-
-
 
 		}
 		if (f == 1) {
@@ -209,7 +216,7 @@ public class Master_Art : MonoBehaviour {
 			Instantiate (MasterArtList [1].ARmodel, spawnpoint.position, spawnpoint.rotation);
 			rend.enabled = false;
 
-			f = ARValue;
+			ARValue = f;
 
 			if (MasterArtList [1].painting == true) {
 				UI_Manager UI = this.GetComponent<UI_Manager> ();
@@ -223,10 +230,11 @@ public class Master_Art : MonoBehaviour {
 			Instantiate (MasterArtList [2].ARmodel, spawnpoint.position, spawnpoint.rotation);
 			rend.enabled = false;
 		}
+        }     
+        */
 
 
-
-	}
+	
 	}
 
 
@@ -265,11 +273,14 @@ public class Master_Art : MonoBehaviour {
 	}
 
 	public void ARInstantiate ()
-	{
-		Debug.Log (MasterArtList [ARValue]);
-		MasterArtList [ARValue].restored = true;
-
-	}
+	{		
+        if (MasterArtList[ARValue].AR)
+        {
+            MasterArtList[ARValue].restored = true;
+            temporaryRestore.gameObject.SetActive(false);
+            MasterArtList[ARValue].AR = false;
+        }
+    }
 
 
 
