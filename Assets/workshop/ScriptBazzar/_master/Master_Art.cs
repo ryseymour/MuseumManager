@@ -26,7 +26,7 @@ public class Master_Art : MonoBehaviour {
 
 	//public GameObject Restore1;
 
-	public static float ARValue;
+	public static int ARValue;
 
 	public GameObject RestoreButton;
 	public GameObject CollectionPaintingButton;
@@ -87,7 +87,7 @@ public class Master_Art : MonoBehaviour {
 
     private void Start()
     {
-		dirtyspots = 7;
+		//dirtyspots = 7;
 		//rend = GetComponent<Renderer> ();
 		rend.enabled = false;
         for(int i=0; i < restoreThumbnails.Count; i++)
@@ -186,20 +186,11 @@ public class Master_Art : MonoBehaviour {
 		if(f == 0)
 		{
 			MasterArtList[0].AR = true;
-			Debug.Log (f);
+			Debug.Log (f + "value");
 			Debug.Log ("switch");
 			Instantiate (MasterArtList [0].ARmodel, spawnpoint.position, spawnpoint.rotation);
 			f = ARValue;
-			//tempAR = MasterArtList [0];
-			//restoreThumbnails[0].transform.GetChild(2).GetComponent<Text>().text = art1.name;
 
-			//int tempInt = MasterArtList.IndexOf(restoreThumbnails[0]);
-			//MasterArtList[tempInt].AR = true;
-			//Master_Art.instance.MasterArtList [i].displayed = true;
-
-			//int tempInt = MasterArtList.IndexOf(temp.GetComponent<ResearchDisplay>().art);
-			//rend.enabled = false;
-			//GM_guestScript scriptb = this.GetComponent<UI_Manager>().RestoreClean();
 
 
 			if (MasterArtList [0].painting == true) {
@@ -217,6 +208,12 @@ public class Master_Art : MonoBehaviour {
 			Debug.Log ("switch");
 			Instantiate (MasterArtList [1].ARmodel, spawnpoint.position, spawnpoint.rotation);
 			rend.enabled = false;
+
+			f = ARValue;
+
+			if (MasterArtList [1].painting == true) {
+				UI_Manager UI = this.GetComponent<UI_Manager> ();
+				UI.RestoreClean (1);
 		}
 
 		if (f == 2) {
@@ -229,6 +226,7 @@ public class Master_Art : MonoBehaviour {
 
 
 
+	}
 	}
 
 
@@ -268,7 +266,8 @@ public class Master_Art : MonoBehaviour {
 
 	public void ARInstantiate ()
 	{
-
+		Debug.Log (MasterArtList [ARValue]);
+		MasterArtList [ARValue].restored = true;
 
 	}
 

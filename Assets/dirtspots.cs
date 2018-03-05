@@ -7,8 +7,8 @@ public class dirtspots : MonoBehaviour {
 	//public GameObject GM;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Awake() {
+		Master_Art.dirtyspots = 7;
 	}
 
 	void OnMouseOver () {
@@ -18,8 +18,8 @@ public class dirtspots : MonoBehaviour {
 			Master_Art.dirtyspots -= 1;
 			Debug.Log (Master_Art.dirtyspots);
 			cleaningbool = true;
-			Master_Art dirt = GameObject.Find("GM").GetComponent<Master_Art> ();
-			dirt.ARfloat (Master_Art.ARValue);
+			//Master_Art dirt = GameObject.Find("GM").GetComponent<Master_Art> ();
+			//dirt.ARfloat (Master_Art.ARValue);
 
 			//UI_Manager dirt = this.GetComponent<UI_Manager> ();
 			//dirt.FinishedRestore ();

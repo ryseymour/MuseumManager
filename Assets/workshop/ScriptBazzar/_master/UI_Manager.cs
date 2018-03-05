@@ -177,8 +177,8 @@ public class UI_Manager : MonoBehaviour {
 			Debug.Log ("swab");
 			SwabOn = true;
 			Debug.Log (SwabOn);
-			dirtyspots = 7;
-			Debug.Log (dirtyspots);
+			//dirtyspots = 7;
+			//Debug.Log (dirtyspots);
 		}
 	}
 
