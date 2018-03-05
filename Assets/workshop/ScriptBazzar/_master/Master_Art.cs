@@ -237,6 +237,35 @@ public class Master_Art : MonoBehaviour {
 	
 	}
 
+	public void Collectionfloat (int f)
+	{
+
+		MasterArtList[f].AR = true;
+		temporaryRestore = (GameObject)Instantiate(MasterArtList[f].ARmodel, spawnpoint.position, spawnpoint.rotation);
+		ARValue = f;
+
+		if (MasterArtList[f].painting == true)
+		{
+			UI_Manager Place = this.GetComponent<UI_Manager>();
+			Place.PlaceConfirm();
+		}
+		//int counter = 0;
+		//for(int i =0; i < Master_Art.instance.MasterArtList.Count; i++)
+		//{
+			//if (Master_Art.instance.MasterArtList [i].restored) {
+				//art1 = Master_Art.instance.MasterArtList [i];
+
+				//collectionThumbnails[counter].SetActive(true);
+				//collectionThumbnails[counter].transform.GetChild(2).GetComponent<Text>().text = art1.name;
+				//collectionThumbnails[counter].transform.GetChild(3).GetComponent<Text>().text = art1.artist;
+				//collectionThumbnails[counter].transform.GetChild(4).GetComponent<Text>().text = art1.Theme1;
+				//collectionThumbnails[counter].transform.GetChild(5).GetComponent<Text>().text = art1.Theme2;
+				//collectionThumbnails[counter].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = art1.view;
+				//Debug.Log (art1.name);
+				//Debug.Log(art1.view.name); 
+			//}
+//	}
+	}
 
 
 	public void AR ()
