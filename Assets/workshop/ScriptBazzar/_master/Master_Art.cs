@@ -16,6 +16,8 @@ public class Master_Art : MonoBehaviour {
 
 	public static int RestoreThumbnail;
 
+	public static int dirtyspots;
+
 	public GameObject Unlock2;
 
 	public GameObject Research1;
@@ -24,7 +26,7 @@ public class Master_Art : MonoBehaviour {
 
 	//public GameObject Restore1;
 
-
+	public static float ARValue;
 
 	public GameObject RestoreButton;
 	public GameObject CollectionPaintingButton;
@@ -85,6 +87,9 @@ public class Master_Art : MonoBehaviour {
 
     private void Start()
     {
+		dirtyspots = 7;
+		//rend = GetComponent<Renderer> ();
+		rend.enabled = false;
         for(int i=0; i < restoreThumbnails.Count; i++)
         {
             restoreThumbnails[i].gameObject.SetActive(false);
@@ -173,12 +178,18 @@ public class Master_Art : MonoBehaviour {
 
 	public void ARfloat (float f)
 	{
+
+		if (dirtyspots == 0) {
+			Debug.Log ("dirtbegone");
+		}
+		
 		if(f == 0)
 		{
 			MasterArtList[0].AR = true;
 			Debug.Log (f);
 			Debug.Log ("switch");
 			Instantiate (MasterArtList [0].ARmodel, spawnpoint.position, spawnpoint.rotation);
+			f = ARValue;
 			//tempAR = MasterArtList [0];
 			//restoreThumbnails[0].transform.GetChild(2).GetComponent<Text>().text = art1.name;
 
@@ -187,17 +198,40 @@ public class Master_Art : MonoBehaviour {
 			//Master_Art.instance.MasterArtList [i].displayed = true;
 
 			//int tempInt = MasterArtList.IndexOf(temp.GetComponent<ResearchDisplay>().art);
+			//rend.enabled = false;
+			//GM_guestScript scriptb = this.GetComponent<UI_Manager>().RestoreClean();
+
+
+			if (MasterArtList [0].painting == true) {
+				UI_Manager UI = this.GetComponent<UI_Manager> ();
+				UI.RestoreClean (1);
+
+			}
+
+
+
 		}
 		if (f == 1) {
 			MasterArtList [1].AR = true;
 			Debug.Log (f);
 			Debug.Log ("switch");
 			Instantiate (MasterArtList [1].ARmodel, spawnpoint.position, spawnpoint.rotation);
+			rend.enabled = false;
+		}
+
+		if (f == 2) {
+			MasterArtList [2].AR = true;
+			Debug.Log (f);
+			Debug.Log ("switch");
+			Instantiate (MasterArtList [2].ARmodel, spawnpoint.position, spawnpoint.rotation);
+			rend.enabled = false;
 		}
 
 
 
 	}
+
+
 
 	public void AR ()
 	{
@@ -236,34 +270,6 @@ public class Master_Art : MonoBehaviour {
 	{
 
 
-
-		//int index = restoreThumbnails.IndexOf (restoreThumbnails [0]);
-		//index = RestoreThumbnail;
-		//Debug.Log (index);
-		//Debug.Log (RestoreThumbnail);
-
-		//if (Master_Art.instance.MasterArtList [RestoreThumbnail].AR) {
-			//Instantiate (Master_Art.instance.MasterArtList [art1].ARmodel, spawnpoint.position, spawnpoint.rotation);
-		//}
-		//collectionThumbnails.IndexOf (1);
-		//Art index = MasterArtList.IndexOf (0);
-		//Debug.Log = (MasterArtList.IndexOf (this.gameObject));
-		//int counter = 0;
-
-		//Debug.Log("AR test");
-		//for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
-		//{
-			//if (Master_Art.instance.MasterArtList [i].AR) {
-				//Debug.Log (art1.name);
-				//Debug.Log(art1.view.name); 
-				//int obj = MasterArtList.IndexOf (this);
-				//Debug.Log (MasterArtList.IndexOf (this));
-				//art1 = Master_Art.instance.MasterArtList [i];
-				//Instantiate (Master_Art.instance.MasterArtList [art1].ARmodel, spawnpoint.position, spawnpoint.rotation);
-				//Master_Art.instance.MasterArtList [i].AR = false;
-				//rend.enabled = false;
-//	}
-		//}
 	}
 
 
@@ -419,6 +425,10 @@ public class Master_Art : MonoBehaviour {
 
 	void Update ()
     {		
+		if (dirtyspots == 0) {
+			ARInstantiate ();
+		}
+
 		if (timerText = true) {
 			if (timeLeft <= 0) {
                 if (!repop)

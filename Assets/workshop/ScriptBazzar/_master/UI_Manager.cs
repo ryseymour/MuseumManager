@@ -16,6 +16,9 @@ public class UI_Manager : MonoBehaviour {
 	public Canvas ResearchScreen;
 
 
+
+
+
     public static float donatevalue;
     public static float updateDonateValue;
     public static bool donateNow;
@@ -51,6 +54,8 @@ public class UI_Manager : MonoBehaviour {
 	public Transform OneCObj;
 	public bool OneCObjbool;
 
+	public static bool SwabOn;
+
 	public float rotateSpeed = 3f;
 	bool rotateStatus = false;
 
@@ -66,6 +71,7 @@ public class UI_Manager : MonoBehaviour {
 		artifactRestoreint = 0;
 		OneBObjbool = false;
 		Movementbool = false;
+
 
 
 
@@ -148,6 +154,37 @@ public class UI_Manager : MonoBehaviour {
 
 	public void ArtifactRestore3 () {
 		artifactRestoreint = 3;
+	}
+
+	public void RestoreClean (float f){
+
+
+		if (f == 1) {
+			Debug.Log ("test");
+			ArtifactsScreen.gameObject.SetActive(false);
+			FP_screen.gameObject.SetActive(false);
+			RestoreScreen.gameObject.SetActive(false);
+			MainScreen.gameObject.SetActive(false);
+			PaintRestore.gameObject.SetActive(true);
+			ResearchScreen.gameObject.SetActive (false);
+
+
+		}
+	}
+
+	public void CleaningTools (float f){
+		if (f == 1) {
+			Debug.Log ("swab");
+			SwabOn = true;
+			Debug.Log (SwabOn);
+			dirtyspots = 7;
+			Debug.Log (dirtyspots);
+		}
+	}
+
+	public void FinishedRestore () {
+		Master_Art RstCmp = this.GetComponent<Master_Art> ();
+		RstCmp.ARfloat (Master_Art.ARValue);
 	}
 
 
@@ -238,6 +275,8 @@ public class UI_Manager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+
 		if (rotateStatus == true) {
 			objectRotate.transform.Rotate (Vector3.back, rotateSpeed * Time.deltaTime);
 		}
