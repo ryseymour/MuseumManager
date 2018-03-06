@@ -140,6 +140,8 @@ public class UI_Manager : MonoBehaviour {
 
 	public void PlaceConfirm () {
 		confirmbool = true;
+		ArtifactsScreen.gameObject.SetActive(false);
+		Debug.Log ("PlaceConfirm");
 		//GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
 	}
 

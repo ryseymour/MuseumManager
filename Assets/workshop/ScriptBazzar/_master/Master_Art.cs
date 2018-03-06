@@ -19,6 +19,8 @@ public class Master_Art : MonoBehaviour {
 	public static int dirtyspots;
 	public static int placeclick;
 
+	public static Transform ArtPlacement;
+
 	public GameObject Unlock2;
 
 	public GameObject Research1;
@@ -80,6 +82,7 @@ public class Master_Art : MonoBehaviour {
 
 
     GameObject temporaryRestore; //so we can isntantiate and then destroy an object that is being restored
+	GameObject Restore;
 
 
 	private void Awake()
@@ -103,6 +106,11 @@ public class Master_Art : MonoBehaviour {
 		for (int i = 0; i < collectionThumbnails.Count; i++) {
 			collectionThumbnails[i].gameObject.SetActive(false);
 		}
+
+		for (int i = 0; i < collectionLocations.Count; i++) {
+			collectionThumbnails[i].gameObject.SetActive(false);
+		}
+
     }
 
     public void RestorePopulate ()
@@ -242,10 +250,11 @@ public class Master_Art : MonoBehaviour {
 	public void Collectionfloat (int f)
 	{
 
-		MasterArtList[f].AR = true;
-		//temporaryRestore = (GameObject)Instantiate(MasterArtList[f].ARmodel, spawnpoint.position, spawnpoint.rotation);
+		//MasterArtList[f].AR = true;
+		//temporaryRestore = (GameObject)Instantiate(MasterArtList[f].ARmodel, collectionLocations[f].transform.position, collectionLocations[f].transform.rotation);
 		ARValue = f;
-
+		Debug.Log ("testCollection");
+		Debug.Log (f);
 		if (MasterArtList[f].painting == true)
 		{
 			UI_Manager Place = this.GetComponent<UI_Manager>();
@@ -271,23 +280,13 @@ public class Master_Art : MonoBehaviour {
 
 	public void CollectionPlace (int f)
 	{
-		Debug.Log ("start");
-		int counter = 0;
-
-		Debug.Log("restore test");
-		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
-		{
-			if (Master_Art.instance.MasterArtList [i].AR) {
-				art1 = Master_Art.instance.MasterArtList [i];
-
-				Debug.Log (art1.name);
-				Debug.Log (art1.view.name); 
-				art1 = Master_Art.instance.MasterArtList [i];
-				Instantiate (Master_Art.instance.MasterArtList [i].ARmodel, collectionThumbnails[f].transform.position, collectionThumbnails[f].transform.rotation);
-				Debug.Log (name);
+		Debug.Log ("Collection");
+		Debug.Log (f);
+		Debug.Log (ARValue);
+		temporaryRestore = (GameObject)Instantiate(MasterArtList[ARValue].ARmodel, collectionLocations[f].transform.position, collectionLocations[f].transform.rotation);
 			}
-	}
-	}
+	//}
+	//}
 
 
 	public void AR ()
@@ -364,6 +363,12 @@ public class Master_Art : MonoBehaviour {
 				counter++;
 			}
 	}
+	}
+
+	public void TestCollection ()
+
+	{
+		Debug.Log ("Works");
 	}
 
 

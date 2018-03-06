@@ -6,14 +6,15 @@ using UnityEngine.UI;
 public class exhibitplace : MonoBehaviour {
 
 	public Transform artifact1Prefab;
-	public Transform artifact2Prefab;
+	public static Transform artifact2Prefab;
 
 	public Transform spawnPoint;
 
 	public Renderer rend;
 
-	public GameObject guest2;
+	public GameObject GM;
 	public static int artifactNumber = 0;
+	public int Objectloc = 0;
 
 
 	// Use this for initialization
@@ -34,8 +35,19 @@ public class exhibitplace : MonoBehaviour {
 
 	//}
 
-	//void OnMouseDown (){
-		//if (UI_Manager.confirmbool == true) {
+	void OnMouseDown (){
+
+		Debug.Log ("help!");
+
+		Master_Art Placement = GM.GetComponent<Master_Art> ();
+		Placement.CollectionPlace (Objectloc);
+
+		//artifact2Prefab = Master_Art.ArtPlacement;
+		Debug.Log (artifact2Prefab);
+		//Debug.Log (this(Vector3));
+		//this.gameObject = Master_Art.ArtPlacement;
+		if (UI_Manager.confirmbool == true) {
+		}
 					//Instantiate (artifact1Prefab, spawnPoint.position, spawnPoint.rotation);
 					//rend.enabled = false;
 					//artifactNumber = artifactNumber + 1;
@@ -70,4 +82,5 @@ public class exhibitplace : MonoBehaviour {
 //}
 		//}
 	//}
+}
 }
