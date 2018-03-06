@@ -17,6 +17,7 @@ public class Master_Art : MonoBehaviour {
 	public static int RestoreThumbnail;
 
 	public static int dirtyspots;
+	public static int placeclick;
 
 	public GameObject Unlock2;
 
@@ -71,6 +72,7 @@ public class Master_Art : MonoBehaviour {
 
     public List<GameObject> restoreThumbnails = new List<GameObject>();
 	public List<GameObject> collectionThumbnails = new List<GameObject>();
+	public List<GameObject> collectionLocations = new List<GameObject> ();
 
     public int lastrando;
 
@@ -241,7 +243,7 @@ public class Master_Art : MonoBehaviour {
 	{
 
 		MasterArtList[f].AR = true;
-		temporaryRestore = (GameObject)Instantiate(MasterArtList[f].ARmodel, spawnpoint.position, spawnpoint.rotation);
+		//temporaryRestore = (GameObject)Instantiate(MasterArtList[f].ARmodel, spawnpoint.position, spawnpoint.rotation);
 		ARValue = f;
 
 		if (MasterArtList[f].painting == true)
@@ -265,6 +267,26 @@ public class Master_Art : MonoBehaviour {
 				//Debug.Log(art1.view.name); 
 			//}
 //	}
+	}
+
+	public void CollectionPlace (int f)
+	{
+		Debug.Log ("start");
+		int counter = 0;
+
+		Debug.Log("restore test");
+		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		{
+			if (Master_Art.instance.MasterArtList [i].AR) {
+				art1 = Master_Art.instance.MasterArtList [i];
+
+				Debug.Log (art1.name);
+				Debug.Log (art1.view.name); 
+				art1 = Master_Art.instance.MasterArtList [i];
+				Instantiate (Master_Art.instance.MasterArtList [i].ARmodel, collectionThumbnails[f].transform.position, collectionThumbnails[f].transform.rotation);
+				Debug.Log (name);
+			}
+	}
 	}
 
 
@@ -466,6 +488,10 @@ public class Master_Art : MonoBehaviour {
     {		
 		if (dirtyspots == 0) {
 			ARInstantiate ();
+		}
+
+		if (placeclick >= 1) {
+
 		}
 
 		if (timerText = true) {

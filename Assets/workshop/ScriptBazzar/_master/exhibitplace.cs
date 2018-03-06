@@ -34,13 +34,12 @@ public class exhibitplace : MonoBehaviour {
 
 	//}
 
-	void OnMouseDown (){
-		if (UI_Manager.confirmbool == true) {
-			if (UI_Manager.exh == 1){
-				if(UI_Manager.artifactint ==1){
-					Instantiate (artifact1Prefab, spawnPoint.position, spawnPoint.rotation);
-					rend.enabled = false;
-					artifactNumber = artifactNumber + 1;
+	//void OnMouseDown (){
+		//if (UI_Manager.confirmbool == true) {
+					//Instantiate (artifact1Prefab, spawnPoint.position, spawnPoint.rotation);
+					//rend.enabled = false;
+					//artifactNumber = artifactNumber + 1;
+			//Master_Art ArtPlace = guest2.GetComponent<Master_Art> ().
 					//gueststay.GetComponent<GuestWaypointMove> ().guestRepeat + 1;
 
 					//GuestWaypointMove GuestStay = Guest.GetComponent<GuestWaypointMove> ().guestRepeat = gueststay.GetComponent<GuestWaypointMove> ().guestRepeat + 1;
@@ -48,21 +47,27 @@ public class exhibitplace : MonoBehaviour {
 					//GuestStay = guest2.GetComponent<GuestWaypointMove> ().guestRepeat;
 
 					//GuestStay += 1;
+			//{
+				//{
+					
 
 
-				}
+				//}
 
-				if (UI_Manager.artifactint == 2) {
-					Instantiate (artifact2Prefab, spawnPoint.position, spawnPoint.rotation);
-					rend.enabled = false;
-					artifactNumber = artifactNumber + 1;
-				}
-			}
-			else{
-				return;
-			}
-		} else {
-			return;
-		}
-}
+				//if (UI_Manager.artifactint == 2) {
+					//Instantiate (artifact2Prefab, spawnPoint.position, spawnPoint.rotation);
+					//rend.enabled = false;
+					//artifactNumber = artifactNumber + 1;
+				//}
+			//}
+			//else{
+			//	return;
+			//}
+		//} else {
+			//return;
+		//}
+//}
+//}
+		//}
+	//}
 }
