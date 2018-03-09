@@ -352,11 +352,17 @@ public class Master_Art : MonoBehaviour {
 		temporaryRestore = (GameObject)Instantiate(MasterArtList[artPos].ARmodel, spawnpoint.position, spawnpoint.rotation);
 		ARValue = artPos;
 
+		UI_Manager UI = this.GetComponent<UI_Manager>();
+		UI.RestoreClean(1);
+
 		if (MasterArtList[artPos].painting)
 		{
-			UI_Manager UI = this.GetComponent<UI_Manager>();
-			UI.RestoreClean(1);
+			Debug.Log ("artpos");
+			UI_Manager UI2 = this.GetComponent<UI_Manager>();
+			UI2.RestoreClean(1);
+
 		}
+			
 	}
 
 	public void CollectionPaintingPopulate ()
@@ -441,6 +447,8 @@ public class Master_Art : MonoBehaviour {
                     Research2.gameObject.SetActive(true);
                     Research3.gameObject.SetActive(true);
                     Master_Art.instance.MasterArtList [i].displayed = true;
+					//Will need to remove
+					Master_Art.instance.MasterArtList [i].researched = true;
 					rando = lastrando;
 				} else {
 					return;
