@@ -136,6 +136,8 @@ public class Master_Art : MonoBehaviour {
 				restoreThumbnails[counter].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = art1.view;
 				Debug.Log (art1.name);
 				Debug.Log(art1.view.name); 
+
+				restoreThumbnails [counter].GetComponent<Buttonscript> ().myArt = art1;
                 
                 //artist1.text = art1.artist;
                // Theme11.text = art1.Theme1;
@@ -188,6 +190,8 @@ public class Master_Art : MonoBehaviour {
 		}
 
 	}
+
+
 
 	public void ARfloat (int f)
 	{
@@ -286,7 +290,7 @@ public class Master_Art : MonoBehaviour {
 		Debug.Log (f);
 		Debug.Log (ARValue);
 		temporaryRestore = (GameObject)Instantiate(MasterArtList[ARValue].ARmodel, collectionLocations[f].transform.position, collectionLocations[f].transform.rotation);
-		temporaryRestore.transform.eulerAngles - r;
+		temporaryRestore.transform.eulerAngles = r;
 			}
 	//}
 	//}
@@ -335,7 +339,25 @@ public class Master_Art : MonoBehaviour {
         }
     }
 
+	public void RestoreInstantiate(GameObject obj)
+	{
+		Debug.Log(obj);
 
+		int artPos = MasterArtList.IndexOf(obj.GetComponent<Buttonscript>().myArt);
+		Debug.Log(artPos);
+
+		MasterArtList[artPos].AR = true;
+
+
+		temporaryRestore = (GameObject)Instantiate(MasterArtList[artPos].ARmodel, spawnpoint.position, spawnpoint.rotation);
+		ARValue = artPos;
+
+		if (MasterArtList[artPos].painting)
+		{
+			UI_Manager UI = this.GetComponent<UI_Manager>();
+			UI.RestoreClean(1);
+		}
+	}
 
 	public void CollectionPaintingPopulate ()
 	{

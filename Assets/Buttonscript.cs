@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Buttonscript : MonoBehaviour {
 
-
+	public Art myArt;
 
 	// Use this for initialization
 	void Start () {
