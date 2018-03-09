@@ -12,6 +12,8 @@ public class exhibitplace : MonoBehaviour {
 
 	public Renderer rend;
 
+	public Vector3 myRotation;
+
 	public GameObject GM;
 	public static int artifactNumber = 0;
 	public int Objectloc = 0;
@@ -40,7 +42,7 @@ public class exhibitplace : MonoBehaviour {
 		Debug.Log ("help!");
 
 		Master_Art Placement = GM.GetComponent<Master_Art> ();
-		Placement.CollectionPlace (Objectloc);
+		Placement.CollectionPlace (Objectloc, myRotation);
 
 		//artifact2Prefab = Master_Art.ArtPlacement;
 		Debug.Log (artifact2Prefab);

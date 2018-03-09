@@ -276,14 +276,17 @@ public class Master_Art : MonoBehaviour {
 				//Debug.Log(art1.view.name); 
 			//}
 //	}
+
+
 	}
 
-	public void CollectionPlace (int f)
+	public void CollectionPlace (int f, Vector3 r)
 	{
 		Debug.Log ("Collection");
 		Debug.Log (f);
 		Debug.Log (ARValue);
 		temporaryRestore = (GameObject)Instantiate(MasterArtList[ARValue].ARmodel, collectionLocations[f].transform.position, collectionLocations[f].transform.rotation);
+		temporaryRestore.transform.eulerAngles - r;
 			}
 	//}
 	//}
