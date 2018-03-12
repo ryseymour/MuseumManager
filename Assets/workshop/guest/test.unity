@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44831908, g: 0.49835163, b: 0.5756049, a: 1}
+  m_IndirectSpecularColor: {r: 0.44831866, g: 0.49835145, b: 0.5756043, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -9129,12 +9129,12 @@ Prefab:
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
@@ -9144,7 +9144,7 @@ Prefab:
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
@@ -9194,6 +9194,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114238206475023946, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
+        type: 2}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResearchPopulate
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a874e3b8be19fa45b38d1dfe0268dba, type: 2}
@@ -14736,6 +14741,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114278344714844064, guid: 531ffda2676d345489fde201b5dda25d,
         type: 2}
+      propertyPath: researchThumbnails.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114278344714844064, guid: 531ffda2676d345489fde201b5dda25d,
+        type: 2}
       propertyPath: collectionLocations.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -15156,6 +15166,26 @@ Prefab:
       propertyPath: collectionLocations.Array.data[8]
       value: 
       objectReference: {fileID: 1325564049}
+    - target: {fileID: 114278344714844064, guid: 531ffda2676d345489fde201b5dda25d,
+        type: 2}
+      propertyPath: lastrando
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114278344714844064, guid: 531ffda2676d345489fde201b5dda25d,
+        type: 2}
+      propertyPath: researchThumbnails.Array.data[0]
+      value: 
+      objectReference: {fileID: 80420186}
+    - target: {fileID: 114278344714844064, guid: 531ffda2676d345489fde201b5dda25d,
+        type: 2}
+      propertyPath: researchThumbnails.Array.data[1]
+      value: 
+      objectReference: {fileID: 2020070535}
+    - target: {fileID: 114278344714844064, guid: 531ffda2676d345489fde201b5dda25d,
+        type: 2}
+      propertyPath: researchThumbnails.Array.data[2]
+      value: 
+      objectReference: {fileID: 1564306341}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 531ffda2676d345489fde201b5dda25d, type: 2}
   m_IsPrefabParent: 0

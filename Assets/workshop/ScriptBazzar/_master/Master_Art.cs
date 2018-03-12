@@ -13,6 +13,7 @@ public class Master_Art : MonoBehaviour {
 	public Art art1;
 	public Art art2;
 	public Art art3;
+	public Art artResearch;
 
 	public static int RestoreThumbnail;
 
@@ -62,6 +63,8 @@ public class Master_Art : MonoBehaviour {
 	public int plot = 1;
 	public bool finishPlot = false;
 
+	public int n = 0;
+
 	public int CommunityHealth = 50;
 	//public Text HealthText;
 	public bool timerText = false;
@@ -76,6 +79,8 @@ public class Master_Art : MonoBehaviour {
     public List<GameObject> restoreThumbnails = new List<GameObject>();
 	public List<GameObject> collectionThumbnails = new List<GameObject>();
 	public List<GameObject> collectionLocations = new List<GameObject> ();
+	public List<GameObject> researchThumbnails = new List<GameObject> ();
+	public List<int> numbers = new List<int> ();
 
     public int lastrando;
 
@@ -110,6 +115,10 @@ public class Master_Art : MonoBehaviour {
 
 		for (int i = 0; i < collectionLocations.Count; i++) {
 			collectionThumbnails[i].gameObject.SetActive(false);
+		}
+
+		for (int i = 0; i < collectionLocations.Count; i++) {
+			researchThumbnails[i].gameObject.SetActive(false);
 		}
 
     }
@@ -381,6 +390,60 @@ public class Master_Art : MonoBehaviour {
 	{
 		Debug.Log ("Works");
 	}
+
+	public void ResearchPopulate()
+	{
+		int counter = 0;
+
+		Debug.Log("restore test");
+		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		{
+			n = 0;
+			while (n<1)
+			{
+			int rando = Random.Range(0, Master_Art.instance.MasterArtList.Count);
+				if (!numbers.Contains(rando)) {
+					numbers.Add (rando);
+					Debug.Log (rando + "rando");
+					Debug.Log (numbers + "numbers");
+					Debug.Log (numbers.Contains(rando) + "numbers");
+					numbers.ForEach (delegate(int randos) {
+						Debug.Log (name);
+					});
+
+					n++;
+				} else {
+					n = 0;
+				}
+			Debug.Log (rando + "rando");
+			Debug.Log (lastrando + "lastrando");
+
+
+			if (!Master_Art.instance.MasterArtList[i].researched) {
+				artResearch = Master_Art.instance.MasterArtList [i];
+
+
+				researchThumbnails[rando].SetActive(true);
+				researchThumbnails[rando].transform.GetChild(2).GetComponent<Text>().text = artResearch.name;
+				researchThumbnails[rando].transform.GetChild(3).GetComponent<Text>().text = artResearch.artist;
+					researchThumbnails[rando].transform.GetChild(4).GetComponent<Text>().text = artResearch.Theme1;
+					researchThumbnails[rando].transform.GetChild(5).GetComponent<Text>().text = artResearch.Theme2;
+					researchThumbnails[rando].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = artResearch.view;
+				//Debug.Log (art1.name);
+				//Debug.Log(art1.view.name); 
+
+				//restoreThumbnails [counter].GetComponent<Buttonscript> ().myArt = art1;
+
+
+				counter++;
+
+
+
+	}
+		}
+	}
+	}
+
 
 
 	public void Populate()

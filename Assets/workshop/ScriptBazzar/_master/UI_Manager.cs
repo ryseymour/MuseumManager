@@ -107,7 +107,7 @@ public class UI_Manager : MonoBehaviour {
 	public void Research(){
 		ResearchScreen.gameObject.SetActive (true);
 		MainScreen.gameObject.SetActive (false);
-		this.GetComponent<Master_Art> ().BoolCheck ();
+		//this.GetComponent<Master_Art> ().BoolCheck ();
 	}
 
     public void ArtifactPlace(int i)
