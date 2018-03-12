@@ -71,6 +71,7 @@ public class Master_Art : MonoBehaviour {
     bool repop; //only run once repopulate after thetimer
     GameObject temp; //helps read what button is being pressed
 	GameObject tempAR;
+	GameObject tempCoL;
 
     public List<GameObject> restoreThumbnails = new List<GameObject>();
 	public List<GameObject> collectionThumbnails = new List<GameObject>();
@@ -122,11 +123,7 @@ public class Master_Art : MonoBehaviour {
 		{
 			if (Master_Art.instance.MasterArtList [i].researched && !Master_Art.instance.MasterArtList [i].restored) {
 				art1 = Master_Art.instance.MasterArtList [i];
-                //title1.text = art1.name;
-				//artist1.text = art1.artist;
-				//Theme11.text = art1.Theme1;
-				//Theme21.text = art1.Theme2;
-				//artworkImage1.sprite = art1.view;
+
 
                 restoreThumbnails[counter].SetActive(true);
 				restoreThumbnails[counter].transform.GetChild(2).GetComponent<Text>().text = art1.name;
@@ -134,24 +131,15 @@ public class Master_Art : MonoBehaviour {
 				restoreThumbnails[counter].transform.GetChild(4).GetComponent<Text>().text = art1.Theme1;
 				restoreThumbnails[counter].transform.GetChild(5).GetComponent<Text>().text = art1.Theme2;
 				restoreThumbnails[counter].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = art1.view;
-				Debug.Log (art1.name);
-				Debug.Log(art1.view.name); 
+				//Debug.Log (art1.name);
+				//Debug.Log(art1.view.name); 
 
 				restoreThumbnails [counter].GetComponent<Buttonscript> ().myArt = art1;
                 
-                //artist1.text = art1.artist;
-               // Theme11.text = art1.Theme1;
-                //Theme21.text = art1.Theme2;
-                //artworkImage1.sprite = art1.view;
-               // GameObject button = Instantiate (RestoreButton) as GameObject;
 				
 				counter++;
                 
-
-                
-
-				//button.transform.SetParent (RestoreButton.transform.parent, false);
-
+		
 
 			}
 
@@ -170,20 +158,12 @@ public class Master_Art : MonoBehaviour {
 			if (Master_Art.instance.MasterArtList [i].researched && !Master_Art.instance.MasterArtList [i].restored) {
 				art1 = Master_Art.instance.MasterArtList [i];
 
-				Debug.Log (art1.name);
-				Debug.Log(art1.view.name); 
+				//Debug.Log (art1.name);
+				//Debug.Log(art1.view.name); 
 
-				//int Art = Master_Art.instance.MasterArtList.IndexOf (this);
-				//Debug.Log (Art);
-				//Master_Art.instance.MasterArtList.IndexOf [this].AR = true;
-				//Art test = Master_Art.instance.MasterArtList;
-				//Debug.Log (test+ "test");
-				//string name =  EventSystem.current.currentSelectedGameObject.name;
-				Debug.Log (name);
+				//Debug.Log (name);
 
 				ARInstantiate ();
-
-
 
 			}
 
@@ -254,46 +234,43 @@ public class Master_Art : MonoBehaviour {
 	public void Collectionfloat (int f)
 	{
 
-		//MasterArtList[f].AR = true;
-		//temporaryRestore = (GameObject)Instantiate(MasterArtList[f].ARmodel, collectionLocations[f].transform.position, collectionLocations[f].transform.rotation);
 		ARValue = f;
-		Debug.Log ("testCollection");
-		Debug.Log (f);
+		//Debug.Log ("testCollection");
+		//Debug.Log (f);
 		if (MasterArtList[f].painting == true)
 		{
 			UI_Manager Place = this.GetComponent<UI_Manager>();
 			Place.PlaceConfirm();
 		}
-		//int counter = 0;
-		//for(int i =0; i < Master_Art.instance.MasterArtList.Count; i++)
-		//{
-			//if (Master_Art.instance.MasterArtList [i].restored) {
-				//art1 = Master_Art.instance.MasterArtList [i];
 
-				//collectionThumbnails[counter].SetActive(true);
-				//collectionThumbnails[counter].transform.GetChild(2).GetComponent<Text>().text = art1.name;
-				//collectionThumbnails[counter].transform.GetChild(3).GetComponent<Text>().text = art1.artist;
-				//collectionThumbnails[counter].transform.GetChild(4).GetComponent<Text>().text = art1.Theme1;
-				//collectionThumbnails[counter].transform.GetChild(5).GetComponent<Text>().text = art1.Theme2;
-				//collectionThumbnails[counter].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = art1.view;
-				//Debug.Log (art1.name);
-				//Debug.Log(art1.view.name); 
-			//}
-//	}
 
+
+	}
+
+	public void CollectionMyArt (GameObject obj)
+	{
+		Debug.Log ("test");
+
+		int artPos2 = MasterArtList.IndexOf(obj.GetComponent<CollectionButtonscript>().myArt2);
+		ARValue = artPos2;
+		tempCoL = (GameObject)(MasterArtList [artPos2].ARmodel);
+		Debug.Log (tempCoL);
+		//return;
 
 	}
 
 	public void CollectionPlace (int f, Vector3 r)
 	{
-		Debug.Log ("Collection");
-		Debug.Log (f);
-		Debug.Log (ARValue);
-		temporaryRestore = (GameObject)Instantiate(MasterArtList[ARValue].ARmodel, collectionLocations[f].transform.position, collectionLocations[f].transform.rotation);
+		//Debug.Log ("Collection");
+		//Debug.Log (f);
+		//Debug.Log (ARValue);
+		//int artPos = MasterArtList.IndexOf(obj.GetComponent<CollectionButtonscript>().myArt);
+		Debug.Log ("passed");
+		temporaryRestore = (GameObject)Instantiate(tempCoL, collectionLocations[f].transform.position, collectionLocations[f].transform.rotation);
+		Debug.Log (tempCoL);
+
 		temporaryRestore.transform.eulerAngles = r;
 			}
-	//}
-	//}
 
 
 	public void AR ()
@@ -311,18 +288,9 @@ public class Master_Art : MonoBehaviour {
 				art1 = Master_Art.instance.MasterArtList [i];
 				Instantiate (Master_Art.instance.MasterArtList [i].ARmodel, spawnpoint.position, spawnpoint.rotation);
 				rend.enabled = false;
-				//int Art = Master_Art.instance.MasterArtList.IndexOf (this);
-				//Debug.Log (Art);
-				//Master_Art.instance.MasterArtList.IndexOf [this].AR = true;
-				//Art test = Master_Art.instance.MasterArtList;
-				//Debug.Log (test+ "test");
-				//string name =  EventSystem.current.currentSelectedGameObject.name;
+
 				Debug.Log (name);
-
-				//ARInstantiate ();
-
-
-
+			
 			}
 
 		}
@@ -365,22 +333,31 @@ public class Master_Art : MonoBehaviour {
 			
 	}
 
+	public void CollectionInstantiateTest(GameObject obj)
+	{
+		Debug.Log(obj);
+
+		int artPos = MasterArtList.IndexOf(obj.GetComponent<CollectionButtonscript>().myArt2);
+		Debug.Log(artPos);
+
+		//MasterArtList[artPos].AR = true;
+
+
+		temporaryRestore = (GameObject)Instantiate(MasterArtList[artPos].ARmodel, spawnpoint.position, spawnpoint.rotation);
+		ARValue = artPos;
+	}
+
+
+
+
 	public void CollectionPaintingPopulate ()
 	{
 		int counter = 0;
 		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
 		{
 			if (Master_Art.instance.MasterArtList [i].researched && Master_Art.instance.MasterArtList [i].restored && Master_Art.instance.MasterArtList [i].painting) {
-				//GameObject collectionbutton = Instantiate (CollectionPaintingButton) as GameObject;
 				Debug.Log("collection test");
-				//art1 = Master_Art.instance.MasterArtList [i];
-				//title1.text = art1.name;
-				//artist1.text = art1.artist;
-				//Theme11.text = art1.Theme1;
-				//Theme21.text = art1.Theme2;
-				//artworkImage1.sprite = art1.view;
-               
-				//collectionbutton.transform.SetParent (RestoreButton.transform.parent, false);
+
 				art1 = Master_Art.instance.MasterArtList [i];
 				collectionThumbnails[counter].SetActive(true);
 				collectionThumbnails[counter].transform.GetChild(2).GetComponent<Text>().text = art1.name;
@@ -390,6 +367,9 @@ public class Master_Art : MonoBehaviour {
 				collectionThumbnails[counter].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = art1.view;
 				Debug.Log (art1.name);
 				Debug.Log(art1.view.name); 
+
+				collectionThumbnails [counter].GetComponent<CollectionButtonscript> ().myArt2 = art1;
+			
 
 				counter++;
 			}
@@ -458,12 +438,7 @@ public class Master_Art : MonoBehaviour {
 	}
 	}
 	}
-
-	//public void DisplayCheck (){
-		//Art art = this.gameObject.GetComponent<Art> ();
-		//art.display = true;
-		//return;
-	//}
+		
 
 
     public void ResearchTest(float f)
@@ -560,7 +535,6 @@ public class Master_Art : MonoBehaviour {
 
 
 
-		//HealthText.text = "Community Health " + CommunityHealth.ToString ();
 
 
 

@@ -11,7 +11,6 @@ public class UI_Manager : MonoBehaviour {
     public Canvas ArtifactsScreen;
     public Canvas MainScreen;
     public Canvas RestoreScreen;
-    public Canvas FP_screen;
     public Canvas PaintRestore;
 	public Canvas ResearchScreen;
 
@@ -76,12 +75,7 @@ public class UI_Manager : MonoBehaviour {
 
 
 	}
-	
-    public void FP_View()
-    {
-        FP_screen.gameObject.SetActive(true);
-        MainScreen.gameObject.SetActive(false);
-    }
+
 
     public void Artifacts()
     {
@@ -103,7 +97,6 @@ public class UI_Manager : MonoBehaviour {
     public void Back()
     {
         ArtifactsScreen.gameObject.SetActive(false);
-        FP_screen.gameObject.SetActive(false);
         RestoreScreen.gameObject.SetActive(false);
         MainScreen.gameObject.SetActive(true);
         PaintRestore.gameObject.SetActive(false);
@@ -164,7 +157,6 @@ public class UI_Manager : MonoBehaviour {
 		if (f == 1) {
 			Debug.Log ("test");
 			ArtifactsScreen.gameObject.SetActive(false);
-			FP_screen.gameObject.SetActive(false);
 			RestoreScreen.gameObject.SetActive(false);
 			MainScreen.gameObject.SetActive(false);
 			PaintRestore.gameObject.SetActive(true);

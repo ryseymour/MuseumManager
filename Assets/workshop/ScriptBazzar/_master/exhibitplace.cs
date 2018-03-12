@@ -44,8 +44,11 @@ public class exhibitplace : MonoBehaviour {
 		Master_Art Placement = GM.GetComponent<Master_Art> ();
 		Placement.CollectionPlace (Objectloc, myRotation);
 
+		Debug.Log (Objectloc);
+		Debug.Log (myRotation);
+
 		//artifact2Prefab = Master_Art.ArtPlacement;
-		Debug.Log (artifact2Prefab);
+		//Debug.Log (artifact2Prefab);
 		//Debug.Log (this(Vector3));
 		//this.gameObject = Master_Art.ArtPlacement;
 		if (UI_Manager.confirmbool == true) {

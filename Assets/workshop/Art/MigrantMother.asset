@@ -24,6 +24,6 @@ MonoBehaviour:
   researched: 1
   restored: 0
   displayed: 1
-  painting: 1
-  AR: 0
+  painting: 0
+  AR: 1
   ARmodel: {fileID: 1260620035742852, guid: 0c638cef46dd9df46833899d54b43e76, type: 2}

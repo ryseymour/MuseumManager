@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Buttonscript.cs" />
      <Compile Include="Assets\CameraMaster.cs" />
+     <Compile Include="Assets\CollectionButtonscript.cs" />
      <Compile Include="Assets\dirtspots.cs" />
      <Compile Include="Assets\GoogleARCore\Examples\ComputerVision\Scripts\ComputerVisionController.cs" />
      <Compile Include="Assets\GoogleARCore\Examples\ComputerVision\Scripts\EdgeDetector.cs" />

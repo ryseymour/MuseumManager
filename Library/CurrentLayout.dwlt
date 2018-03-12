@@ -441,24 +441,24 @@ MonoBehaviour:
     height: 509
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c6350000
-    m_LastClickedID: 13766
-    m_ExpandedIDs: 9efbffff00000000043600001a360000dc360000de370000
+    scrollPos: {x: 0, y: 64}
+    m_SelectedIDs: 7e3b0000
+    m_LastClickedID: 15230
+    m_ExpandedIDs: 9efbffff0000000070340000043600001a360000de370000683b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: ResearchCanvas
-      m_OriginalName: ResearchCanvas
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 14044
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 8}
     m_SearchString: 
@@ -495,14 +495,14 @@ MonoBehaviour:
     height: 509
   m_PersistentViewDataDictionary: {fileID: 0}
   m_SceneLighting: 1
-  lastFramingTime: 19496.404657317365
+  lastFramingTime: 84.63441250484621
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -24.747978, y: -29.611914, z: -74.739525}
+    m_Target: {x: 3.8518543, y: 5.1365123, z: -12.489672}
     speed: 2
-    m_Value: {x: -24.747978, y: -29.611914, z: -74.739525}
+    m_Value: {x: 3.8518543, y: 5.1365123, z: -12.489672}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -526,13 +526,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.05071515, y: 0.94653696, z: -0.25923738, w: -0.18518046}
+    m_Target: {x: -0.04715066, y: 0.95274377, z: -0.20488882, w: -0.21926405}
     speed: 2
-    m_Value: {x: -0.05071515, y: 0.94653696, z: -0.25923738, w: -0.18518046}
+    m_Value: {x: -0.04715066, y: 0.95274377, z: -0.20488882, w: -0.21926405}
   m_Size:
-    m_Target: 72.99647
+    m_Target: 9.599035
     speed: 2
-    m_Value: 72.99647
+    m_Value: 9.599035
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -610,18 +610,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/workshop/ScriptBazzar/_master
+    - Assets/workshop/Art
   m_ViewMode: 1
   m_StartGridSize: 69
   m_LastFolders:
-  - Assets/workshop/ScriptBazzar/_master
+  - Assets/workshop/Art
   m_LastFoldersGridSize: 69
-  m_LastProjectPath: C:\Users\ry.seymour\Documents\GitHub\MMbackup\3.8\MuseumManager
+  m_LastProjectPath: C:\Users\ry.seymour\Documents\GitHub\MuseumManager
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 425}
-    m_SelectedIDs: 8c2e0000
-    m_LastClickedID: 11916
+    m_SelectedIDs: a8300000
+    m_LastClickedID: 12456
     m_ExpandedIDs: 000000003c2c0000602c00007a2c0000822c00009c2c0000f42c0000f82d0000442e0000682e00006a2e00006e2e00007a2e00008c2e00008e2e0000922e0000982e0000a42e0000fe2e0000323000003a300000a8300000b2300000e2300000b6310000da310000f2430000f4430000f6430000f8430000fa430000fc430000fe4300000044000002440000044400000644000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
