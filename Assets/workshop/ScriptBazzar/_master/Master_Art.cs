@@ -14,6 +14,7 @@ public class Master_Art : MonoBehaviour {
 	public Art art2;
 	public Art art3;
 	public Art artResearch;
+	public Art rart;
 
 	public static int RestoreThumbnail;
 
@@ -114,7 +115,7 @@ public class Master_Art : MonoBehaviour {
 		}
 
 		for (int i = 0; i < collectionLocations.Count; i++) {
-			collectionLocations[i].gameObject.SetActive(false);
+			collectionLocations[i].gameObject.SetActive(true);
 		}
 
 		for (int i = 0; i < researchThumbnails.Count; i++) {
@@ -313,6 +314,8 @@ public class Master_Art : MonoBehaviour {
             MasterArtList[ARValue].restored = true;
             temporaryRestore.gameObject.SetActive(false);
             MasterArtList[ARValue].AR = false;
+			UI_Manager Backf = this.GetComponent<UI_Manager> ();
+			Backf.Back ();
         }
     }
 
@@ -341,6 +344,14 @@ public class Master_Art : MonoBehaviour {
 		}
 			
 	}
+
+	public void ResearchDonation (GameObject obj){
+
+		int artPos = MasterArtList.IndexOf(obj.GetComponent<ResearchButtonscript>().myArt);
+
+	}
+
+
 
 	public void CollectionInstantiateTest(GameObject obj)
 	{
@@ -385,11 +396,11 @@ public class Master_Art : MonoBehaviour {
 	}
 	}
 
-	public void TestCollection ()
+	//public void TestCollection ()
 
-	{
-		Debug.Log ("Works");
-	}
+	//{
+	//Debug.Log ("Works");
+	//}
 
 	public void ResearchPopulate()
 	{
@@ -423,16 +434,16 @@ public class Master_Art : MonoBehaviour {
 				artResearch = Master_Art.instance.MasterArtList [i];
 
 
-				researchThumbnails[rando].SetActive(true);
-				researchThumbnails[rando].transform.GetChild(2).GetComponent<Text>().text = artResearch.name;
-				researchThumbnails[rando].transform.GetChild(3).GetComponent<Text>().text = artResearch.artist;
+					researchThumbnails[rando].SetActive(true);
+					researchThumbnails[rando].transform.GetChild(2).GetComponent<Text>().text = artResearch.name;
+					researchThumbnails[rando].transform.GetChild(3).GetComponent<Text>().text = artResearch.artist;
 					researchThumbnails[rando].transform.GetChild(4).GetComponent<Text>().text = artResearch.Theme1;
 					researchThumbnails[rando].transform.GetChild(5).GetComponent<Text>().text = artResearch.Theme2;
 					researchThumbnails[rando].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = artResearch.view;
 				//Debug.Log (art1.name);
 				//Debug.Log(art1.view.name); 
 
-				//restoreThumbnails [counter].GetComponent<Buttonscript> ().myArt = art1;
+					restoreThumbnails [rando].GetComponent<ResearchButtonscript> ().myArt = rart;
 
 
 				
@@ -502,7 +513,7 @@ public class Master_Art : MonoBehaviour {
 	//}
 	//}
 		
-
+	/*
 
     public void ResearchTest(float f)
     {
@@ -527,7 +538,7 @@ public class Master_Art : MonoBehaviour {
         Research3.gameObject.SetActive(false);
     }
 
-
+	*/
 
 
 	public void BoolCheck () {

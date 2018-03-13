@@ -201,8 +201,7 @@ GameObject:
   - component: {fileID: 33421812439773676}
   - component: {fileID: 65966787874452298}
   - component: {fileID: 23747981152677304}
-  - component: {fileID: 114006901820622340}
-  - component: {fileID: 114468953365616208}
+  - component: {fileID: 114618796501562636}
   m_Layer: 0
   m_Name: CollectionLocation (2)
   m_TagString: Untagged
@@ -515,8 +514,7 @@ GameObject:
   - component: {fileID: 33308707208111240}
   - component: {fileID: 65436947787964350}
   - component: {fileID: 23502906146728832}
-  - component: {fileID: 114120864267509108}
-  - component: {fileID: 114078929995399446}
+  - component: {fileID: 114035270789269054}
   m_Layer: 0
   m_Name: CollectionLocation
   m_TagString: Untagged
@@ -880,8 +878,7 @@ GameObject:
   - component: {fileID: 33190619603020074}
   - component: {fileID: 65926226559593778}
   - component: {fileID: 23702521859388812}
-  - component: {fileID: 114485028294430212}
-  - component: {fileID: 114212973875658616}
+  - component: {fileID: 114632384169077030}
   m_Layer: 0
   m_Name: CollectionLocation (1)
   m_TagString: Untagged
@@ -1197,7 +1194,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1434223581273668}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 13.539011, y: 0.54992676, z: -0.20004082}
+  m_LocalPosition: {x: 14.64, y: 2.12, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4643878000071308}
@@ -1360,7 +1357,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1181780852575172}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 9.87, y: 0.54992676, z: 3.99}
+  m_LocalPosition: {x: 9.87, y: 1.81, z: 4.98}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children: []
   m_Father: {fileID: 4643878000071308}
@@ -1539,7 +1536,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1783938071983614}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 9.87, y: 0.54992676, z: -3.69}
+  m_LocalPosition: {x: 9.87, y: 2.14, z: -4.62}
   m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children: []
   m_Father: {fileID: 4643878000071308}
@@ -1591,7 +1588,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1099295337879174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.35, y: 1.08, z: 0}
+  m_LocalPosition: {x: 4.35, y: 1.08, z: -1.42}
   m_LocalScale: {x: 0.32074568, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4957758567107262}
@@ -2163,7 +2160,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f0bc3e3c042f7a7408c41e3b63d7f19d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2563,7 +2560,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1245561211715180}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2571,7 +2568,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 58f6aa451c6f74f4aa3d898f4303cb40, type: 2}
+  - {fileID: 2100000, guid: f0bc3e3c042f7a7408c41e3b63d7f19d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2605,7 +2602,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f0bc3e3c042f7a7408c41e3b63d7f19d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2741,7 +2738,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: f0bc3e3c042f7a7408c41e3b63d7f19d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3935,22 +3932,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114006901820622340
+--- !u!114 &114035270789269054
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1181780852575172}
-  m_Enabled: 0
+  m_GameObject: {fileID: 1434223581273668}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bbd4dbff8bf8c44bbd3b38acec24d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
-  spawnPoint: {fileID: 4563573915445676}
-  rend: {fileID: 23747981152677304}
-  guest2: {fileID: 0}
+  spawnPoint: {fileID: 4708833809965808}
+  rend: {fileID: 23601349678968918}
+  myRotation: {x: 0, y: -90, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 0
 --- !u!114 &114035563182435344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4004,82 +4002,6 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 6
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
---- !u!114 &114078929995399446
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1434223581273668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: CollectionPlace
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
---- !u!114 &114120864267509108
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1434223581273668}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bbd4dbff8bf8c44bbd3b38acec24d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
-  spawnPoint: {fileID: 4396647619306412}
-  rend: {fileID: 23502906146728832}
-  guest2: {fileID: 0}
---- !u!114 &114212973875658616
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1783938071983614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: CollectionPlace
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -4144,40 +4066,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
   spawnPoint: {fileID: 4429030781196074}
   rend: {fileID: 23087558563934234}
-  guest2: {fileID: 0}
---- !u!114 &114468953365616208
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1181780852575172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: CollectionPlace
-          m_Mode: 3
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  delegates: []
+  myRotation: {x: 0, y: 0, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 0
 --- !u!114 &114469979133112530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4208,22 +4101,6 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &114485028294430212
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1783938071983614}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bbd4dbff8bf8c44bbd3b38acec24d8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
-  spawnPoint: {fileID: 4822448441796804}
-  rend: {fileID: 23702521859388812}
-  guest2: {fileID: 0}
 --- !u!114 &114531790480664388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4319,16 +4196,51 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947835653606988}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7bbd4dbff8bf8c44bbd3b38acec24d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
   spawnPoint: {fileID: 4708833809965808}
   rend: {fileID: 23601349678968918}
-  guest2: {fileID: 0}
+  myRotation: {x: 0, y: 0, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 0
+--- !u!114 &114618796501562636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1181780852575172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbd4dbff8bf8c44bbd3b38acec24d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifact1Prefab: {fileID: 0}
+  spawnPoint: {fileID: 4708833809965808}
+  rend: {fileID: 23601349678968918}
+  myRotation: {x: 0, y: 180, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 2
+--- !u!114 &114632384169077030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1783938071983614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bbd4dbff8bf8c44bbd3b38acec24d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifact1Prefab: {fileID: 0}
+  spawnPoint: {fileID: 4708833809965808}
+  rend: {fileID: 23601349678968918}
+  myRotation: {x: 0, y: 0, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 1
 --- !u!114 &114691581754636828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4341,10 +4253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
   spawnPoint: {fileID: 4818614385902526}
   rend: {fileID: 23628348422411554}
-  guest2: {fileID: 0}
+  myRotation: {x: 0, y: 0, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 0
 --- !u!114 &114706878928335854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4357,10 +4270,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
   spawnPoint: {fileID: 4073847087164708}
   rend: {fileID: 23424096287114494}
-  guest2: {fileID: 0}
+  myRotation: {x: 0, y: 0, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 0
 --- !u!114 &114708304784855094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4410,10 +4324,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
   spawnPoint: {fileID: 4064411401768472}
   rend: {fileID: 23889583317073368}
-  guest2: {fileID: 0}
+  myRotation: {x: 0, y: 0, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 0
 --- !u!114 &114950909358131760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4426,10 +4341,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   artifact1Prefab: {fileID: 0}
-  artifact2Prefab: {fileID: 0}
   spawnPoint: {fileID: 4433322266147518}
   rend: {fileID: 23881633055749488}
-  guest2: {fileID: 0}
+  myRotation: {x: 0, y: 0, z: 0}
+  GM: {fileID: 0}
+  Objectloc: 0
 --- !u!114 &114967556077461944
 MonoBehaviour:
   m_ObjectHideFlags: 1

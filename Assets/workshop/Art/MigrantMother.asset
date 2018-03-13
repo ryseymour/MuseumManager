@@ -21,9 +21,9 @@ MonoBehaviour:
   viewZone: {fileID: 0}
   artObject: {fileID: 0}
   view: {fileID: 21300000, guid: cc7c6d1e0e0e90b4289ce7dffc0b243e, type: 3}
-  researched: 1
+  researched: 0
   restored: 0
-  displayed: 1
+  displayed: 0
   painting: 1
   AR: 0
   ARmodel: {fileID: 1260620035742852, guid: 0c638cef46dd9df46833899d54b43e76, type: 2}

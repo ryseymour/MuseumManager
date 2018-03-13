@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class exhibitplace : MonoBehaviour {
 
-	public Transform artifact1Prefab;
-	public static Transform artifact2Prefab;
+	//public Transform artifact1Prefab;
+	//public static Transform artifact2Prefab;
 
-	public Transform spawnPoint;
+	//public Transform spawnPoint;
 
-	public Renderer rend;
+	//public Renderer rend;
 
 	public Vector3 myRotation;
 
@@ -51,8 +51,8 @@ public class exhibitplace : MonoBehaviour {
 		//Debug.Log (artifact2Prefab);
 		//Debug.Log (this(Vector3));
 		//this.gameObject = Master_Art.ArtPlacement;
-		if (UI_Manager.confirmbool == true) {
-		}
+		//if (UI_Manager.confirmbool == true) {
+		//}
 					//Instantiate (artifact1Prefab, spawnPoint.position, spawnPoint.rotation);
 					//rend.enabled = false;
 					//artifactNumber = artifactNumber + 1;
