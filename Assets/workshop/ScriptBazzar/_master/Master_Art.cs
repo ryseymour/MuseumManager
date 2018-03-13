@@ -114,10 +114,10 @@ public class Master_Art : MonoBehaviour {
 		}
 
 		for (int i = 0; i < collectionLocations.Count; i++) {
-			collectionThumbnails[i].gameObject.SetActive(false);
+			collectionLocations[i].gameObject.SetActive(false);
 		}
 
-		for (int i = 0; i < collectionLocations.Count; i++) {
+		for (int i = 0; i < researchThumbnails.Count; i++) {
 			researchThumbnails[i].gameObject.SetActive(false);
 		}
 
@@ -435,7 +435,7 @@ public class Master_Art : MonoBehaviour {
 				//restoreThumbnails [counter].GetComponent<Buttonscript> ().myArt = art1;
 
 
-				counter++;
+				
 
 
 
@@ -446,61 +446,61 @@ public class Master_Art : MonoBehaviour {
 
 
 
-	public void Populate()
-	{
-		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
-		{
-			if (!Master_Art.instance.MasterArtList[i].researched)
-			{
+	//public void Populate()
+	//{
+	//	for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		//{
+		//	if (!Master_Art.instance.MasterArtList[i].researched)
+			//{
 				//Debug.Log(Master_Art.instance.MasterArtList[i]);
-				int rando = Random.Range(0, Master_Art.instance.MasterArtList.Count);
-				Debug.Log(rando);
+				//int rando = Random.Range(0, Master_Art.instance.MasterArtList.Count);
+			//	Debug.Log(rando);
 
-				if (rando != lastrando) {
-					if (rando == 1) {
-						art1 = Master_Art.instance.MasterArtList [i];
-						title1.text = art1.name;
-						artist1.text = art1.artist;
-						Theme11.text = art1.Theme1;
-						Theme21.text = art1.Theme2;
-						artworkImage1.sprite = art1.view;
+				//if (rando != lastrando) {
+					//if (rando == 1) {
+						//art1 = Master_Art.instance.MasterArtList [i];
+						//title1.text = art1.name;
+						//artist1.text = art1.artist;
+						//Theme11.text = art1.Theme1;
+						//Theme21.text = art1.Theme2;
+						//artworkImage1.sprite = art1.view;
 						//DisplayCheck ();
-					}
-					if (rando == 2) {
-						art2 = Master_Art.instance.MasterArtList [i];
-						title2.text = art2.name;
-						artist2.text = art2.artist;
-						Theme12.text = art2.Theme1;
-						Theme22.text = art2.Theme2;
-						artworkImage2.sprite = art2.view; 
-						//DisplayCheck ();
-
-					}
-					if (rando == 3) {
-						art3 = Master_Art.instance.MasterArtList [i];
-						title3.text = art3.name;
-						artist3.text = art3.artist;
-						Theme13.text = art3.Theme1;
-						Theme23.text = art3.Theme2;
-						artworkImage3.sprite = art3.view;  
+					//}
+					//if (rando == 2) {
+					//	art2 = Master_Art.instance.MasterArtList [i];
+						//title2.text = art2.name;
+					//	artist2.text = art2.artist;
+					//	Theme12.text = art2.Theme1;
+						//Theme22.text = art2.Theme2;
+						//artworkImage2.sprite = art2.view; 
 						//DisplayCheck ();
 
-					}
-                    Research1.gameObject.SetActive(true);
-                    Research2.gameObject.SetActive(true);
-                    Research3.gameObject.SetActive(true);
-                    Master_Art.instance.MasterArtList [i].displayed = true;
+				//	}
+				//	if (rando == 3) {
+					//	art3 = Master_Art.instance.MasterArtList [i];
+						//title3.text = art3.name;
+						//artist3.text = art3.artist;
+					//	Theme13.text = art3.Theme1;
+						//Theme23.text = art3.Theme2;
+						//artworkImage3.sprite = art3.view;  
+						//DisplayCheck ();
+
+					//}
+                  //  Research1.gameObject.SetActive(true);
+                  //  Research2.gameObject.SetActive(true);
+                  //  Research3.gameObject.SetActive(true);
+                  //  Master_Art.instance.MasterArtList [i].displayed = true;
 					//Will need to remove
-					Master_Art.instance.MasterArtList [i].researched = true;
-					rando = lastrando;
-				} else {
-					return;
-				}
-                
+					//Master_Art.instance.MasterArtList [i].researched = true;
+				//	rando = lastrando;
+			//	} else {
+				//	return;
+				//}
+             //   
 
-	}
-	}
-	}
+	//}
+	//}
+	//}
 		
 
 
@@ -545,8 +545,8 @@ public class Master_Art : MonoBehaviour {
 				Research2.gameObject.SetActive (true);
 				Research3.gameObject.SetActive (true);
 				Unlock2.gameObject.SetActive (false);
-				Populate ();
-				Debug.Log ("ResearchCompletefalse");
+			//	Populate ();
+				//Debug.Log ("ResearchCompletefalse");
 			
 			}
 				
@@ -574,7 +574,7 @@ public class Master_Art : MonoBehaviour {
 			if (timeLeft <= 0) {
                 if (!repop)
                 {
-                    Populate();
+                   // Populate();
                     //enable the researched bool 
                     int tempInt = MasterArtList.IndexOf(temp.GetComponent<ResearchDisplay>().art);
                     MasterArtList[tempInt].researched = true;
