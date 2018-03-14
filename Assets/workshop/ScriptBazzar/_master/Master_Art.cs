@@ -124,6 +124,66 @@ public class Master_Art : MonoBehaviour {
 
     }
 
+	public void ResearchPopulate()
+	{
+		int counter = 0;
+
+		Debug.Log("restore test");
+		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		{
+			n = 0;
+			while (n<1)
+			{
+				int rando = Random.Range(0, Master_Art.instance.MasterArtList.Count);
+				if (!numbers.Contains(rando)) {
+					numbers.Add (rando);
+					Debug.Log (rando + "rando");
+					Debug.Log (numbers + "numbers");
+					Debug.Log (numbers.Contains(rando) + "numbers");
+					numbers.ForEach (delegate(int randos) {
+						Debug.Log (name);
+					});
+
+					n++;
+				} else {
+					n = 0;
+				}
+				Debug.Log (rando + "rando");
+				Debug.Log (lastrando + "lastrando");
+
+
+				if (!Master_Art.instance.MasterArtList[i].researched) {
+					//artResearch = Master_Art.instance.MasterArtList [i];
+					artResearch = Master_Art.instance.MasterArtList [i];
+
+
+					researchThumbnails[rando].SetActive(true);
+					researchThumbnails[rando].transform.GetChild(2).GetComponent<Text>().text = artResearch.name;
+					researchThumbnails[rando].transform.GetChild(3).GetComponent<Text>().text = artResearch.artist;
+					researchThumbnails[rando].transform.GetChild(4).GetComponent<Text>().text = artResearch.Theme1;
+					researchThumbnails[rando].transform.GetChild(5).GetComponent<Text>().text = artResearch.Theme2;
+					researchThumbnails[rando].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = artResearch.view;
+					//Debug.Log (art1.name);
+					//Debug.Log(art1.view.name); 
+
+					//researchThumbnails[rando].GetComponent<ResearchButtonscript> ().myArt3 = artResearch;
+
+
+
+					counter++;
+
+
+				}
+			}
+		}
+	}
+
+	public void ResearchDonation (GameObject obj){
+
+		//int artPos = MasterArtList.IndexOf(obj.GetComponent<ResearchButtonscript>().myArt3);
+		//ARValue = artPos;
+	}
+
     public void RestorePopulate ()
 	{
         int counter = 0;
@@ -180,6 +240,69 @@ public class Master_Art : MonoBehaviour {
 		}
 
 	}
+
+	public void AR ()
+	{
+		int counter = 0;
+
+		Debug.Log("restore test");
+		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
+		{
+			if (Master_Art.instance.MasterArtList [i].AR) {
+				art1 = Master_Art.instance.MasterArtList [i];
+
+				Debug.Log (art1.name);
+				Debug.Log(art1.view.name); 
+				art1 = Master_Art.instance.MasterArtList [i];
+				Instantiate (Master_Art.instance.MasterArtList [i].ARmodel, spawnpoint.position, spawnpoint.rotation);
+				rend.enabled = false;
+
+				Debug.Log (name);
+
+			}
+
+		}
+
+	}
+
+	public void ARInstantiate ()
+	{		
+		if (MasterArtList[ARValue].AR)
+		{
+			MasterArtList[ARValue].restored = true;
+			temporaryRestore.gameObject.SetActive(false);
+			MasterArtList[ARValue].AR = false;
+			UI_Manager Backf = this.GetComponent<UI_Manager> ();
+			Backf.Back ();
+		}
+	}
+
+	public void RestoreInstantiate(GameObject obj)
+	{
+		Debug.Log(obj);
+
+		int artPos = MasterArtList.IndexOf(obj.GetComponent<Buttonscript>().myArt);
+		Debug.Log(artPos);
+
+		MasterArtList[artPos].AR = true;
+
+
+		temporaryRestore = (GameObject)Instantiate(MasterArtList[artPos].ARmodel, spawnpoint.position, spawnpoint.rotation);
+		ARValue = artPos;
+
+		UI_Manager UI = this.GetComponent<UI_Manager>();
+		UI.RestoreClean(1);
+
+		if (MasterArtList[artPos].painting)
+		{
+			Debug.Log ("artpos");
+			UI_Manager UI2 = this.GetComponent<UI_Manager>();
+			UI2.RestoreClean(1);
+
+		}
+
+	}
+
 
 
 
@@ -283,73 +406,6 @@ public class Master_Art : MonoBehaviour {
 			}
 
 
-	public void AR ()
-	{
-		int counter = 0;
-
-		Debug.Log("restore test");
-		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
-		{
-			if (Master_Art.instance.MasterArtList [i].AR) {
-				art1 = Master_Art.instance.MasterArtList [i];
-
-				Debug.Log (art1.name);
-				Debug.Log(art1.view.name); 
-				art1 = Master_Art.instance.MasterArtList [i];
-				Instantiate (Master_Art.instance.MasterArtList [i].ARmodel, spawnpoint.position, spawnpoint.rotation);
-				rend.enabled = false;
-
-				Debug.Log (name);
-			
-			}
-
-		}
-
-	}
-
-	public void ARInstantiate ()
-	{		
-        if (MasterArtList[ARValue].AR)
-        {
-            MasterArtList[ARValue].restored = true;
-            temporaryRestore.gameObject.SetActive(false);
-            MasterArtList[ARValue].AR = false;
-			UI_Manager Backf = this.GetComponent<UI_Manager> ();
-			Backf.Back ();
-        }
-    }
-
-	public void RestoreInstantiate(GameObject obj)
-	{
-		Debug.Log(obj);
-
-		int artPos = MasterArtList.IndexOf(obj.GetComponent<Buttonscript>().myArt);
-		Debug.Log(artPos);
-
-		MasterArtList[artPos].AR = true;
-
-
-		temporaryRestore = (GameObject)Instantiate(MasterArtList[artPos].ARmodel, spawnpoint.position, spawnpoint.rotation);
-		ARValue = artPos;
-
-		UI_Manager UI = this.GetComponent<UI_Manager>();
-		UI.RestoreClean(1);
-
-		if (MasterArtList[artPos].painting)
-		{
-			Debug.Log ("artpos");
-			UI_Manager UI2 = this.GetComponent<UI_Manager>();
-			UI2.RestoreClean(1);
-
-		}
-			
-	}
-
-	public void ResearchDonation (GameObject obj){
-
-		int artPos = MasterArtList.IndexOf(obj.GetComponent<ResearchButtonscript>().myArt);
-
-	}
 
 
 
@@ -402,58 +458,7 @@ public class Master_Art : MonoBehaviour {
 	//Debug.Log ("Works");
 	//}
 
-	public void ResearchPopulate()
-	{
-		int counter = 0;
 
-		Debug.Log("restore test");
-		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
-		{
-			n = 0;
-			while (n<1)
-			{
-			int rando = Random.Range(0, Master_Art.instance.MasterArtList.Count);
-				if (!numbers.Contains(rando)) {
-					numbers.Add (rando);
-					Debug.Log (rando + "rando");
-					Debug.Log (numbers + "numbers");
-					Debug.Log (numbers.Contains(rando) + "numbers");
-					numbers.ForEach (delegate(int randos) {
-						Debug.Log (name);
-					});
-
-					n++;
-				} else {
-					n = 0;
-				}
-			Debug.Log (rando + "rando");
-			Debug.Log (lastrando + "lastrando");
-
-
-			if (!Master_Art.instance.MasterArtList[i].researched) {
-				artResearch = Master_Art.instance.MasterArtList [i];
-
-
-					researchThumbnails[rando].SetActive(true);
-					researchThumbnails[rando].transform.GetChild(2).GetComponent<Text>().text = artResearch.name;
-					researchThumbnails[rando].transform.GetChild(3).GetComponent<Text>().text = artResearch.artist;
-					researchThumbnails[rando].transform.GetChild(4).GetComponent<Text>().text = artResearch.Theme1;
-					researchThumbnails[rando].transform.GetChild(5).GetComponent<Text>().text = artResearch.Theme2;
-					researchThumbnails[rando].transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = artResearch.view;
-				//Debug.Log (art1.name);
-				//Debug.Log(art1.view.name); 
-
-					restoreThumbnails [rando].GetComponent<ResearchButtonscript> ().myArt = rart;
-
-
-				
-
-
-
-	}
-		}
-	}
-	}
 
 
 
@@ -539,7 +544,7 @@ public class Master_Art : MonoBehaviour {
     }
 
 	*/
-
+	/*
 
 	public void BoolCheck () {
 		
@@ -565,7 +570,7 @@ public class Master_Art : MonoBehaviour {
 	}
 
 
-
+	*/
 
 
 
@@ -580,7 +585,7 @@ public class Master_Art : MonoBehaviour {
 		if (placeclick >= 1) {
 
 		}
-
+		/*
 		if (timerText = true) {
 			if (timeLeft <= 0) {
                 if (!repop)
@@ -635,6 +640,8 @@ public class Master_Art : MonoBehaviour {
 			//timeLeft = 0;
 		//countdownText.text = ("Time Left = " + timeLeft);
 	//}
+	*/
+}
 }
 
 
