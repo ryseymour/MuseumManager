@@ -21,6 +21,8 @@ public class UI_Manager : MonoBehaviour {
     public static float donatevalue;
     public static float updateDonateValue;
     public static bool donateNow;
+
+    public float donateMax;
     public Text donateText;
 
     public int artifactScore;

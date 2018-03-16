@@ -16,8 +16,8 @@ MonoBehaviour:
   artist: Van Gogh
   Theme1: Industrial
   Theme2: Landscape
-  cleanScore: 0
-  totalScore: 0
+  baseScore: 1
+  cleanScore: 1.5
   viewZone: {fileID: 0}
   artObject: {fileID: 0}
   view: {fileID: 21300000, guid: 3424c17fcfb9862489998dd776afa0ca, type: 3}

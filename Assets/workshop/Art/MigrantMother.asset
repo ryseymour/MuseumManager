@@ -16,12 +16,12 @@ MonoBehaviour:
   artist: Lange
   Theme1: Modern
   Theme2: Portrait
-  cleanScore: 0
-  totalScore: 0
+  baseScore: 1
+  cleanScore: 2
   viewZone: {fileID: 0}
   artObject: {fileID: 0}
   view: {fileID: 21300000, guid: cc7c6d1e0e0e90b4289ce7dffc0b243e, type: 3}
-  researched: 0
+  researched: 1
   restored: 0
   displayed: 0
   painting: 1

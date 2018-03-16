@@ -19,7 +19,12 @@ public class GuestScript : MonoBehaviour {
     public bool gVisible; //should model be visible
     public float invisTravelTimer; //timer to simulate travel
     float invisTick; //tick for travel simulation
-    public float speed, patience, noise, timer, tick;
+    public float speed, patience, noise, timer, tick, score;
+
+    public GameObject exitDoor; 
+
+    int wingCount; //how many wings have you visited
+    public int wingCount_Max; //
 
 	// Use this for initialization
 	void Start () {
@@ -39,19 +44,25 @@ public class GuestScript : MonoBehaviour {
             _Enter();
         }
 
-        if (GM_guestScript.instance.visible)
+        if (GM_guestScript.instance.visible) //is there an open menu?
         {
-            gVisible = true;
-            this.GetComponent<MeshRenderer>().enabled = true;
+            if (gVisible) //is this model active in the scene?
+            {
+                this.GetComponent<MeshRenderer>().enabled = true;
+            }else //are they in their weird purgatory
+            {
+                this.GetComponent<MeshRenderer>().enabled = false;
+            }
+           
         }
-        else{
-            gVisible = false;
-            this.GetComponent<MeshRenderer>().enabled = false;
+        else{             //a window is open, stop looking at the guests
+            this.GetComponent<MeshRenderer>().enabled = false; 
         }
 
         _Travel();
         _View();
         _Search(); //need to be able to remember what they've already seen
+        _Leave();
         
 	}
 
@@ -59,10 +70,13 @@ public class GuestScript : MonoBehaviour {
     {
         if (enter)
         {
+            score = 0;
+            wingCount = 0;
             float rando = Random.Range(0, GM_guestScript.instance.Wings.Count);
             wingTarget = GM_guestScript.instance.Wings[Mathf.FloorToInt(rando)];           
             travel = true;
             enter = false;
+            exit = false;
         }else
         {
             return;
@@ -100,7 +114,7 @@ public class GuestScript : MonoBehaviour {
         if (view)
         {
 
-            if (wingTarget.installations[0] == null) //if nothing is in the wing
+            if (wingTarget.installations[0] == null || wingTarget.installations.Count == 0) //if nothing is in the wing
             {
                 //view_init = true;
                 
@@ -119,6 +133,8 @@ public class GuestScript : MonoBehaviour {
                 }
                 return;
             }
+
+
             if (!view_init)
             {
                 //Debug.Log(wingTarget.arts[0].viewZone.bounds);
@@ -129,6 +145,7 @@ public class GuestScript : MonoBehaviour {
                 {
                     artQ.Add(wingTarget.installations[i]);
                 }
+               
                 //go to the first art piece
                 view_init = true;
             }else
@@ -155,19 +172,18 @@ public class GuestScript : MonoBehaviour {
                         tick += 1 * Time.deltaTime;
                     }else
                     {
+                        Debug.Log(artQ[pos_artQ]);
+                        score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
                         pos_artQ++;
                         tick = 0;
                     }
                 }else
                 {
-                    
                     search = true;
                     view = false;
                     view_init = false;
                 }
-            }
-
-            
+            }            
         }
     }
 
@@ -177,15 +193,35 @@ public class GuestScript : MonoBehaviour {
         {
             float rando = Random.RandomRange(0, GM_guestScript.instance.Wings.Count);
             if (wingTarget == GM_guestScript.instance.Wings[Mathf.FloorToInt(rando)])
-            {                
+            {   
+                           
                 return;           
             }else
             {
-                wingTarget = GM_guestScript.instance.Wings[Mathf.FloorToInt(rando)];
-                travel = true;
-                search = false;
-                view_init = false;
+                if(wingCount < wingCount_Max)
+                {
+                    wingCount++;
+                    wingTarget = GM_guestScript.instance.Wings[Mathf.FloorToInt(rando)];
+                    travel = true;                   
+                    search = false;
+                    view_init = false;
+                }
+                else
+                {
+                    exit = true;
+                    travel = false;
+                    search = false;
+                }
             }
+        }
+
+    }
+
+    void _Leave()
+    {
+        if (exit)
+        {
+            transform.position = Vector3.Lerp(this.transform.position, exitDoor.transform.position, speed * Time.deltaTime);
         }
     }
 
@@ -196,6 +232,15 @@ public class GuestScript : MonoBehaviour {
         {
             view = true;
             travel = false;
+        }
+
+        if (other.tag == "exit")
+        {
+            GameObject.Find("GM").GetComponent<UI_Manager>().donateMax += score;
+            GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
+            exit = false;
+            gVisible = false;
+            Debug.Log(score);
         }
     }
 }

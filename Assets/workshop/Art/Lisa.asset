@@ -16,13 +16,13 @@ MonoBehaviour:
   artist: Leonardo Da Vinci
   Theme1: Renissance
   Theme2: Portrait
+  baseScore: 0
   cleanScore: 3
-  totalScore: 5
   viewZone: {fileID: 0}
   artObject: {fileID: 1874651853261708, guid: 22f284b6bfdf0db439538cd893c8008b, type: 2}
   view: {fileID: 21300000, guid: 60b73e697dd5ab24292f0527e47f4072, type: 3}
-  researched: 0
-  restored: 0
+  researched: 1
+  restored: 1
   displayed: 0
   painting: 1
   AR: 0

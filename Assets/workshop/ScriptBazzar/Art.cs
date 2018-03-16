@@ -15,8 +15,9 @@ public class Art : ScriptableObject {
 
 	public string Theme2;
 
-    public float cleanScore;
-    public float totalScore;
+    public float baseScore; //baseline score
+    public float cleanScore; //score added onto the baseline after cleaning
+    
 
     public BoxCollider viewZone;
     public GameObject artObject;

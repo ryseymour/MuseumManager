@@ -59,18 +59,14 @@ MonoBehaviour:
   - installations:
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
     entrance: {fileID: 0}
   - installations:
     - {fileID: 0}
     - {fileID: 0}
     entrance: {fileID: 0}
-  - installations:
-    - {fileID: 0}
+  - installations: []
     entrance: {fileID: 0}
-  visible: 0
+  visible: 1
 --- !u!114 &114278344714844064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,6 +82,8 @@ MonoBehaviour:
   art1: {fileID: 0}
   art2: {fileID: 0}
   art3: {fileID: 0}
+  artResearch: {fileID: 0}
+  rart: {fileID: 0}
   Unlock2: {fileID: 0}
   Research1: {fileID: 0}
   Research2: {fileID: 0}
@@ -93,9 +91,9 @@ MonoBehaviour:
   RestoreButton: {fileID: 0}
   CollectionPaintingButton: {fileID: 0}
   MasterArtList:
-  - {fileID: 11400000, guid: 36cf7b0e409d26649be357dadc4ec8c8, type: 2}
-  - {fileID: 11400000, guid: 9c2a16d3234de4e409685238260b7d66, type: 2}
   - {fileID: 11400000, guid: 3fcd66b22abd0244993be86a7cc7c18e, type: 2}
+  - {fileID: 11400000, guid: 9c2a16d3234de4e409685238260b7d66, type: 2}
+  - {fileID: 11400000, guid: 36cf7b0e409d26649be357dadc4ec8c8, type: 2}
   title1: {fileID: 0}
   artist1: {fileID: 0}
   artworkImage1: {fileID: 0}
@@ -116,6 +114,7 @@ MonoBehaviour:
   crop: 0
   plot: 1
   finishPlot: 0
+  n: 0
   CommunityHealth: 50
   timerText: 0
   spawnpoint: {fileID: 0}
@@ -139,6 +138,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  collectionLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  researchThumbnails:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  numbers: 
   lastrando: 0
   rend: {fileID: 0}
 --- !u!114 &114501849456935072
@@ -156,7 +170,6 @@ MonoBehaviour:
   ArtifactsScreen: {fileID: 0}
   MainScreen: {fileID: 0}
   RestoreScreen: {fileID: 0}
-  FP_screen: {fileID: 0}
   PaintRestore: {fileID: 0}
   ResearchScreen: {fileID: 0}
   donateText: {fileID: 0}
