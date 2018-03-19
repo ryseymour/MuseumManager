@@ -83,12 +83,15 @@ public class UI_Manager : MonoBehaviour {
     {
         ArtifactsScreen.gameObject.SetActive(true);
         MainScreen.gameObject.SetActive(false);
+		Master_Art.instance.ResetCollection ();
     }
 
     public void Restore()
     {
+		
         RestoreScreen.gameObject.SetActive(true);
         MainScreen.gameObject.SetActive(false);
+		Master_Art.instance.RestoreReset ();
     }
 
     public void PaintRestoreScreen()
