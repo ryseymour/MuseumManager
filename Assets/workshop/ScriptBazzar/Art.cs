@@ -22,6 +22,7 @@ public class Art : ScriptableObject {
     public BoxCollider viewZone;
     public GameObject artObject;
 	public Sprite view;
+	public Sprite Restoreview;
 
     public bool researched;
     public bool restored;
@@ -31,6 +32,7 @@ public class Art : ScriptableObject {
 
 	public bool AR;
 	public GameObject ARmodel;
+	public Canvas dirtyspots;
 
     private void OnEnable()
     {

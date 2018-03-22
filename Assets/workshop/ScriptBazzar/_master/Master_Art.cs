@@ -71,11 +71,15 @@ public class Master_Art : MonoBehaviour {
 	public bool timerText = false;
 
 	public Transform spawnpoint;
+	public Canvas spawnpointimage;
 
     bool repop; //only run once repopulate after thetimer
     GameObject temp; //helps read what button is being pressed
 	GameObject tempAR;
 	GameObject tempCoL;
+	public GameObject im2;
+	Sprite Restore2;
+	Canvas RestoreSpots;
 
     public List<GameObject> restoreThumbnails = new List<GameObject>();
 	public List<GameObject> collectionThumbnails = new List<GameObject>();
@@ -88,7 +92,9 @@ public class Master_Art : MonoBehaviour {
 	public Renderer rend;
 
 
-    GameObject temporaryRestore; //so we can isntantiate and then destroy an object that is being restored
+	GameObject temporaryRestore; //so we can isntantiate and then destroy an object that is being restored
+	public Sprite imageRestore;
+	public Canvas canvasRestore;
 	GameObject Restore;
 
 
@@ -352,6 +358,19 @@ public class Master_Art : MonoBehaviour {
 
 
 		temporaryRestore = (GameObject)Instantiate(MasterArtList[artPos].ARmodel, spawnpoint.position, spawnpoint.rotation);
+		//imageRestore = GetComponent<
+		//imageRestore = GetComponent<Image>.SourceImage();
+		//imageRestore = (Sprite)Instantiate(MasterArtList[artPos].view);
+			//(Sprite)Instantiate(MasterArtList[artPos].view, spawnpointimage.position, spawnpointimage.rotation);
+		imageRestore = MasterArtList[artPos].view;
+		Restore2 = im2.GetComponent<Image> ().sprite = imageRestore;
+
+		canvasRestore = MasterArtList [artPos].dirtyspots;
+		RestoreSpots = im2.GetComponent<Canvas> (); 
+		RestoreSpots = canvasRestore;
+		Debug.Log ("canvas" + canvasRestore);
+		Debug.Log ("canvas" + im2.GetComponent<Canvas> ());
+		Debug.Log ("image" + imageRestore);
 		ARValue = artPos;
 
 		UI_Manager UI = this.GetComponent<UI_Manager>();
