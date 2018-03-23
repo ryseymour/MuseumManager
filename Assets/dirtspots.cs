@@ -26,6 +26,17 @@ public class dirtspots : MonoBehaviour {
 
 		}
 	}
+
+	public void Spots () {
+		if (UI_Manager.SwabOn == true) {
+			Debug.Log ("turned on");
+			gameObject.SetActive (false);
+			Master_Art.dirtyspots -= 1;
+			Debug.Log (Master_Art.dirtyspots);
+			cleaningbool = true;
+		}
+
+	}
 	
 	// Update is called once per frame
 	void Update () {

@@ -95,6 +95,8 @@ public class Master_Art : MonoBehaviour {
 	GameObject temporaryRestore; //so we can isntantiate and then destroy an object that is being restored
 	public Sprite imageRestore;
 	public Canvas canvasRestore;
+	public GameObject imageComplete;
+
 	GameObject Restore;
 
 
@@ -340,10 +342,12 @@ public class Master_Art : MonoBehaviour {
 		if (MasterArtList[ARValue].AR)
 		{
 			MasterArtList[ARValue].restored = true;
-			temporaryRestore.gameObject.SetActive(false);
+			//temporaryRestore.gameObject.SetActive(false);
 			MasterArtList[ARValue].AR = false;
-			UI_Manager Backf = this.GetComponent<UI_Manager> ();
-			Backf.Back ();
+			imageComplete.SetActive (true);
+
+			//UI_Manager Backf = this.GetComponent<UI_Manager> ();
+			//Backf.Back ();
 		}
 	}
 

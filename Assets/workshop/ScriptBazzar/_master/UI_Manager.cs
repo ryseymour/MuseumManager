@@ -13,6 +13,7 @@ public class UI_Manager : MonoBehaviour {
     public Canvas RestoreScreen;
     public Canvas PaintRestore;
 	public Canvas ResearchScreen;
+	//public Canvas PaintingCollection;
 
 
 
@@ -106,6 +107,7 @@ public class UI_Manager : MonoBehaviour {
         MainScreen.gameObject.SetActive(true);
         PaintRestore.gameObject.SetActive(false);
 		ResearchScreen.gameObject.SetActive (false);
+		//PaintingCollection.gameObject.SetActive (false);
     }
 	// Research Screen
 
