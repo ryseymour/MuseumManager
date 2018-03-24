@@ -18,6 +18,7 @@ public class GM_guestScript : MonoBehaviour {
     public static GM_guestScript instance = null;
 
     public List<Section> Wings = new List<Section>();
+    public List<GameObject> GuestPool = new List<GameObject>();
 
 
     public bool visible;
@@ -29,7 +30,7 @@ public class GM_guestScript : MonoBehaviour {
     void Start () {
         for(int i = 0; i < Wings.Count; i++)
         {
-            Debug.Log("i: " + i);
+            
            // for(int j =0; j < Wings[i].arts.Count; j++)
            // {
               //  Debug.Log("j: " + j);
@@ -38,9 +39,11 @@ public class GM_guestScript : MonoBehaviour {
         }
 		
 	}
+
+    public void DeActivate(int pos)
+    {
+        GuestPool[pos].SetActive(false);
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

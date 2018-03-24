@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class GuestScript : MonoBehaviour {
 
 
-    public bool enter, travel, search, view, use, exit;
+    public bool enter, travel, search, view, use, exit, active;
     /// <summary>
     /// init, moving between wings/facilities, look for next wing/facility, view exhibits, use facility, exit museum
     /// </summary>
@@ -26,11 +26,14 @@ public class GuestScript : MonoBehaviour {
     int wingCount; //how many wings have you visited
     public int wingCount_Max; //
 
+
+    NavMeshAgent myAgent;
 	// Use this for initialization
 	void Start () {
         _Enter();
         view_init = false;
         invisTick = 0;
+        myAgent = GetComponent<NavMeshAgent>();        
 	}
 	
 	// Update is called once per frame
@@ -59,10 +62,14 @@ public class GuestScript : MonoBehaviour {
             this.GetComponent<MeshRenderer>().enabled = false; 
         }
 
-        _Travel();
-        _View();
-        _Search(); //need to be able to remember what they've already seen
-        _Leave();
+        if (active)
+        {
+            _Travel();
+            _View();
+            _Search(); //need to be able to remember what they've already seen
+            _Leave();
+        }
+
         
 	}
 
@@ -70,6 +77,8 @@ public class GuestScript : MonoBehaviour {
     {
         if (enter)
         {
+            transform.position = exitDoor.transform.position;
+            active = true;
             score = 0;
             wingCount = 0;
             float rando = Random.Range(0, GM_guestScript.instance.Wings.Count);
@@ -89,7 +98,8 @@ public class GuestScript : MonoBehaviour {
         {
             if (gVisible)
             {
-                transform.position = Vector3.Lerp(this.transform.position, wingTarget.entrance.position, speed * Time.deltaTime);
+               // transform.position = Vector3.Lerp(this.transform.position, wingTarget.entrance.position, speed * Time.deltaTime);
+                myAgent.SetDestination(wingTarget.entrance.position);
             }else
             {
                 if(invisTick < invisTravelTimer)
@@ -154,7 +164,8 @@ public class GuestScript : MonoBehaviour {
                 {
                     if (gVisible)
                     {
-                        transform.position = Vector3.Lerp(transform.position, artQ[pos_artQ].transform.position, speed * Time.deltaTime);
+                        //transform.position = Vector3.Lerp(transform.position, artQ[pos_artQ].transform.position, speed * Time.deltaTime);
+                        myAgent.SetDestination(artQ[pos_artQ].transform.position);
                     }else
                     {
                         //need a way to calculate the distance and the time it should take to travel to the exhibit, should be that final parameter in the lerp
@@ -221,26 +232,37 @@ public class GuestScript : MonoBehaviour {
     {
         if (exit)
         {
-            transform.position = Vector3.Lerp(this.transform.position, exitDoor.transform.position, speed * Time.deltaTime);
+            //transform.position = Vector3.Lerp(this.transform.position, exitDoor.transform.position, speed * Time.deltaTime);
+            myAgent.SetDestination(exitDoor.transform.position);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        Debug.Log("init " + other.name);
         if(other.tag == "entrance")
         {
+            Debug.Log(other.name);
             view = true;
             travel = false;
         }
 
         if (other.tag == "exit")
         {
-            GameObject.Find("GM").GetComponent<UI_Manager>().donateMax += score;
-            GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
-            exit = false;
-            gVisible = false;
-            Debug.Log(score);
+            if (exit)
+            {
+                GameObject.Find("GM").GetComponent<UI_Manager>().donateMax += score;
+                GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
+                exit = false;
+                gVisible = false;
+                Debug.Log(score);
+                int i = GM_guestScript.instance.GuestPool.IndexOf(this.gameObject);
+                GM_guestScript.instance.DeActivate(i);
+                active = false;
+
+
+            }
+
         }
     }
 }
