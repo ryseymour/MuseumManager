@@ -193,12 +193,6 @@
     <Reference Include="UnityEngine.WindModule">
       <HintPath>Library\UnityAssemblies\UnityEngine.WindModule.dll</HintPath>
     </Reference>
-    <Reference Include="Vuforia.UnityExtensions.Editor">
-      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Vuforia.UnityExtensions">
-      <HintPath>Library\UnityAssemblies\Vuforia.UnityExtensions.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -640,6 +634,7 @@
     <Compile Include="Assets\workshop\ScriptBazzar\_master\TransC1.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\_master\UI_Manager.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\Art.cs" />
+    <Compile Include="Assets\workshop\ScriptBazzar\AuctionScreen.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\Camera2.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\GM_guestScript.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\GuestScript.cs" />
