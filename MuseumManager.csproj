@@ -634,6 +634,7 @@
     <Compile Include="Assets\workshop\ScriptBazzar\_master\TransC1.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\_master\UI_Manager.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\Art.cs" />
+    <Compile Include="Assets\workshop\ScriptBazzar\auctionClass.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\AuctionScreen.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\Camera2.cs" />
     <Compile Include="Assets\workshop\ScriptBazzar\GM_guestScript.cs" />

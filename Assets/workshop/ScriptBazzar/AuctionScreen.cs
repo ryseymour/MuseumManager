@@ -2,48 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
-[System.Serializable]
-public class AuctionSelectable
-{
-    public Image selectIcon;
-    public Text selectName;
-    public Text startBid;
-    public Text Theme;
-    public Text Condition;
-    public Art myArt;
-
-    public void ActivateSelect(Art a)
-    {
-        selectIcon.sprite = a.view;
-        selectName.text = a.name;
-        startBid.text = "$" + a.startBid.ToString();
-        Theme.text = a.Theme1;
-        Condition.text = a.myCondition.ToString();
-        myArt = a;
-    }
-}
-
-public class AuctionBid
-{
-    public Image bidIcon;
-    public Text currentBid;
-    public Text raiseText;
-    public Text bidDescription;
-
-    public void ActivateBid()
-    {
-
-    }
-}
 
 public class AuctionScreen : MonoBehaviour
 {
-    public List<AuctionSelectable> selectables = new List<AuctionSelectable>();
-    public AuctionBid bidable;
+    
+    public List<auctionClass> auctionItems = new List<auctionClass>();
+
+    
 
     public GameObject AuctionPanel; //main auction panel
+    public GameObject BidPanel; //individual object to bid on (parent object)
+
+
     public bool selectMode, bidMode;
 
     public List<Art> testArt = new List<Art>();
@@ -54,6 +27,10 @@ public class AuctionScreen : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        for(int j=0; j <auctionItems.Count; j++)
+        {
+            Debug.Log(auctionItems[j].selectName.text);
+        }
         for (int i = 0; i < testArt.Count; i++)
         {
             testArt[i].displayed = false;
@@ -67,17 +44,19 @@ public class AuctionScreen : MonoBehaviour
     {
         AuctionPanel.SetActive(true);
         PopulateSelect();
+        BidPanel.SetActive(false);
         //populate selection
 
     }
 
     void PopulateSelect()
     {
-        for (int i = 0; i < selectables.Count; i++)
+        for (int i = 0; i < auctionItems.Count; i++)
         {
             if (!testArt[i + Mathf.FloorToInt(posID * posStep)].researched)
             {
-                selectables[i].ActivateSelect(testArt[i + Mathf.FloorToInt(posID * posStep)]);
+               // selectables[i].ActivateSelect(testArt[i + Mathf.FloorToInt(posID * posStep)]);
+                auctionItems[i].ActivateItem(testArt[i + Mathf.FloorToInt(posID * posStep)]);
                 //testArt[i].displayed = true;
             }
            
@@ -87,10 +66,13 @@ public class AuctionScreen : MonoBehaviour
     public void NextPage()
     {
         Debug.Log(testArt.Count);
-        Debug.Log((1+posID)*posStep);
-        if (testArt.Count > Mathf.FloorToInt(1+posID * posStep))
-        {
+        Debug.Log((2+posID)*posStep);
+        if (testArt.Count > Mathf.FloorToInt(2+posID * posStep))
+        {           
             posID++;
+        }else
+        {
+            Debug.Log("wut");
         }
         
         PopulateSelect();
@@ -105,4 +87,17 @@ public class AuctionScreen : MonoBehaviour
 
         PopulateSelect();
     }
+
+    public void BidSelect()
+    {
+        GameObject obj = EventSystem.current.currentSelectedGameObject;
+        BidPanel.SetActive(true);
+        obj.transform.parent.GetComponent<auctionClass>().ActivateBid();
+        Debug.Log(obj.transform.parent.GetComponent<auctionClass>().myArt);
+    }
+    public void CloseBid()
+    {
+        BidPanel.SetActive(false);
+    }
+
 }

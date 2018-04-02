@@ -20,7 +20,10 @@ public class Art : ScriptableObject {
     public float baseScore; //baseline score
     public float cleanScore; //score added onto the baseline after cleaning
 
+    //Bid specific stuff
     public float startBid;
+    public float raiseAmount;
+
     public Condition myCondition;
     public BoxCollider viewZone;
     public GameObject artObject;
