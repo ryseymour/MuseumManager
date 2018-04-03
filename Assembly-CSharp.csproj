@@ -152,6 +152,7 @@
      <Compile Include="Assets\JMO Assets\Toony Colors Pro\Scripts\TCP2_ShaderUpdateUnityTime.cs" />
      <Compile Include="Assets\ModelStarter.cs" />
      <Compile Include="Assets\NavScript.cs" />
+     <Compile Include="Assets\QuizLocationScript.cs" />
      <Compile Include="Assets\ResearchButtonscript.cs" />
      <Compile Include="Assets\ResearchDisplay.cs" />
      <Compile Include="Assets\RestoredArt.cs" />

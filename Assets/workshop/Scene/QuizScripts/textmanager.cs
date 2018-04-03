@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class textmanager : MonoBehaviour {
 
@@ -40,17 +41,17 @@ public class textmanager : MonoBehaviour {
 		
 	}
 
-	void QuestionRand (){
+	public void QuestionRand (){
 		randQuestion = Random.Range (0, 5);
 		QuestionPop ();
 	}
 
 	void QuestionPop (){
-		GetComponent<TextMesh> ().text = questions [randQuestion];
-		OneQuestion.GetComponent<TextMesh> ().text = firstchoice [randQuestion];
-		TwoQuestion.GetComponent<TextMesh> ().text = secondchoice [randQuestion];
-		ThreeQuestion.GetComponent<TextMesh> ().text = thirdchoice [randQuestion];
-		FourQuestion.GetComponent<TextMesh> ().text = fourthchoice [randQuestion];
+		GetComponent<Text> ().text = questions [randQuestion];
+		OneQuestion.GetComponent<Text> ().text = firstchoice [randQuestion];
+		TwoQuestion.GetComponent<Text> ().text = secondchoice [randQuestion];
+		ThreeQuestion.GetComponent<Text> ().text = thirdchoice [randQuestion];
+		FourQuestion.GetComponent<Text> ().text = fourthchoice [randQuestion];
 	}
 
 	public void Answer (){
@@ -59,7 +60,7 @@ public class textmanager : MonoBehaviour {
 			choiceSelected = false;
 
 			if (correctAnswer [randQuestion] == selectedAnswer) {
-
+				Debug.Log ("correct");
 				QuestionRand ();
 
 			} else if (correctAnswer [randQuestion] != selectedAnswer) {
