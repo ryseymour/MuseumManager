@@ -98,6 +98,7 @@ public class Master_Art : MonoBehaviour {
 	public GameObject imageComplete;
 
 	GameObject Restore;
+	public static bool resetcolbool;
 
 
 	private void Awake()
@@ -135,7 +136,7 @@ public class Master_Art : MonoBehaviour {
 		for (int i = 0; i < researchThumbnails.Count; i++) {
 			researchThumbnails[i].gameObject.SetActive(false);
 		}
-
+		resetcolbool = false;
     }
 
 	public void ResearchPopulate()
@@ -455,7 +456,7 @@ public class Master_Art : MonoBehaviour {
 	{
 
 		ARValue = f;
-		//Debug.Log ("testCollection");
+		Debug.Log ("testCollection");
 		//Debug.Log (f);
 		if (MasterArtList[f].painting == true)
 		{
@@ -492,6 +493,11 @@ public class Master_Art : MonoBehaviour {
 		temporaryRestore.transform.eulerAngles = r;
 
 		MasterArtList [ARValue].displayed = true;
+		//temporaryRestore = null;
+		//MasterArtList [ARValue] = null;
+		Debug.Log (temporaryRestore);
+		resetcolbool = true;
+		Debug.Log (resetcolbool);
 		ResetCollection ();
 
 			}
@@ -516,6 +522,7 @@ public class Master_Art : MonoBehaviour {
 
 	public void ResetCollection()
 	{
+		
 		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++){
 			
 		//collectionThumbnails[i].SetActive(true);
@@ -533,6 +540,7 @@ public class Master_Art : MonoBehaviour {
 
 	public void CollectionPaintingPopulate ()
 	{
+		resetcolbool = false;
 		int counter = 0;
 		for(int i = 0; i < Master_Art.instance.MasterArtList.Count; i++)
 		{

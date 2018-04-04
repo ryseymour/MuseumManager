@@ -183,7 +183,7 @@ public class GuestScript : MonoBehaviour {
                         tick += 1 * Time.deltaTime;
                     }else
                     {
-                        Debug.Log(artQ[pos_artQ]);
+                        //Debug.Log(artQ[pos_artQ]);
                         score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
                         pos_artQ++;
                         tick = 0;
@@ -239,10 +239,10 @@ public class GuestScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("init " + other.name);
+        //Debug.Log("init " + other.name);
         if(other.tag == "entrance")
         {
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             view = true;
             travel = false;
         }

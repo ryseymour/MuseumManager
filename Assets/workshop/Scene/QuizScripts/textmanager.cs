@@ -52,12 +52,14 @@ public class textmanager : MonoBehaviour {
 			QuestCanv.QuestionCanvas();
 			QuestionRand ();
 			Debug.Log ("QTCanvasTest");
+			return;
 		}
 
 		if (QuestionIntiate == true) {
 			QuestionIntiate = false;
 			UI_Manager QuestCanv = GMObj.GetComponent<UI_Manager>();
 			QuestCanv.QuestionCanvas();
+			return;
 		}
 
 	}

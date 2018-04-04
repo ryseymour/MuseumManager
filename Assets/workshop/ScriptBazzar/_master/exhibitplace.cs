@@ -39,13 +39,23 @@ public class exhibitplace : MonoBehaviour {
 
 	void OnMouseDown (){
 
-		Debug.Log ("help!");
+		if (Master_Art.resetcolbool == false) {
 
-		Master_Art Placement = GM.GetComponent<Master_Art> ();
-		Placement.CollectionPlace (Objectloc, myRotation);
+			Debug.Log ("help!");
 
-		Debug.Log (Objectloc);
-		Debug.Log (myRotation);
+			Master_Art Placement = GM.GetComponent<Master_Art> ();
+			Placement.CollectionPlace (Objectloc, myRotation);
+
+
+			Debug.Log (Objectloc);
+			Debug.Log (myRotation);
+			//Master_Art.resetcolbool = true;
+		}
+		if (Master_Art.resetcolbool == true){
+			Debug.Log (Master_Art.resetcolbool);
+			return;
+		}
+	
 
 		//artifact2Prefab = Master_Art.ArtPlacement;
 		//Debug.Log (artifact2Prefab);

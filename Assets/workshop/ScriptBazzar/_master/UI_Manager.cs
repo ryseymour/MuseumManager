@@ -13,7 +13,7 @@ public class UI_Manager : MonoBehaviour {
     public Canvas RestoreScreen;
     public Canvas PaintRestore;
 	public Canvas ResearchScreen;
-	public GameObject QuestionScreen;
+	public Canvas QuestionScreen;
 	//public Canvas PaintingCollection;
 
 
