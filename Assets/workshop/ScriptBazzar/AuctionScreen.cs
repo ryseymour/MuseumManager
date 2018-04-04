@@ -11,7 +11,7 @@ public class AuctionScreen : MonoBehaviour
     
     public List<auctionClass> auctionItems = new List<auctionClass>();
 
-    
+    public auctionClass currentItem;
 
     public GameObject AuctionPanel; //main auction panel
     public GameObject BidPanel; //individual object to bid on (parent object)
@@ -92,12 +92,23 @@ public class AuctionScreen : MonoBehaviour
     {
         GameObject obj = EventSystem.current.currentSelectedGameObject;
         BidPanel.SetActive(true);
+        currentItem = obj.transform.parent.GetComponent<auctionClass>();
         obj.transform.parent.GetComponent<auctionClass>().ActivateBid();
         Debug.Log(obj.transform.parent.GetComponent<auctionClass>().myArt);
     }
     public void CloseBid()
     {
         BidPanel.SetActive(false);
+    }
+
+    public void AddBid()
+    {
+        //check if there's enough money
+        
+        currentItem.bidAmount += currentItem.myArt.raiseAmount;
+        currentItem.currentBid.text = "$" + currentItem.bidAmount;
+        Debug.Log(currentItem.bidAmount);
+        Debug.Log(currentItem.myArt.raiseAmount);
     }
 
 }

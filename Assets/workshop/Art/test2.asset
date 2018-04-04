@@ -19,6 +19,7 @@ MonoBehaviour:
   baseScore: 0
   cleanScore: 0
   startBid: 75
+  raiseAmount: 100
   myCondition: 2
   viewZone: {fileID: 0}
   artObject: {fileID: 0}

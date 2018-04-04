@@ -30,12 +30,21 @@ public class auctionClass : MonoBehaviour {
 
     public void ActivateBid()
     {
-        bidIcon.sprite = myArt.view;
-        currentBid.text = "$" + myArt.startBid.ToString();
-        raiseText.text = "$" + myArt.raiseAmount.ToString();
-        bidArt = myArt;
         bidAmount = myArt.startBid;
+        bidIcon.sprite = myArt.view;
+        currentBid.text = "$" + bidAmount;
+        raiseText.text = "+$" + myArt.raiseAmount.ToString();
+        bidArt = myArt;
+        Debug.Log(bidAmount + " : " + myArt.startBid);
+        
     }
 
+
+    public void AddBid()
+    {
+        //check if there's enough money
+        bidAmount += myArt.raiseAmount;
+        currentBid.text = "$" + bidAmount;
+    }
   
 }
