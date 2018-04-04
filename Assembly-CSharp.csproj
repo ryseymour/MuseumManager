@@ -363,6 +363,7 @@
      <Compile Include="Assets\Utilities\UnityARKitPlugin\Plugins\iOS\UnityARKit\NativeInterface\UnityARSessionNativeInterface.cs" />
      <Compile Include="Assets\Utilities\UnityARKitPlugin\UnityARKitPluginSettings.cs" />
      <Compile Include="Assets\workshop\guest\Prefabs\ProtoScenes\Scripts\TexturePainter.cs" />
+     <Compile Include="Assets\workshop\Scene\QuizScripts\QuestionAnswer.cs" />
      <Compile Include="Assets\workshop\Scene\QuizScripts\textmanager.cs" />
      <Compile Include="Assets\workshop\ScriptBazzar\_master\ArtifactPlace.cs" />
      <Compile Include="Assets\workshop\ScriptBazzar\_master\exhibitplace.cs" />

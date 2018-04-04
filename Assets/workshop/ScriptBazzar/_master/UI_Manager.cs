@@ -13,6 +13,7 @@ public class UI_Manager : MonoBehaviour {
     public Canvas RestoreScreen;
     public Canvas PaintRestore;
 	public Canvas ResearchScreen;
+	public GameObject QuestionScreen;
 	//public Canvas PaintingCollection;
 
 
@@ -193,7 +194,17 @@ public class UI_Manager : MonoBehaviour {
 		confirmcleanbool = true;
 		//GameObject.Find("Manager").GetComponent<Button>().artifactScore += 1;
 	}
+	//problem
+	public void QuestionCanvas () {
+		if (textmanager.QuestionIntiate == true) {
+			QuestionScreen.gameObject.SetActive (true);
+			Debug.Log ("canvas test");
+		}
 
+		if (textmanager.QuestionIntiate == false) {
+			QuestionScreen.gameObject.SetActive (false);
+		}
+	}
 
 
     // Update is called once per frame

@@ -24,9 +24,13 @@ public class textmanager : MonoBehaviour {
 	public static string selectedAnswer;
 
 	public static bool choiceSelected;
+	public static bool QuestionIntiate;
+
+	public GameObject GMObj;
 
 	// Use this for initialization
 	void Start () {
+		QuestionIntiate = false;
 		//GetComponent<TextMesh> ().text = questions [0];
 		//OneQuestion.GetComponent<TextMesh> ().text = firstchoice [0];
 		//TwoQuestion.GetComponent<TextMesh> ().text = secondchoice [0];
@@ -39,6 +43,23 @@ public class textmanager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+	//for clicking on guest
+	public void QuestionOn (){
+		if (QuestionIntiate == false) {
+			QuestionIntiate = true;
+			UI_Manager QuestCanv = GMObj.GetComponent<UI_Manager>();
+			QuestCanv.QuestionCanvas();
+			QuestionRand ();
+			Debug.Log ("QTCanvasTest");
+		}
+
+		if (QuestionIntiate == true) {
+			QuestionIntiate = false;
+			UI_Manager QuestCanv = GMObj.GetComponent<UI_Manager>();
+			QuestCanv.QuestionCanvas();
+		}
+
 	}
 
 	public void QuestionRand (){
@@ -60,14 +81,17 @@ public class textmanager : MonoBehaviour {
 			choiceSelected = false;
 
 			if (correctAnswer [randQuestion] == selectedAnswer) {
+				QuestionOn ();
 				Debug.Log ("correct");
-				QuestionRand ();
+
 
 			} else if (correctAnswer [randQuestion] != selectedAnswer) {
+				QuestionOn ();
 				Debug.Log ("incorrect");
 			}
 		}
 	}
+		
 
 
 }
