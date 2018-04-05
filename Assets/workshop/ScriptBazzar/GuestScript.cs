@@ -9,8 +9,8 @@ public class GuestScript : MonoBehaviour {
     /// <summary>
     /// init, moving between wings/facilities, look for next wing/facility, view exhibits, use facility, exit museum
     /// </summary>
-    bool view_init;
-    int pos_artQ;
+    public bool view_init;
+    public int pos_artQ;
     public List<GameObject> artQ = new List<GameObject>(); //whaddaya gonna look at next?
 
     public Section wingTarget;
@@ -184,9 +184,16 @@ public class GuestScript : MonoBehaviour {
                     }else
                     {
                         //Debug.Log(artQ[pos_artQ]);
-                        score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
-                        pos_artQ++;
+						if (artQ[pos_artQ].GetComponent<ArtInstallation>().myArt != null){
+                       		score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
+                      
+						}else{
+							pos_artQ++;
+							Debug.Log ("hit");
+
+						}
                         tick = 0;
+
                     }
                 }else
                 {

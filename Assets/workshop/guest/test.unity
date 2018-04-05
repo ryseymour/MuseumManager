@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44831866, g: 0.49835145, b: 0.5756043, a: 1}
+  m_IndirectSpecularColor: {r: 0.44831908, g: 0.49835163, b: 0.5756049, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1270,6 +1270,7 @@ GameObject:
   - component: {fileID: 67328035}
   - component: {fileID: 67328034}
   - component: {fileID: 67328032}
+  - component: {fileID: 67328033}
   m_Layer: 0
   m_Name: CollectionLocation (7)
   m_TagString: Untagged
@@ -1291,6 +1292,18 @@ MonoBehaviour:
   myRotation: {x: 0, y: 0, z: 0}
   GM: {fileID: 114025493}
   Objectloc: 7
+--- !u!114 &67328033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67328031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myArt: {fileID: 0}
 --- !u!23 &67328034
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1679,7 +1692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myArt: {fileID: 11400000, guid: 3fcd66b22abd0244993be86a7cc7c18e, type: 2}
+  myArt: {fileID: 0}
 --- !u!1 &74984524
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,6 +3542,8 @@ MonoBehaviour:
   use: 0
   exit: 0
   active: 0
+  view_init: 0
+  pos_artQ: 0
   artQ: []
   wingTarget:
     installations: []
@@ -5990,6 +6005,7 @@ GameObject:
   - component: {fileID: 266686393}
   - component: {fileID: 266686392}
   - component: {fileID: 266686390}
+  - component: {fileID: 266686391}
   m_Layer: 0
   m_Name: CollectionLocation (4)
   m_TagString: Untagged
@@ -6011,6 +6027,18 @@ MonoBehaviour:
   myRotation: {x: 0, y: 0, z: 0}
   GM: {fileID: 114025493}
   Objectloc: 4
+--- !u!114 &266686391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266686389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myArt: {fileID: 0}
 --- !u!23 &266686392
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6477,6 +6505,7 @@ GameObject:
   - component: {fileID: 288894458}
   - component: {fileID: 288894457}
   - component: {fileID: 288894456}
+  - component: {fileID: 288894455}
   m_Layer: 0
   m_Name: CollectionLocation (3)
   m_TagString: Untagged
@@ -6484,6 +6513,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &288894455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 288894454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myArt: {fileID: 0}
 --- !u!114 &288894456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6928,7 +6969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myArt: {fileID: 11400000, guid: 3fcd66b22abd0244993be86a7cc7c18e, type: 2}
+  myArt: {fileID: 0}
 --- !u!1 &316862004
 GameObject:
   m_ObjectHideFlags: 0
@@ -9656,6 +9697,8 @@ MonoBehaviour:
   use: 0
   exit: 0
   active: 0
+  view_init: 0
+  pos_artQ: 0
   artQ: []
   wingTarget:
     installations: []
@@ -16360,12 +16403,12 @@ Prefab:
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
@@ -16375,7 +16418,7 @@ Prefab:
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 224198210328537168, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
@@ -16385,12 +16428,12 @@ Prefab:
     - target: {fileID: 224668183539427962, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -333.3333
       objectReference: {fileID: 0}
     - target: {fileID: 224091228789572742, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -566.6666
       objectReference: {fileID: 0}
     - target: {fileID: 224668183539427962, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
@@ -16409,22 +16452,22 @@ Prefab:
     - target: {fileID: 224668183539427962, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224668183539427962, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224091228789572742, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224091228789572742, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114238206475023946, guid: 8a874e3b8be19fa45b38d1dfe0268dba,
         type: 2}
@@ -16487,6 +16530,7 @@ GameObject:
   - component: {fileID: 974430447}
   - component: {fileID: 974430446}
   - component: {fileID: 974430445}
+  - component: {fileID: 974430450}
   m_Layer: 0
   m_Name: CollectionLocation
   m_TagString: Untagged
@@ -16579,6 +16623,18 @@ Transform:
   m_Father: {fileID: 1496500841}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &974430450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 974430444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myArt: {fileID: 0}
 --- !u!1 &975619032
 GameObject:
   m_ObjectHideFlags: 0
@@ -19929,6 +19985,8 @@ MonoBehaviour:
   use: 0
   exit: 0
   active: 0
+  view_init: 0
+  pos_artQ: 0
   artQ: []
   wingTarget:
     installations: []
@@ -21667,6 +21725,7 @@ GameObject:
   - component: {fileID: 1325564054}
   - component: {fileID: 1325564053}
   - component: {fileID: 1325564051}
+  - component: {fileID: 1325564052}
   m_Layer: 0
   m_Name: CollectionLocation (8)
   m_TagString: Untagged
@@ -21702,6 +21761,18 @@ MonoBehaviour:
   myRotation: {x: 0, y: 0, z: 0}
   GM: {fileID: 114025493}
   Objectloc: 8
+--- !u!114 &1325564052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1325564049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myArt: {fileID: 0}
 --- !u!23 &1325564053
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22776,6 +22847,7 @@ GameObject:
   - component: {fileID: 1412979631}
   - component: {fileID: 1412979630}
   - component: {fileID: 1412979629}
+  - component: {fileID: 1412979628}
   m_Layer: 0
   m_Name: CollectionLocation (5)
   m_TagString: Untagged
@@ -22783,6 +22855,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1412979628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1412979627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myArt: {fileID: 0}
 --- !u!114 &1412979629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26395,6 +26479,7 @@ GameObject:
   - component: {fileID: 1615766170}
   - component: {fileID: 1615766169}
   - component: {fileID: 1615766167}
+  - component: {fileID: 1615766168}
   m_Layer: 0
   m_Name: CollectionLocation (6)
   m_TagString: Untagged
@@ -26416,6 +26501,18 @@ MonoBehaviour:
   myRotation: {x: 0, y: 0, z: 0}
   GM: {fileID: 114025493}
   Objectloc: 6
+--- !u!114 &1615766168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1615766166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91f890fd4c629c4fa810773a014a376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myArt: {fileID: 0}
 --- !u!23 &1615766169
 MeshRenderer:
   m_ObjectHideFlags: 0
