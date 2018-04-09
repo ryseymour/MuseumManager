@@ -29,10 +29,17 @@ namespace Lean.Touch
 
 			// Lerp the current values to the target ones
 			currentPitch = Mathf.Lerp(currentPitch, Pitch, factor);
-			currentYaw   = Mathf.Lerp(currentYaw  , Yaw  , factor);
+	
+			currentYaw   = Mathf.Lerp(currentYaw, Yaw, factor);
 
 			// Rotate camera to pitch and yaw values
 			transform.localRotation = Quaternion.Euler(currentPitch, currentYaw, 0.0f);
+
+
+
+
+			//Vector3 pos = new Vector3 (transform.position.x, 5.48f, transform.position.z);
+			//Debug.Log (pos);
 		}
 	}
 }
