@@ -100,6 +100,8 @@ public class Master_Art : MonoBehaviour {
 	GameObject Restore;
 	public static bool resetcolbool;
 
+	public static bool TurnOnCol;
+
 
 	private void Awake()
 	{
@@ -111,7 +113,7 @@ public class Master_Art : MonoBehaviour {
 
     private void Start()
     {
-
+		TurnOnCol = false;
 		for (int i = 0; i < MasterArtList.Count; i++) {
 			MasterArtList [i].researched = false;
 			MasterArtList [i].restored = false;
@@ -384,8 +386,21 @@ public class Master_Art : MonoBehaviour {
 		if (MasterArtList[artPos].painting)
 		{
 			Debug.Log ("artpos");
+
+			if(MasterArtList [artPos].myCondition == Condition.poor) {
+				UI_Manager UI2 = this.GetComponent<UI_Manager>();
+				UI2.RestoreClean(3);
+			}
+
+			if(MasterArtList [artPos].myCondition == Condition.clean) {
 			UI_Manager UI2 = this.GetComponent<UI_Manager>();
-			UI2.RestoreClean(1);
+			UI2.RestoreClean(2);
+			}
+
+			if(MasterArtList [artPos].myCondition == Condition.pristine) {
+				UI_Manager UI2 = this.GetComponent<UI_Manager>();
+				UI2.RestoreClean(1);
+			}
 
 		}
 
@@ -476,6 +491,8 @@ public class Master_Art : MonoBehaviour {
 		ARValue = artPos2;
 		tempCoL = (GameObject)(MasterArtList [artPos2].ARmodel);
 		Debug.Log (tempCoL);
+		TurnOnCol = true;
+
 		//return;
 
 	}

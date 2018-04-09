@@ -156,6 +156,7 @@
      <Compile Include="Assets\ResearchButtonscript.cs" />
      <Compile Include="Assets\ResearchDisplay.cs" />
      <Compile Include="Assets\RestoredArt.cs" />
+     <Compile Include="Assets\TurnonCollection.cs" />
      <Compile Include="Assets\UnityARInterface\ARRemote\Scripts\ARRemoteDevice.cs" />
      <Compile Include="Assets\UnityARInterface\ARRemote\Scripts\ARRemoteEditor.cs" />
      <Compile Include="Assets\UnityARInterface\ARRemote\Scripts\ARRemoteEditorInterface.cs" />

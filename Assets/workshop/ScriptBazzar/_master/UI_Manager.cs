@@ -16,7 +16,9 @@ public class UI_Manager : MonoBehaviour {
 	public Canvas QuestionScreen;
 	//public Canvas PaintingCollection;
 
-
+	public Canvas SpotOne;
+	public Canvas SpotTwo;
+	public Canvas SpotThree;
 
 
 
@@ -58,6 +60,8 @@ public class UI_Manager : MonoBehaviour {
 	public bool OneCObjbool;
 
 	public static bool SwabOn;
+	public static bool SwabTwoOn;
+	public static bool SwabThreeOn;
 
 	public float rotateSpeed = 3f;
 	bool rotateStatus = false;
@@ -108,6 +112,9 @@ public class UI_Manager : MonoBehaviour {
         MainScreen.gameObject.SetActive(true);
         PaintRestore.gameObject.SetActive(false);
 		ResearchScreen.gameObject.SetActive (false);
+		SpotOne.gameObject.SetActive (false);
+		SpotTwo.gameObject.SetActive (false);
+		SpotThree.gameObject.SetActive (false);
 		//PaintingCollection.gameObject.SetActive (false);
     }
 	// Research Screen
@@ -160,17 +167,27 @@ public class UI_Manager : MonoBehaviour {
 	}
 
 	public void RestoreClean (float f){
-
+		Debug.Log ("test");
+		ArtifactsScreen.gameObject.SetActive(false);
+		RestoreScreen.gameObject.SetActive(false);
+		MainScreen.gameObject.SetActive(false);
+		PaintRestore.gameObject.SetActive(true);
+		ResearchScreen.gameObject.SetActive (false);
 
 		if (f == 1) {
-			Debug.Log ("test");
-			ArtifactsScreen.gameObject.SetActive(false);
-			RestoreScreen.gameObject.SetActive(false);
-			MainScreen.gameObject.SetActive(false);
-			PaintRestore.gameObject.SetActive(true);
-			ResearchScreen.gameObject.SetActive (false);
-
-
+			SpotOne.gameObject.SetActive (true);
+			SpotTwo.gameObject.SetActive (false);
+			SpotThree.gameObject.SetActive (false);
+		}
+		if (f == 2) {
+			SpotTwo.gameObject.SetActive (true);
+			SpotOne.gameObject.SetActive (false);
+			SpotThree.gameObject.SetActive (false);
+		}
+		if (f == 3) {
+			SpotThree.gameObject.SetActive (true);
+			SpotOne.gameObject.SetActive (false);
+			SpotTwo.gameObject.SetActive (false);
 		}
 	}
 
@@ -181,6 +198,13 @@ public class UI_Manager : MonoBehaviour {
 			Debug.Log (SwabOn);
 			//dirtyspots = 7;
 			//Debug.Log (dirtyspots);
+		}
+		if (f == 2) {
+			SwabTwoOn = true;
+		}
+
+		if (f == 3) {
+			SwabThreeOn = true;
 		}
 	}
 
