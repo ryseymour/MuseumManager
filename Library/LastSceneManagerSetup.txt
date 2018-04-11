@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/workshop/guest/test.unity
+- path: Assets/workshop/auctionTest.unity
   isLoaded: 1
   isActive: 1

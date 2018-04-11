@@ -186,7 +186,7 @@ public class GuestScript : MonoBehaviour {
                         //Debug.Log(artQ[pos_artQ]);
 						if (artQ[pos_artQ].GetComponent<ArtInstallation>().myArt != null){
                        		score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
-                      
+                            Debug.Log(artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.name);
 						}else{
 							pos_artQ++;
 							Debug.Log ("hit");

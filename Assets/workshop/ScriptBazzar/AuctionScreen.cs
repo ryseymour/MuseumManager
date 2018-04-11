@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class AuctionScreen : MonoBehaviour
 {
-    
+    public static AuctionScreen instance = null;
     public List<auctionClass> auctionItems = new List<auctionClass>();
 
     public auctionClass currentItem;
@@ -24,20 +24,24 @@ public class AuctionScreen : MonoBehaviour
     public float posStep; //it's 3
     public float posID; //the page number for selection page
 
+
+    private void Awake()
+    {
+        instance = this;
+        AuctionStart();
+    }
+
+    private void OnEnable()
+    {
+        AuctionStart();
+    }
     // Use this for initialization
     void Start()
     {
-        for(int j=0; j <auctionItems.Count; j++)
-        {
-            Debug.Log(auctionItems[j].selectName.text);
-        }
-        for (int i = 0; i < testArt.Count; i++)
-        {
-            testArt[i].displayed = false;
-            testArt[i].researched = false;
-        }
+
+
         posID = 0;
-        AuctionStart();
+  
     }
 
     public void AuctionStart()
@@ -56,7 +60,8 @@ public class AuctionScreen : MonoBehaviour
             if (!testArt[i + Mathf.FloorToInt(posID * posStep)].researched)
             {
                // selectables[i].ActivateSelect(testArt[i + Mathf.FloorToInt(posID * posStep)]);
-                auctionItems[i].ActivateItem(testArt[i + Mathf.FloorToInt(posID * posStep)]);
+                //auctionItems[i].ActivateItem(testArt[i + Mathf.FloorToInt(posID * posStep)]);
+                auctionItems[i].ActivateItem(Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep)]);
                 //testArt[i].displayed = true;
             }
            
@@ -104,11 +109,16 @@ public class AuctionScreen : MonoBehaviour
     public void AddBid()
     {
         //check if there's enough money
-        
-        currentItem.bidAmount += currentItem.myArt.raiseAmount;
-        currentItem.currentBid.text = "$" + currentItem.bidAmount;
+        currentItem.AddBid();
+        //currentItem.bidAmount += currentItem.myArt.raiseAmount;
+        //currentItem.currentBid.text = "Current Bid $" + currentItem.bidAmount;
         Debug.Log(currentItem.bidAmount);
         Debug.Log(currentItem.myArt.raiseAmount);
     }
 
+    public void CloseAuction()
+    {
+        this.gameObject.SetActive(false);
+    }
+ 
 }

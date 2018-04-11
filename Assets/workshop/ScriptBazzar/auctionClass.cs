@@ -17,6 +17,7 @@ public class auctionClass : MonoBehaviour {
     public Text raiseText;
     public Text bidDescription;
     public Art bidArt;
+    public float maxCounter;
 
     public void ActivateItem(Art a)
     {
@@ -32,10 +33,11 @@ public class auctionClass : MonoBehaviour {
     {
         bidAmount = myArt.startBid;
         bidIcon.sprite = myArt.view;
-        currentBid.text = "$" + bidAmount;
+        currentBid.text = "Current Bid $" + bidAmount;
         raiseText.text = "+$" + myArt.raiseAmount.ToString();
         bidArt = myArt;
-        Debug.Log(bidAmount + " : " + myArt.startBid);
+        maxCounter = bidAmount * 1.75f;
+        Debug.Log(bidAmount + " : " + myArt.startBid + " max counter: " + maxCounter);
         
     }
 
@@ -44,7 +46,29 @@ public class auctionClass : MonoBehaviour {
     {
         //check if there's enough money
         bidAmount += myArt.raiseAmount;
-        currentBid.text = "$" + bidAmount;
+        StartCoroutine("CounterBid");
+        currentBid.text = "Current Bid $" + bidAmount;
+    }
+    
+    IEnumerator CounterBid()
+    {
+        yield return new WaitForSeconds(1);
+        if(bidAmount < maxCounter)
+        {
+            bidAmount += myArt.raiseAmount;
+            currentBid.text = "Current Bid $" + bidAmount;
+        }
+        else
+        {
+            int tempInt = AuctionScreen.instance.testArt.IndexOf(myArt);
+
+            AuctionScreen.instance.testArt[tempInt].researched = true;
+                //used in the live environment
+                //Master_Art.instance.MasterArtList.IndexOf(myArt);
+            //Master_Art.instance.MasterArtList[tempInt].researched = true;
+            AuctionScreen.instance.CloseBid();
+        }
+
     }
   
 }

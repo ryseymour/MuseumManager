@@ -13,6 +13,7 @@ public class UI_Manager : MonoBehaviour {
     public Canvas RestoreScreen;
     public Canvas PaintRestore;
 	public Canvas ResearchScreen;
+    public Canvas AuctionScreen;
 	public Canvas QuestionScreen;
 	//public Canvas PaintingCollection;
 
@@ -117,7 +118,19 @@ public class UI_Manager : MonoBehaviour {
 		SpotThree.gameObject.SetActive (false);
 		//PaintingCollection.gameObject.SetActive (false);
     }
-	// Research Screen
+
+	
+    public void StartAuctionScreen()
+    {
+        AuctionScreen.gameObject.SetActive(true);
+    }
+    
+    
+    
+    // Research Screen
+
+
+ 
 
 	public void Research(){
 		ResearchScreen.gameObject.SetActive (true);

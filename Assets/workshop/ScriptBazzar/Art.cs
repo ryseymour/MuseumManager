@@ -23,6 +23,7 @@ public class Art : ScriptableObject {
     //Bid specific stuff
     public float startBid;
     public float raiseAmount;
+    
 
     public Condition myCondition;
     public BoxCollider viewZone;
