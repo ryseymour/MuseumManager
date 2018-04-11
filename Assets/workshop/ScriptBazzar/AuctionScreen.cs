@@ -38,10 +38,7 @@ public class AuctionScreen : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
-
-        posID = 0;
-  
+        posID = 0;  
     }
 
     public void AuctionStart()
@@ -60,8 +57,8 @@ public class AuctionScreen : MonoBehaviour
             if (!testArt[i + Mathf.FloorToInt(posID * posStep)].researched)
             {
                // selectables[i].ActivateSelect(testArt[i + Mathf.FloorToInt(posID * posStep)]);
-                //auctionItems[i].ActivateItem(testArt[i + Mathf.FloorToInt(posID * posStep)]);
-                auctionItems[i].ActivateItem(Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep)]);
+                auctionItems[i].ActivateItem(testArt[i + Mathf.FloorToInt(posID * posStep)]);
+               // auctionItems[i].ActivateItem(Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep)]);
                 //testArt[i].displayed = true;
             }
            

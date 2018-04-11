@@ -6,6 +6,7 @@ TagManager:
   tags:
   - entrance
   - exit
+  - trivia
   layers:
   - Default
   - TransparentFX

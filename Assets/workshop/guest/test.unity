@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44831854, g: 0.49835098, b: 0.5756036, a: 1}
+  m_IndirectSpecularColor: {r: 0.44831908, g: 0.49835163, b: 0.5756049, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -698,6 +698,20 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaTimer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaZone
+      value: 
+      objectReference: {fileID: 230573707}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5, type: 2}
   m_IsPrefabParent: 0
@@ -7408,6 +7422,8 @@ MonoBehaviour:
   score: 0
   exitDoor: {fileID: 0}
   wingCount_Max: 0
+  triviaTimer: 0
+  triviaZone: {fileID: 0}
 --- !u!54 &150753182
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12547,7 +12563,7 @@ GameObject:
   - component: {fileID: 230573714}
   m_Layer: 0
   m_Name: EH1 QZ
-  m_TagString: Untagged
+  m_TagString: trivia
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12559,10 +12575,10 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 230573707}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.999999, y: 19.35, z: 9.97}
+  m_Size: {x: 33.4, y: 19.35, z: 16.37}
   m_Center: {x: 0, y: 8.86, z: 0}
 --- !u!23 &230573709
 MeshRenderer:
@@ -13874,6 +13890,15 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaZone
+      value: 
+      objectReference: {fileID: 230573707}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5, type: 2}
   m_IsPrefabParent: 0
@@ -17798,6 +17823,8 @@ MonoBehaviour:
   score: 0
   exitDoor: {fileID: 0}
   wingCount_Max: 0
+  triviaTimer: 0
+  triviaZone: {fileID: 0}
 --- !u!195 &524461312
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -18450,6 +18477,20 @@ Prefab:
     - target: {fileID: 1515508189194162, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaZone
+      value: 
+      objectReference: {fileID: 230573707}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaTimer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5, type: 2}
@@ -32616,6 +32657,8 @@ MonoBehaviour:
   score: 0
   exitDoor: {fileID: 0}
   wingCount_Max: 0
+  triviaTimer: 0
+  triviaZone: {fileID: 0}
 --- !u!54 &1210421388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44189,7 +44232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1615032490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47519,6 +47562,16 @@ Prefab:
     - target: {fileID: 1515508189194162, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaZone
+      value: 
+      objectReference: {fileID: 230573707}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaTimer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5, type: 2}
@@ -51206,6 +51259,20 @@ Prefab:
     - target: {fileID: 1515508189194162, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaZone
+      value: 
+      objectReference: {fileID: 230573707}
+    - target: {fileID: 114427008680260232, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5,
+        type: 2}
+      propertyPath: triviaTimer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4991f18d2ccc13f4ab06e4dc3566fcc5, type: 2}

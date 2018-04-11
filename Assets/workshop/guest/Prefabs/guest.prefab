@@ -665,6 +665,9 @@ MonoBehaviour:
   view: 0
   use: 0
   exit: 0
+  active: 0
+  view_init: 0
+  pos_artQ: 0
   artQ: []
   wingTarget:
     installations: []
@@ -680,6 +683,8 @@ MonoBehaviour:
   score: 0
   exitDoor: {fileID: 0}
   wingCount_Max: 3
+  triviaTimer: 0
+  triviaZone: {fileID: 0}
 --- !u!114 &114854893848415442
 MonoBehaviour:
   m_ObjectHideFlags: 1

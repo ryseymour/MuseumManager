@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumManager", "MuseumManager.csproj", "{B99475A2-20DA-6FD8-E89D-D194AE4AAE30}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumManager.Editor", "MuseumManager.Editor.csproj", "{4E4A2B6D-E29B-B52C-89C3-96021C76EC0C}"

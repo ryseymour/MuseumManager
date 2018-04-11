@@ -27,6 +27,11 @@ public class GuestScript : MonoBehaviour {
     public int wingCount_Max; //
 
 
+    //Trivia
+    bool triviaMove, triviaWaiting;
+    public float triviaTimer;
+    public GameObject triviaZone;
+
     NavMeshAgent myAgent;
 	// Use this for initialization
 	void Start () {
@@ -86,6 +91,8 @@ public class GuestScript : MonoBehaviour {
             travel = true;
             enter = false;
             exit = false;
+            triviaMove = false;
+            triviaWaiting = false;
         }else
         {
             return;
@@ -112,8 +119,7 @@ public class GuestScript : MonoBehaviour {
                     invisTick = 0;
                     travel = false;
                 }
-            }
-            
+            }            
         }
     }
 
@@ -226,9 +232,12 @@ public class GuestScript : MonoBehaviour {
                 }
                 else
                 {
-                    exit = true;
+                    Debug.Log("trivia move");
+                    triviaMove = true;
+                    //exit = true;
                     travel = false;
                     search = false;
+                    view = false;
                 }
             }
         }
@@ -237,6 +246,11 @@ public class GuestScript : MonoBehaviour {
 
     void _Leave()
     {
+        if (triviaMove)
+        {           
+            myAgent.SetDestination(triviaZone.transform.position);
+        }
+
         if (exit)
         {
             //transform.position = Vector3.Lerp(this.transform.position, exitDoor.transform.position, speed * Time.deltaTime);
@@ -244,6 +258,12 @@ public class GuestScript : MonoBehaviour {
         }
     }
 
+    IEnumerator TriviaTimer()
+    {
+    
+        yield return new WaitForSeconds(triviaTimer);
+        exit = true;      
+    }
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log("init " + other.name);
@@ -253,7 +273,16 @@ public class GuestScript : MonoBehaviour {
             view = true;
             travel = false;
         }
-
+        if(other.tag == "trivia")
+        {
+            if (triviaMove)
+            {
+                Debug.Log("in Trivia Zone");
+                triviaMove = false;
+                StartCoroutine("TriviaTimer");
+            }
+          
+        }
         if (other.tag == "exit")
         {
             if (exit)
@@ -266,10 +295,7 @@ public class GuestScript : MonoBehaviour {
                 int i = GM_guestScript.instance.GuestPool.IndexOf(this.gameObject);
                 GM_guestScript.instance.DeActivate(i);
                 active = false;
-
-
             }
-
         }
     }
 }
