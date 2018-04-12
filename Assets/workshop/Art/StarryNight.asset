@@ -18,12 +18,17 @@ MonoBehaviour:
   Theme2: Landscape
   baseScore: 1
   cleanScore: 1.5
+  startBid: 250
+  raiseAmount: 25
+  myCondition: 0
   viewZone: {fileID: 0}
   artObject: {fileID: 0}
   view: {fileID: 21300000, guid: 3424c17fcfb9862489998dd776afa0ca, type: 3}
-  researched: 1
+  Restoreview: {fileID: 0}
+  researched: 0
   restored: 0
   displayed: 0
   painting: 1
   AR: 1
   ARmodel: {fileID: 1212416935414906, guid: 346b6689bed7d07488fb91cef6d75f53, type: 2}
+  dirtyspots: {fileID: 0}

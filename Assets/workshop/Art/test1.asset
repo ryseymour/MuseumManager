@@ -16,7 +16,7 @@ MonoBehaviour:
   artist: 
   Theme1: 
   Theme2: 
-  baseScore: 0
+  baseScore: 1
   cleanScore: 0
   startBid: 125
   raiseAmount: 15

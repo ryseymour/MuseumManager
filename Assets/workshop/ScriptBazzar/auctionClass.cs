@@ -37,6 +37,7 @@ public class auctionClass : MonoBehaviour {
         raiseText.text = "+$" + myArt.raiseAmount.ToString();
         bidArt = myArt;
         maxCounter = bidAmount * 1.75f;
+      
         Debug.Log(bidAmount + " : " + myArt.startBid + " max counter: " + maxCounter);
         
     }
@@ -46,27 +47,41 @@ public class auctionClass : MonoBehaviour {
     {
         //check if there's enough money
         bidAmount += myArt.raiseAmount;
+        AuctionScreen.instance.anim_PlayerBid.GetComponent<Text>().text = "+" + myArt.raiseAmount;
+        AuctionScreen.instance.anim_PlayerBid.GetComponent<Animator>().Play("playerBid");
         StartCoroutine("CounterBid");
         currentBid.text = "Current Bid $" + bidAmount;
     }
     
     IEnumerator CounterBid()
     {
-        yield return new WaitForSeconds(1);
+
+        yield return new WaitForSeconds(1.25f);
+       
         if(bidAmount < maxCounter)
         {
+            AuctionScreen.instance.anim_CompBid.GetComponent<Text>().text = "+" + myArt.raiseAmount;
+            AuctionScreen.instance.anim_CompBid.GetComponent<Animator>().Play("compBid");
+            yield return new WaitForSeconds(0.75f);
             bidAmount += myArt.raiseAmount;
             currentBid.text = "Current Bid $" + bidAmount;
+            
+            AuctionScreen.instance.bidEnabled = true;
         }
         else
         {
-            int tempInt = AuctionScreen.instance.testArt.IndexOf(myArt);
+            AuctionScreen.instance.anim_CompBid.GetComponent<Text>().text = "withdraw";
+            AuctionScreen.instance.anim_CompBid.GetComponent<Animator>().Play("compWithdraw");
+            yield return new WaitForSeconds(2);
+            //int tempInt = AuctionScreen.instance.testArt.IndexOf(myArt);
 
-            AuctionScreen.instance.testArt[tempInt].researched = true;
-                //used in the live environment
-                //Master_Art.instance.MasterArtList.IndexOf(myArt);
-            //Master_Art.instance.MasterArtList[tempInt].researched = true;
+            // AuctionScreen.instance.testArt[tempInt].researched = true;
+            //used in the live environment
+            int tempInt = Master_Art.instance.MasterArtList.IndexOf(myArt);
+            Master_Art.instance.MasterArtList[tempInt].researched = true;
             AuctionScreen.instance.CloseBid();
+            AuctionScreen.instance.BidBKG.SetActive(false);
+           
         }
 
     }
