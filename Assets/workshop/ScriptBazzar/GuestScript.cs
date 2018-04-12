@@ -195,9 +195,7 @@ public class GuestScript : MonoBehaviour {
                             Debug.Log(artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.name);
 						}else{
 							pos_artQ++;
-							Debug.Log ("hit");
-
-						}
+                        }
                         tick = 0;
 
                     }
@@ -207,7 +205,10 @@ public class GuestScript : MonoBehaviour {
                     view = false;
                     view_init = false;
                 }
-            }            
+            }
+        }else
+        {
+            return;
         }
     }
 
@@ -266,10 +267,9 @@ public class GuestScript : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("init " + other.name);
+        
         if(other.tag == "entrance")
-        {
-            //Debug.Log(other.name);
+        {            
             view = true;
             travel = false;
         }

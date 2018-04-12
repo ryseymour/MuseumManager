@@ -15,7 +15,7 @@ public class AuctionScreen : MonoBehaviour
 
     public GameObject AuctionPanel; //main auction panel
     public GameObject BidPanel; //individual object to bid on (parent object)
-
+    public GameObject BidBKG; //used to cover the Auction panel, can't set it inactive due to scripts attached to objects
 
     public bool selectMode, bidMode;
 
@@ -24,15 +24,20 @@ public class AuctionScreen : MonoBehaviour
     public float posStep; //it's 3
     public float posID; //the page number for selection page
 
+    public bool bidEnabled; //this is to make sure player can't spam raise their bid until after the computer counters
+
+    public GameObject anim_PlayerBid;
+    public GameObject anim_CompBid;
+    public GameObject anim_BidResult;
 
     private void Awake()
     {
-        instance = this;
-        AuctionStart();
+        instance = this;        
     }
 
     private void OnEnable()
     {
+        Debug.Log("enabled");
         AuctionStart();
     }
     // Use this for initialization
@@ -40,20 +45,34 @@ public class AuctionScreen : MonoBehaviour
     {
         posID = 0;  
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PopulateSelect();
+        }
+    }
 
     public void AuctionStart()
     {
         AuctionPanel.SetActive(true);
         PopulateSelect();
         BidPanel.SetActive(false);
+        BidBKG.SetActive(false);
         //populate selection
 
     }
 
     void PopulateSelect()
     {
+        Debug.Log("populated");
         for (int i = 0; i < auctionItems.Count; i++)
         {
+            if (!Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep)].researched)
+            {
+                auctionItems[i].ActivateItem(Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep)]);
+            }
+            /* Unit test code        
             if (!testArt[i + Mathf.FloorToInt(posID * posStep)].researched)
             {
                // selectables[i].ActivateSelect(testArt[i + Mathf.FloorToInt(posID * posStep)]);
@@ -61,14 +80,24 @@ public class AuctionScreen : MonoBehaviour
                // auctionItems[i].ActivateItem(Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep)]);
                 //testArt[i].displayed = true;
             }
+            */
            
         }
     }
 
     public void NextPage()
     {
-        Debug.Log(testArt.Count);
-        Debug.Log((2+posID)*posStep);
+        
+        
+        if (Master_Art.instance.MasterArtList.Count > Mathf.FloorToInt(2 + posID * posStep))
+        {
+            posID++;
+        }else
+        {
+            Debug.Log("wut");
+        }
+
+        /* Unit test code
         if (testArt.Count > Mathf.FloorToInt(2+posID * posStep))
         {           
             posID++;
@@ -76,6 +105,7 @@ public class AuctionScreen : MonoBehaviour
         {
             Debug.Log("wut");
         }
+        */
         
         PopulateSelect();
     }
@@ -94,23 +124,33 @@ public class AuctionScreen : MonoBehaviour
     {
         GameObject obj = EventSystem.current.currentSelectedGameObject;
         BidPanel.SetActive(true);
+        BidBKG.SetActive(true);
+        bidEnabled = true;
         currentItem = obj.transform.parent.GetComponent<auctionClass>();
         obj.transform.parent.GetComponent<auctionClass>().ActivateBid();
         Debug.Log(obj.transform.parent.GetComponent<auctionClass>().myArt);
     }
     public void CloseBid()
     {
+        posID++;
         BidPanel.SetActive(false);
+        BidBKG.SetActive(false);
+        posID--;
+        PopulateSelect();
     }
 
     public void AddBid()
     {
-        //check if there's enough money
-        currentItem.AddBid();
-        //currentItem.bidAmount += currentItem.myArt.raiseAmount;
-        //currentItem.currentBid.text = "Current Bid $" + currentItem.bidAmount;
-        Debug.Log(currentItem.bidAmount);
-        Debug.Log(currentItem.myArt.raiseAmount);
+        if (bidEnabled) {
+            //check if there's enough money
+            currentItem.AddBid();
+            //currentItem.bidAmount += currentItem.myArt.raiseAmount;
+            //currentItem.currentBid.text = "Current Bid $" + currentItem.bidAmount;
+            Debug.Log(currentItem.bidAmount);
+            Debug.Log(currentItem.myArt.raiseAmount);
+            bidEnabled = false;
+        }
+
     }
 
     public void CloseAuction()

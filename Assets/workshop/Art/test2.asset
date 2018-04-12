@@ -14,9 +14,9 @@ MonoBehaviour:
   name: test2
   description: desc
   artist: dude2
-  Theme1: Ren
+  Theme1: Renaissance
   Theme2: 
-  baseScore: 0
+  baseScore: 1
   cleanScore: 0
   startBid: 75
   raiseAmount: 100

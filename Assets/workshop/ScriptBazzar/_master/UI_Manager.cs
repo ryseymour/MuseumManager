@@ -80,7 +80,7 @@ public class UI_Manager : MonoBehaviour {
 		OneBObjbool = false;
 		Movementbool = false;
 
-
+        AuctionScreen.gameObject.SetActive(false);
 
 
 	}
