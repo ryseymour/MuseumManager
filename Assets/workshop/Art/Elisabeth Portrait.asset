@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f64a8ff763788941ab11cc404ec018a, type: 3}
+  m_Name: Elisabeth Portrait
+  m_EditorClassIdentifier: 
+  name: "Portrait of \xC9lisabeth Vig\xE9e"
+  description: 
+  artist: "\xC9lisabeth Vig\xE9e Le Brun"
+  Theme1: Industrial
+  Theme2: Portrait
+  baseScore: 1
+  cleanScore: 1.5
+  startBid: 250
+  raiseAmount: 25
+  myCondition: 1
+  viewZone: {fileID: 0}
+  artObject: {fileID: 0}
+  view: {fileID: 21300000, guid: acbc6b7c262fe6a4fac745a795e26fcb, type: 3}
+  Restoreview: {fileID: 0}
+  researched: 0
+  restored: 0
+  displayed: 0
+  painting: 1
+  AR: 1
+  ARmodel: {fileID: 1205195262576040, guid: 0c1b012a917698441815c82991caf08a, type: 2}
+  dirtyspots: {fileID: 0}

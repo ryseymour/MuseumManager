@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f64a8ff763788941ab11cc404ec018a, type: 3}
+  m_Name: DV Portrait
+  m_EditorClassIdentifier: 
+  name: Leonardo da Vinci Portrait
+  description: 
+  artist: 'Leonardo da Vinci '
+  Theme1: Industrial
+  Theme2: Landscape
+  baseScore: 1
+  cleanScore: 1.5
+  startBid: 250
+  raiseAmount: 25
+  myCondition: 0
+  viewZone: {fileID: 0}
+  artObject: {fileID: 0}
+  view: {fileID: 21300000, guid: fec951ec6e34e6f419b44dbd73ebadf2, type: 3}
+  Restoreview: {fileID: 0}
+  researched: 0
+  restored: 0
+  displayed: 0
+  painting: 1
+  AR: 1
+  ARmodel: {fileID: 1468554304261380, guid: 88a29daee9b7a2f428fd11707f2f259b, type: 2}
+  dirtyspots: {fileID: 0}

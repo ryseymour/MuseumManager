@@ -9,6 +9,7 @@ public class auctionClass : MonoBehaviour {
     public Text startBid;
     public Text Theme;
     public Text Condition;
+	public Text Artist;
     public Art myArt;
 
     public Image bidIcon;
@@ -25,6 +26,7 @@ public class auctionClass : MonoBehaviour {
         selectName.text = a.name;
         startBid.text = "$" + a.startBid.ToString();
         Theme.text = a.Theme1;
+		Artist.text = a.artist;
         Condition.text = a.myCondition.ToString();
         myArt = a;
     }
