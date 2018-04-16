@@ -16,6 +16,7 @@ public class textmanager : MonoBehaviour {
 	public GameObject TwoQuestion;
 	public GameObject ThreeQuestion;
 	public GameObject FourQuestion;
+	public static bool QuestionAttemptTwo;
 
 	public static int randQuestion;
 
@@ -27,10 +28,12 @@ public class textmanager : MonoBehaviour {
 	public static bool QuestionIntiate;
 
 	public GameObject GMObj;
+	public GameObject QuestionBlock;
 
 	// Use this for initialization
 	void Start () {
 		QuestionIntiate = false;
+		QuestionAttemptTwo = true;
 		//GetComponent<TextMesh> ().text = questions [0];
 		//OneQuestion.GetComponent<TextMesh> ().text = firstchoice [0];
 		//TwoQuestion.GetComponent<TextMesh> ().text = secondchoice [0];
@@ -41,8 +44,18 @@ public class textmanager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void LateUpdate () {
+		if (GuestScript.triviaSwitch == true) {
+			if (QuestionAttemptTwo == false) {
+				QuestionBlock.SetActive (true);
+			}
+			if (QuestionAttemptTwo == true) {
+				QuestionBlock.SetActive (false);
+			}
+		}
+		if (GuestScript.triviaSwitch == false) {
+			QuestionBlock.SetActive (false);
+		}
 	}
 	//for clicking on guest
 	public void QuestionOn (){
@@ -85,11 +98,15 @@ public class textmanager : MonoBehaviour {
 			if (correctAnswer [randQuestion] == selectedAnswer) {
 				QuestionOn ();
 				Debug.Log ("correct");
+				QuestionBlock.SetActive (false);
+				QuestionAttemptTwo = true;
 
 
 			} else if (correctAnswer [randQuestion] != selectedAnswer) {
 				QuestionOn ();
 				Debug.Log ("incorrect");
+				QuestionBlock.SetActive (false);
+				QuestionAttemptTwo = true;
 			}
 		}
 	}

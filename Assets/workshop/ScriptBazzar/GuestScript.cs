@@ -31,6 +31,7 @@ public class GuestScript : MonoBehaviour {
     bool triviaMove, triviaWaiting;
     public float triviaTimer;
     public GameObject triviaZone;
+	public static bool triviaSwitch;
 
     NavMeshAgent myAgent;
 	// Use this for initialization
@@ -38,7 +39,8 @@ public class GuestScript : MonoBehaviour {
         _Enter();
         view_init = false;
         invisTick = 0;
-        myAgent = GetComponent<NavMeshAgent>();        
+        myAgent = GetComponent<NavMeshAgent>(); 
+		triviaSwitch = false;
 	}
 	
 	// Update is called once per frame
@@ -78,8 +80,14 @@ public class GuestScript : MonoBehaviour {
         
 	}
 
+	void OnEnable()
+	{
+		_Enter ();
+	}
+
     void _Enter()
     {
+		enter = true;
         if (enter)
         {
             transform.position = exitDoor.transform.position;
@@ -239,6 +247,8 @@ public class GuestScript : MonoBehaviour {
                     travel = false;
                     search = false;
                     view = false;
+					triviaSwitch = true;
+					textmanager.QuestionAttemptTwo = false;
                 }
             }
         }
@@ -263,7 +273,11 @@ public class GuestScript : MonoBehaviour {
     {
     
         yield return new WaitForSeconds(triviaTimer);
-        exit = true;      
+
+		int i = GM_guestScript.instance.GuestPool.IndexOf(this.gameObject);
+		GM_guestScript.instance.DeActivate(i);
+		triviaMove = false;
+		triviaSwitch = false;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -278,7 +292,7 @@ public class GuestScript : MonoBehaviour {
             if (triviaMove)
             {
                 Debug.Log("in Trivia Zone");
-                triviaMove = false;
+
                 StartCoroutine("TriviaTimer");
             }
           

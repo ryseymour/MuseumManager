@@ -515,8 +515,10 @@ public class Master_Art : MonoBehaviour {
 		Debug.Log (temporaryRestore);
 		resetcolbool = true;
 		Debug.Log (resetcolbool);
-		ResetCollection ();
 		TurnOnCol = false;
+		Debug.Log (TurnOnCol);
+		ResetCollection ();
+
 
 			}
 

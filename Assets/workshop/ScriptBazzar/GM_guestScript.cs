@@ -19,8 +19,8 @@ public class GM_guestScript : MonoBehaviour {
 
     public List<Section> Wings = new List<Section>();
     public List<GameObject> GuestPool = new List<GameObject>();
-
-
+	public int maxActive;
+	public int currentActive;
     public bool visible;
     private void Awake()
     {
@@ -28,14 +28,12 @@ public class GM_guestScript : MonoBehaviour {
     }
     // Use this for initialization
     void Start () {
-        for(int i = 0; i < Wings.Count; i++)
+        for(int i = 0; i < maxActive; i++)
+
         {
-            
-           // for(int j =0; j < Wings[i].arts.Count; j++)
-           // {
-              //  Debug.Log("j: " + j);
-              //  Instantiate(Wings[i].arts[j].artObject, Wings[i].installations[j].transform.position, Quaternion.identity);
-           // }
+			GuestPool [i].SetActive (true);
+			currentActive++;
+
         }
 		
 	}
@@ -43,7 +41,15 @@ public class GM_guestScript : MonoBehaviour {
     public void DeActivate(int pos)
     {
         GuestPool[pos].SetActive(false);
+		currentActive--;
+		StartCoroutine ("Timer");
+
     }
-	
+
+	IEnumerator Timer (){
+		yield return new WaitForSeconds (5);
+		GuestPool [Random.Range (0, GuestPool.Count)].SetActive (true);
+		currentActive++;
+	}
 
 }
