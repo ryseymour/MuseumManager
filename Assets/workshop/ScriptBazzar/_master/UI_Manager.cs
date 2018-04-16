@@ -21,6 +21,7 @@ public class UI_Manager : MonoBehaviour {
 	public Canvas SpotTwo;
 	public Canvas SpotThree;
 
+	public Canvas DirtCanvas;
 
 
     public static float donatevalue;
@@ -187,20 +188,33 @@ public class UI_Manager : MonoBehaviour {
 		PaintRestore.gameObject.SetActive(true);
 		ResearchScreen.gameObject.SetActive (false);
 
+		//dirtspots rePopdirt = DirtCanvas.GetComponentInChildren<dirtspots> ();
+		//rePopdirt.RestoreRepeat();
+
+
 		if (f == 1) {
 			SpotOne.gameObject.SetActive (true);
+			RestoreReset RestRes =	SpotOne.GetComponent<RestoreReset> ();
+			RestRes.RestoreRepeat();
 			SpotTwo.gameObject.SetActive (false);
 			SpotThree.gameObject.SetActive (false);
+			Debug.Log ("spot1");
 		}
 		if (f == 2) {
 			SpotTwo.gameObject.SetActive (true);
+			RestoreReset RestRes =	SpotTwo.GetComponent<RestoreReset> ();
+			RestRes.RestoreRepeat();
 			SpotOne.gameObject.SetActive (false);
 			SpotThree.gameObject.SetActive (false);
+			Debug.Log ("spot2");
 		}
 		if (f == 3) {
 			SpotThree.gameObject.SetActive (true);
+			RestoreReset RestRes =	SpotThree.GetComponent<RestoreReset> ();
+			RestRes.RestoreRepeat();
 			SpotOne.gameObject.SetActive (false);
 			SpotTwo.gameObject.SetActive (false);
+			Debug.Log ("spot3");
 		}
 	}
 
@@ -233,12 +247,14 @@ public class UI_Manager : MonoBehaviour {
 	}
 	//problem
 	public void QuestionCanvas () {
-		if (textmanager.QuestionIntiate == true) {
+		if (textmanager.QuestionCanvasIntiate == true) {
+			Debug.Log (textmanager.QuestionCanvasIntiate);
 			QuestionScreen.gameObject.SetActive (true);
 			Debug.Log ("canvas test");
 		}
 
-		if (textmanager.QuestionIntiate == false) {
+		if (textmanager.QuestionCanvasIntiate == false) {
+			Debug.Log (textmanager.QuestionCanvasIntiate);
 			QuestionScreen.gameObject.SetActive (false);
 		}
 	}

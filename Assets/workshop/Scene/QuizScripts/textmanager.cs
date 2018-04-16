@@ -16,7 +16,6 @@ public class textmanager : MonoBehaviour {
 	public GameObject TwoQuestion;
 	public GameObject ThreeQuestion;
 	public GameObject FourQuestion;
-	public static bool QuestionAttemptTwo;
 
 	public static int randQuestion;
 
@@ -26,32 +25,34 @@ public class textmanager : MonoBehaviour {
 
 	public static bool choiceSelected;
 	public static bool QuestionIntiate;
+	public static bool QuestionCanvasIntiate;
+	public static bool QuestionStart;
 
 	public GameObject GMObj;
 	public GameObject QuestionBlock;
 
 	// Use this for initialization
 	void Start () {
+		//QuestionStart = false;
 		QuestionIntiate = false;
-		QuestionAttemptTwo = true;
+		QuestionCanvasIntiate = false;
 		//GetComponent<TextMesh> ().text = questions [0];
 		//OneQuestion.GetComponent<TextMesh> ().text = firstchoice [0];
 		//TwoQuestion.GetComponent<TextMesh> ().text = secondchoice [0];
 		//ThreeQuestion.GetComponent<TextMesh> ().text = thirdchoice [0];
 		//FourQuestion.GetComponent<TextMesh> ().text = fourthchoice [0];
 
-		QuestionRand ();
+		//QuestionRand ();
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
 		if (GuestScript.triviaSwitch == true) {
-			if (QuestionAttemptTwo == false) {
+
 				QuestionBlock.SetActive (true);
-			}
-			if (QuestionAttemptTwo == true) {
-				QuestionBlock.SetActive (false);
-			}
+
+
+
 		}
 		if (GuestScript.triviaSwitch == false) {
 			QuestionBlock.SetActive (false);
@@ -59,8 +60,12 @@ public class textmanager : MonoBehaviour {
 	}
 	//for clicking on guest
 	public void QuestionOn (){
+		//QuestionIntiate = !QuestionIntiate;
+		//QuestionIntiate = false;
+		Debug.Log (QuestionIntiate);
 		if (QuestionIntiate == false) {
-			QuestionIntiate = true;
+			QuestionCanvasIntiate = true;
+			Debug.Log (QuestionCanvasIntiate);
 			UI_Manager QuestCanv = GMObj.GetComponent<UI_Manager>();
 			QuestCanv.QuestionCanvas();
 			QuestionRand ();
@@ -69,7 +74,8 @@ public class textmanager : MonoBehaviour {
 		}
 
 		if (QuestionIntiate == true) {
-			QuestionIntiate = false;
+			QuestionCanvasIntiate = false;
+			Debug.Log (QuestionCanvasIntiate);
 			UI_Manager QuestCanv = GMObj.GetComponent<UI_Manager>();
 			QuestCanv.QuestionCanvas();
 			return;
@@ -96,17 +102,19 @@ public class textmanager : MonoBehaviour {
 			choiceSelected = false;
 
 			if (correctAnswer [randQuestion] == selectedAnswer) {
-				QuestionOn ();
+				
 				Debug.Log ("correct");
 				QuestionBlock.SetActive (false);
-				QuestionAttemptTwo = true;
+				QuestionIntiate = true;
+				QuestionOn ();
 
 
 			} else if (correctAnswer [randQuestion] != selectedAnswer) {
-				QuestionOn ();
+				
 				Debug.Log ("incorrect");
 				QuestionBlock.SetActive (false);
-				QuestionAttemptTwo = true;
+				QuestionIntiate = true;
+				QuestionOn ();
 			}
 		}
 	}

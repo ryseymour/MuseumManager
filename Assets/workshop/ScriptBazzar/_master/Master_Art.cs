@@ -249,6 +249,7 @@ public class Master_Art : MonoBehaviour {
 
 	public void RestoreReset ()
 	{
+		imageComplete.SetActive (false);
 		for (int i = 0; i < restoreThumbnails.Count; i++) {
 			restoreThumbnails [i].transform.GetChild (2).GetComponent<Text> ().text = "";
 			restoreThumbnails [i].transform.GetChild (3).GetComponent<Text> ().text = "";

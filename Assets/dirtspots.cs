@@ -8,6 +8,13 @@ public class dirtspots : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake() {
+		
+	}
+
+	public void RestoreRepeat () {
+		//
+		//gameObject.SetActive (true);
+		//Debug.Log ("restore");
 		Master_Art.dirtyspots = 7;
 	}
 

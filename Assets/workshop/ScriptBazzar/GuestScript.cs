@@ -247,8 +247,12 @@ public class GuestScript : MonoBehaviour {
                     travel = false;
                     search = false;
                     view = false;
-					triviaSwitch = true;
-					textmanager.QuestionAttemptTwo = false;
+
+					textmanager.QuestionIntiate = false;
+						triviaSwitch = true;
+
+					
+					//textmanager.QuestionAttemptTwo = false;
                 }
             }
         }
