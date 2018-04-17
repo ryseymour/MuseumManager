@@ -19,6 +19,7 @@ public class auctionClass : MonoBehaviour {
     public Text bidDescription;
     public Art bidArt;
     public float maxCounter;
+   
 
     public void ActivateItem(Art a)
     {
@@ -39,7 +40,7 @@ public class auctionClass : MonoBehaviour {
         raiseText.text = "+$" + myArt.raiseAmount.ToString();
         bidArt = myArt;
         maxCounter = bidAmount * 1.75f;
-      
+        
         Debug.Log(bidAmount + " : " + myArt.startBid + " max counter: " + maxCounter);
         
     }
@@ -48,11 +49,22 @@ public class auctionClass : MonoBehaviour {
     public void AddBid()
     {
         //check if there's enough money
-        bidAmount += myArt.raiseAmount;
-        AuctionScreen.instance.anim_PlayerBid.GetComponent<Text>().text = "+" + myArt.raiseAmount;
-        AuctionScreen.instance.anim_PlayerBid.GetComponent<Animator>().Play("playerBid");
-        StartCoroutine("CounterBid");
-        currentBid.text = "Current Bid $" + bidAmount;
+
+        if(bidAmount+myArt.raiseAmount <= UI_Manager.instance.donateMax)
+        {
+            UI_Manager.instance.Subtract(myArt.raiseAmount);
+            AuctionScreen.instance.FundsUpdate(myArt.raiseAmount);
+            bidAmount += myArt.raiseAmount;
+            AuctionScreen.instance.anim_PlayerBid.GetComponent<Text>().text = "+" + myArt.raiseAmount;
+            AuctionScreen.instance.anim_PlayerBid.GetComponent<Animator>().Play("playerBid");
+            StartCoroutine("CounterBid");
+            currentBid.text = "Current Bid $" + bidAmount;
+        }
+        else
+        {
+            Debug.Log("not enough money");
+        }
+
     }
     
     IEnumerator CounterBid()

@@ -25,6 +25,8 @@ public class AuctionScreen : MonoBehaviour
     public float posID; //the page number for selection page
 
     public bool bidEnabled; //this is to make sure player can't spam raise their bid until after the computer counters
+    public Text currentFunds;
+
 
     public GameObject anim_PlayerBid;
     public GameObject anim_CompBid;
@@ -128,8 +130,17 @@ public class AuctionScreen : MonoBehaviour
         bidEnabled = true;
         currentItem = obj.transform.parent.GetComponent<auctionClass>();
         obj.transform.parent.GetComponent<auctionClass>().ActivateBid();
+        currentFunds.text = "$" + UI_Manager.instance.donateMax;
         Debug.Log(obj.transform.parent.GetComponent<auctionClass>().myArt);
     }
+
+    public void FundsUpdate(float amount)
+    {
+        currentFunds.text = "$" + UI_Manager.instance.donateMax;
+        //run an animation
+
+    }
+
     public void CloseBid()
     {
         posID++;

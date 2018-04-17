@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour {
 
+
+
+    public static UI_Manager instance = null;
 	[Range(0.1f, 1f)]
 	public float scaleSpeed = 100f;
 
@@ -72,7 +75,10 @@ public class UI_Manager : MonoBehaviour {
 
 	bool up = false;
 
-
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Use this for initialization
     void Start () {
@@ -83,9 +89,8 @@ public class UI_Manager : MonoBehaviour {
 
         AuctionScreen.gameObject.SetActive(false);
 
-		donateMax = 100f;
-
-
+		donateMax = 9000f;
+        
 	}
 
 
@@ -260,6 +265,16 @@ public class UI_Manager : MonoBehaviour {
 			QuestionScreen.gameObject.SetActive (false);
 		}
 	}
+
+    public void Subtract(float amount)
+    {
+        donateMax -= amount;
+    }
+
+    public void Add(float amount)
+    {
+        donateMax += amount;
+    }
 
 
     // Update is called once per frame

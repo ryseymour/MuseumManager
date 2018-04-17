@@ -189,7 +189,8 @@ public class GuestScript : MonoBehaviour {
                         {
                             transform.position = artQ[pos_artQ].transform.position;
 							score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
-							Debug.Log(artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.name);
+
+                            Debug.Log(artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.name);
                         }
                         
                     }
@@ -203,6 +204,7 @@ public class GuestScript : MonoBehaviour {
                         //Debug.Log(artQ[pos_artQ]);
 						if (artQ[pos_artQ].GetComponent<ArtInstallation>().myArt != null){
 							score += artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.baseScore + artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.cleanScore;
+                            //the second half of the line above, the calculation show sthe total score for the piece of art. 
                             Debug.Log(artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.name);
 						}else{
 							pos_artQ++;

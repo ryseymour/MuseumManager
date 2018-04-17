@@ -1,9 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumManager", "Assembly-CSharp.csproj", "{F8894339-24CB-A5CA-9ED0-448D985AB3F8}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumManager", "MuseumManager.csproj", "{B99475A2-20DA-6FD8-E89D-D194AE4AAE30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumManager", "Assembly-CSharp-Editor.csproj", "{8C0460C1-D0BD-6177-472D-4A6352962CCC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MuseumManager.Editor", "MuseumManager.Editor.csproj", "{4E4A2B6D-E29B-B52C-89C3-96021C76EC0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,19 +11,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F8894339-24CB-A5CA-9ED0-448D985AB3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F8894339-24CB-A5CA-9ED0-448D985AB3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F8894339-24CB-A5CA-9ED0-448D985AB3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F8894339-24CB-A5CA-9ED0-448D985AB3F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C0460C1-D0BD-6177-472D-4A6352962CCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C0460C1-D0BD-6177-472D-4A6352962CCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C0460C1-D0BD-6177-472D-4A6352962CCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C0460C1-D0BD-6177-472D-4A6352962CCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99475A2-20DA-6FD8-E89D-D194AE4AAE30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99475A2-20DA-6FD8-E89D-D194AE4AAE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99475A2-20DA-6FD8-E89D-D194AE4AAE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99475A2-20DA-6FD8-E89D-D194AE4AAE30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E4A2B6D-E29B-B52C-89C3-96021C76EC0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E4A2B6D-E29B-B52C-89C3-96021C76EC0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E4A2B6D-E29B-B52C-89C3-96021C76EC0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E4A2B6D-E29B-B52C-89C3-96021C76EC0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
