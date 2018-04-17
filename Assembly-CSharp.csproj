@@ -180,6 +180,7 @@
      <Compile Include="Assets\Utilities\LeanTouch\Scripts\LeanSelectable.cs" />
      <Compile Include="Assets\Utilities\LeanTouch\Scripts\LeanSnapshot.cs" />
      <Compile Include="Assets\Utilities\LeanTouch\Scripts\LeanTouch.cs" />
+     <Compile Include="Assets\WallTrigger.cs" />
      <Compile Include="Assets\workshop\guest\Prefabs\ProtoScenes\Scripts\TexturePainter.cs" />
      <Compile Include="Assets\workshop\Scene\QuizScripts\QuestionAnswer.cs" />
      <Compile Include="Assets\workshop\Scene\QuizScripts\textmanager.cs" />
