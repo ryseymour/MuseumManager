@@ -90,6 +90,7 @@ public class UI_Manager : MonoBehaviour {
         AuctionScreen.gameObject.SetActive(false);
 
 		donateMax = 9000f;
+        donateText.text = "$" + donateMax;
         
 	}
 
@@ -268,12 +269,23 @@ public class UI_Manager : MonoBehaviour {
 
     public void Subtract(float amount)
     {
-        donateMax -= amount;
+        bool limit = true;
+        if (limit)
+        {
+            donateMax -= amount;
+            donateText.text = "$" + donateMax;
+            limit = false;
+        }
+
     }
 
     public void Add(float amount)
     {
-        donateMax += amount;
+    
+            donateMax += amount;
+            donateText.text = "$" + donateMax;
+            
+        
     }
 
 

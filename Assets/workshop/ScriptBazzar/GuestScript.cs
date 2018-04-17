@@ -202,10 +202,17 @@ public class GuestScript : MonoBehaviour {
                     }else
                     {
                         //Debug.Log(artQ[pos_artQ]);
-						if (artQ[pos_artQ].GetComponent<ArtInstallation>().myArt != null){
-							score += artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.baseScore + artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.cleanScore;
+                        if (artQ[pos_artQ].GetComponent<ArtInstallation>().myArt != null) {
+                            score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
                             //the second half of the line above, the calculation show sthe total score for the piece of art. 
+                            //so make an if statement 
+                            // float happyCheck = artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.baseScore + artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.cleanScore;
+                            /* if(happyCheck > 5) {
+                                make the happy face appear
+                            }
+                            */
                             Debug.Log(artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.name);
+                            pos_artQ++;
 						}else{
 							pos_artQ++;
                         }
@@ -282,13 +289,14 @@ public class GuestScript : MonoBehaviour {
     {
     
         yield return new WaitForSeconds(triviaTimer);
-
+        Debug.Log(score+questionCorrect);
+        UI_Manager.instance.Add(score + questionCorrect);
 		int i = GM_guestScript.instance.GuestPool.IndexOf(this.gameObject);
 		GM_guestScript.instance.DeActivate(i);
 		triviaMove = false;
 		triviaSwitch = false;
-		GameObject.Find("GM").GetComponent<UI_Manager>().donateMax += score + questionCorrect;
-		GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
+		//GameObject.Find("GM").GetComponent<UI_Manager>().donateMax += score + questionCorrect;
+		//GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
 
     }
 
