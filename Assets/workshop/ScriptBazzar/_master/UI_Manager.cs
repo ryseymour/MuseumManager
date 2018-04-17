@@ -89,7 +89,7 @@ public class UI_Manager : MonoBehaviour {
 
         AuctionScreen.gameObject.SetActive(false);
 
-		donateMax = 9000f;
+		donateMax = 600f;
         donateText.text = "$" + donateMax;
         
 	}

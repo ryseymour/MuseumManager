@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class textmanager : MonoBehaviour {
 
-	List<string> questions = new List<string>() {"First question", "Second question", "Third question", "Fourth Question", "Fifth Question"};
+	List<string> questions = new List<string>() {"Where did Van Gogh get his inspiration for the Starry Night?", "How many paintings of Sunflowers did Van Gogh make?", "Third question", "Fourth Question", "Fifth Question"};
 
-	List<string> firstchoice = new List<string>() {"first choice1","first choice2","first choice3", "first choice 4", "first choice 5" };
-	List<string> secondchoice = new List<string>() {"second choice" ,"second choice2","secondchoice3", "second choice 4", "secondchoice 5"};
-	List<string> thirdchoice = new List<string>() {"third choice","third choice2","third choice3", "third choice 4", "third choice 5"};
-	List<string> fourthchoice = new List<string>() {"fourth choice", "fourth choice2","fourth choice3", "fourth choice 4", "fourth choice 5"};
+	List<string> firstchoice = new List<string>() {"Local Restaurant","Seven","first choice3", "first choice 4", "first choice 5" };
+	List<string> secondchoice = new List<string>() {"Traveling" ,"One","secondchoice3", "second choice 4", "secondchoice 5"};
+	List<string> thirdchoice = new List<string>() {"Inn Rooftop","Ten","third choice3", "third choice 4", "third choice 5"};
+	List<string> fourthchoice = new List<string>() {"Bedroom Window", "Twelve","fourth choice3", "fourth choice 4", "fourth choice 5"};
 
 	public GameObject OneQuestion;
 	public GameObject TwoQuestion;
