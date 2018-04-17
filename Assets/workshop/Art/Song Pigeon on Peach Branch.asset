@@ -16,7 +16,7 @@ MonoBehaviour:
   artist: Emperor Huizong
   Theme1: Renissance
   Theme2: Landscape
-  baseScore: 0
+  baseScore: 10
   cleanScore: 3
   startBid: 500
   raiseAmount: 75
@@ -25,9 +25,9 @@ MonoBehaviour:
   artObject: {fileID: 1874651853261708, guid: 22f284b6bfdf0db439538cd893c8008b, type: 2}
   view: {fileID: 21300000, guid: 23bea203a86937d4791558a0ddbcac8b, type: 3}
   Restoreview: {fileID: 0}
-  researched: 1
-  restored: 1
-  displayed: 1
+  researched: 0
+  restored: 0
+  displayed: 0
   painting: 1
   AR: 0
   ARmodel: {fileID: 1205195262576040, guid: 0c1b012a917698441815c82991caf08a, type: 2}

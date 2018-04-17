@@ -20,6 +20,7 @@ public class GuestScript : MonoBehaviour {
     public float invisTravelTimer; //timer to simulate travel
     float invisTick; //tick for travel simulation
     public float speed, patience, noise, timer, tick, score;
+	public static float questionCorrect;
 
     public GameObject exitDoor; 
 
@@ -187,6 +188,8 @@ public class GuestScript : MonoBehaviour {
                         if(artQ[pos_artQ] != null)
                         {
                             transform.position = artQ[pos_artQ].transform.position;
+							score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
+							Debug.Log(artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.name);
                         }
                         
                     }
@@ -199,7 +202,7 @@ public class GuestScript : MonoBehaviour {
                     {
                         //Debug.Log(artQ[pos_artQ]);
 						if (artQ[pos_artQ].GetComponent<ArtInstallation>().myArt != null){
-                       		score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
+							score += artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.baseScore + artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.cleanScore;
                             Debug.Log(artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.name);
 						}else{
 							pos_artQ++;
@@ -282,7 +285,12 @@ public class GuestScript : MonoBehaviour {
 		GM_guestScript.instance.DeActivate(i);
 		triviaMove = false;
 		triviaSwitch = false;
+		GameObject.Find("GM").GetComponent<UI_Manager>().donateMax += score + questionCorrect;
+		GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
+
     }
+
+
     private void OnTriggerEnter(Collider other)
     {
         
@@ -305,8 +313,8 @@ public class GuestScript : MonoBehaviour {
         {
             if (exit)
             {
-                GameObject.Find("GM").GetComponent<UI_Manager>().donateMax += score;
-                GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
+                //GameObject.Find("GM").GetComponent<UI_Manager>().donateMax += score;
+                //GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
                 exit = false;
                 gVisible = false;
                 Debug.Log(score);

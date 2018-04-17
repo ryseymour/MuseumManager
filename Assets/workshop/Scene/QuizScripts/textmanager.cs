@@ -106,6 +106,7 @@ public class textmanager : MonoBehaviour {
 				Debug.Log ("correct");
 				QuestionBlock.SetActive (false);
 				QuestionIntiate = true;
+				GuestScript.questionCorrect = 50f;
 				QuestionOn ();
 
 
@@ -114,6 +115,7 @@ public class textmanager : MonoBehaviour {
 				Debug.Log ("incorrect");
 				QuestionBlock.SetActive (false);
 				QuestionIntiate = true;
+				GuestScript.questionCorrect = -25f;
 				QuestionOn ();
 			}
 		}

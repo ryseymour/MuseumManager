@@ -16,7 +16,7 @@ MonoBehaviour:
   artist: Van Gogh
   Theme1: Industrial
   Theme2: Portrait
-  baseScore: 1
+  baseScore: 10
   cleanScore: 1.5
   startBid: 250
   raiseAmount: 25

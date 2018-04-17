@@ -83,6 +83,8 @@ public class UI_Manager : MonoBehaviour {
 
         AuctionScreen.gameObject.SetActive(false);
 
+		donateMax = 100f;
+
 
 	}
 

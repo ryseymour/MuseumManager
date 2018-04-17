@@ -16,7 +16,7 @@ MonoBehaviour:
   artist: Van Gogh
   Theme1: Industrial
   Theme2: Landscape
-  baseScore: 1
+  baseScore: 10
   cleanScore: 1.5
   startBid: 250
   raiseAmount: 25
@@ -29,6 +29,6 @@ MonoBehaviour:
   restored: 0
   displayed: 0
   painting: 1
-  AR: 1
+  AR: 0
   ARmodel: {fileID: 1212416935414906, guid: 346b6689bed7d07488fb91cef6d75f53, type: 2}
   dirtyspots: {fileID: 0}
