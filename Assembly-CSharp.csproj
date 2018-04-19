@@ -22,7 +22,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_2_0;UNITY_2017_2;UNITY_2017;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_EVENT_QUEUE;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VR;ENABLE_AR;ENABLE_SPATIALTRACKING;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_2_0_SUBSET;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_3_1;UNITY_2017_3;UNITY_2017;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_WEBGL;UNITY_WEBGL;UNITY_WEBGL_API;UNITY_DISABLE_WEB_VERIFICATION;UNITY_GFX_USE_PLATFORM_VSYNC;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VR;ENABLE_SPATIALTRACKING;ENABLE_IL2CPP;NET_2_0_SUBSET;DEVELOPMENT_BUILD;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -51,81 +51,274 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ArtifactPlace.cs" />
-     <Compile Include="Assets\Button.cs" />
-     <Compile Include="Assets\CameraMove.cs" />
-     <Compile Include="Assets\exhibitplace.cs" />
-     <Compile Include="Assets\farmingscript.cs" />
-     <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\HelloARController.cs" />
-     <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\PlaneAttachment.cs" />
-     <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\PointcloudVisualizer.cs" />
-     <Compile Include="Assets\GoogleARCore\HelloARExample\Scripts\TrackedPlaneVisualizer.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Anchor.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\AnchorTrackingState.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\AndroidPermissionsManager.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\AndroidPermissionsRequestResult.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiCoordinateFramePair.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiCoordinateFrameType.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiCoordinateFrameTypeExtensions.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiPlaneData.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiPoseData.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiPoseStatusType.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiPoseStatusTypeExtensions.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiServiceErrorStatus.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiServiceErrorStatusExtensions.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiTangoEvent.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\ApiTangoEventType.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Api\TangoClientApi.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Async\WaitForTaskCompletionYieldInstruction.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\AsyncTask.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\EnvironmentalLight.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Frame.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\FrameTrackingState.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\InvalidSessionAccessException.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\LightEstimate.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Managers\AnchorManager.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Managers\LightEstimateManager.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Managers\MotionTrackingManager.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Managers\PointCloudManager.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Managers\RaycastManager.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Managers\SessionManager.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Managers\TrackedPlaneManager.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Math\DMatrix4x4.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Math\DVector3.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Math\DVector4.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\PointCloud.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Session.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\SessionComponent.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\SessionConfig.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\SessionConnectionState.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\TrackableHit.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\TrackableHitFlag.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\TrackedPlane.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\ARDebug.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\Constants.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\EnvironmentBasedProvider.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\MarshalingHelper.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\ProvidedSingleton.cs" />
-     <Compile Include="Assets\GoogleARCore\SDK\Scripts\Utility\SingletonComponentProvider.cs" />
-     <Compile Include="Assets\guestStand1.cs" />
-     <Compile Include="Assets\GuestTimer.cs" />
-     <Compile Include="Assets\guestviewmove.cs" />
-     <Compile Include="Assets\GuestWaypointMove.cs" />
-     <Compile Include="Assets\MuseumPlace.cs" />
-     <Compile Include="Assets\ShopandPlant.cs" />
-     <Compile Include="Assets\ShopandPlant2.cs" />
-     <Compile Include="Assets\Timer.cs" />
-     <Compile Include="Assets\TransC1.cs" />
-     <Compile Include="Assets\waypoints.cs" />
-     <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\PlaneGrid.shader" />
-     <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\MobileDiffuseWithLightEstimation.shader" />
-     <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\PointCloud.shader" />
-     <None Include="Assets\GoogleARCore\HelloARExample\Materials\Shaders\MobileSpecularWithLightEstimation.shader" />
+     <Compile Include="Assets\ArtInstallation.cs" />
+     <Compile Include="Assets\Buttonscript.cs" />
+     <Compile Include="Assets\CameraMaster.cs" />
+     <Compile Include="Assets\CollectionButtonscript.cs" />
+     <Compile Include="Assets\dirtspots.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Scripts\TCP2_Demo_Camera.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Scripts\TCP2_Demo_Cat.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\TCP2 Demo Assets\Misc\TCP2_Demo.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\TCP2 Demo Assets\Misc\TCP2_Demo_PBS.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\TCP2 Demo Assets\Misc\TCP2_Demo_PBS_View.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\TCP2 Demo Assets\Misc\TCP2_Demo_View.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Scripts\TCP2_CameraDepth.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Scripts\TCP2_GetPosOnWater.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Scripts\TCP2_PlanarReflection.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Scripts\TCP2_RuntimeUtils.cs" />
+     <Compile Include="Assets\JMO Assets\Toony Colors Pro\Scripts\TCP2_ShaderUpdateUnityTime.cs" />
+     <Compile Include="Assets\ModelStarter.cs" />
+     <Compile Include="Assets\mouse.cs" />
+     <Compile Include="Assets\MouseLook.cs" />
+     <Compile Include="Assets\movementscript.cs" />
+     <Compile Include="Assets\NavScript.cs" />
+     <Compile Include="Assets\QuizLocationScript.cs" />
+     <Compile Include="Assets\ResearchButtonscript.cs" />
+     <Compile Include="Assets\ResearchDisplay.cs" />
+     <Compile Include="Assets\RestoredArt.cs" />
+     <Compile Include="Assets\RestoreReset.cs" />
+     <Compile Include="Assets\TurnonCollection.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanAddForce.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanCameraMove.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanCameraMoveSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanCameraZoom.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanCameraZoomSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanDestroy.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerDown.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerDrag.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerHeld.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerLine.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerSet.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerSwipe.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerTap.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerTrail.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanFingerUp.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanMultiTap.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanMultiTapInfo.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanOpenUrl.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanPitchYaw.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanPitchYawSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanRotate.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanScale.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanSelect.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanSelectableBehaviour.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanSelectableGraphicColor.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanSelectableRendererColor.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanSelectableSpriteRendererColor.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanSpawn.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanTouchEvents.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanTranslate.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples\Scripts\LeanTranslateSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\IDroppable.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanBoxJoystick.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanCameraDolly.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanCameraDollySmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanCanvasSelectionBox.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanCircleJoystick.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanConstrainToBox.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDragColorMesh.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDragDeformMesh.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDraggableUI.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDragMove.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDragMoveSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDragSpawnUI.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDragTurn.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDragTurnSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDragTurnStepSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanDropDestroy.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanFingerHeldAction.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanFingerLineFade.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanFingerShoot.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanFingerSwipeNoRelease.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanFingerThrowTarget.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanFingerThrowUnder.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanFingerThrowUnderOnPlane.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanFingerTrailFade.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanHeldTime.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanJoystickTurret.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPath.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPathLineRenderer.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPinchMove.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPinchMoveSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPitchYawSwipe.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPitchYawSwipeSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPlane.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPong.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanPongBall.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanRecordFinger.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanResizableUI.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanRevertTransform.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableDragRigidbody2D.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableDragRigidbody3D.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableDragTorque.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableDrop.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableHeld.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectablePlaceOnPath.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectablePlaceOnPlane.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectablePlaceOnPlaneSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectablePoint.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableSwipeThrow.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableTapped.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableTranslateInertia2D.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectableTranslateInertia3D.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSelectCount.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanShoot.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSnap.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSpawnable.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSpawnThrow.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSplitRotate.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSplitTranslate.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSplitTranslate3.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSwap.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSwipeMove.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSwipeMoveSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSwipeTurn.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanSwipeTurnSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanTwistTurn.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Examples+\Scripts\LeanTwistTurnSmooth.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Scripts\LeanFinger.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Scripts\LeanGesture.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Scripts\LeanSelectable.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Scripts\LeanSnapshot.cs" />
+     <Compile Include="Assets\Utilities\LeanTouch\Scripts\LeanTouch.cs" />
+     <Compile Include="Assets\WallTrigger.cs" />
+     <Compile Include="Assets\workshop\guest\Prefabs\ProtoScenes\Scripts\TexturePainter.cs" />
+     <Compile Include="Assets\workshop\Scene\QuizScripts\QuestionAnswer.cs" />
+     <Compile Include="Assets\workshop\Scene\QuizScripts\textmanager.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\ArtifactPlace.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\exhibitplace.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Master_Art.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\MuseumPlace.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\Button.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\CameraMove.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\farmingscript.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\guestStand1.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\GuestTimer.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\guestviewmove.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\GuestWaypointMove.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\RestorePlace.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\ShopandPlant.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\ShopandPlant2.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\Timer.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\Old\waypoints.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\restoreinstantiate.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\TransC1.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\_master\UI_Manager.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\Art.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\auctionClass.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\AuctionScreen.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\Camera2.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\GM_guestScript.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\GuestScript.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\Paint\destroyart.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\Paint\paintdust.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\Paint\paintrestore.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\RearchScript.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\rotatescript.cs" />
+     <Compile Include="Assets\workshop\ScriptBazzar\ScaleModifierScript.cs" />
+     <Compile Include="Assets\ylock.cs" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Vertex Colors.shader" />
+     <None Include="Assets\Utilities\LeanTouch\Examples\Fonts\OFL.txt" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Decal.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Include\TCP2_Outline_SM2.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\TCP2_OutlineOnly Blended.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Cat\Style 4.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Default\Old School.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\UnityChan License.txt" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_Standard PBS Outline (Specular).shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Desktop_Specular_Outline.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 6.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Mobile_Specular_Outline.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\!ToonyColorsPro Readme.txt" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Default\Snow Accumulation.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 3.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Vertex Colors Emissive.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Default\Dissolve.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Cat\Style 2.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Water\Realistic.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Mobile_Specular_OutlineBlending.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\PBS\Outline Behind.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\TCP2_OutlineOnly.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Cat\Style 1.shader" />
+     <None Include="Assets\Utilities\LeanTouch\Examples\Shaders\Skybox.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Mobile_OutlineBlending.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_Standard PBS.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Cat\Style 3.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 6 Skin.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_Standard PBS Outline Blended.shader" />
+     <None Include="Assets\Utilities\LeanTouch\Examples\Shaders\Smooth.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Water.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_Standard PBS Outline Blended (Specular).shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 1.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Default\Comic Book.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Vertex Colors Specular.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Water\Lava Cartoon.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\TCP2 Demo Assets\Cubemaps\Cubemaps License.txt" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 5.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_PBS_ShadowMeta.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Mobile_Outline.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 1 Skin.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\PBS\Sketch.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Include\TCP2_Outline.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_PBS_Core.cginc" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 4.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\TCP2_Mobile.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Desktop_Outline.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\PBS\Hand Painted.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_Standard PBS Outline.shader" />
+     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\PBS\Blended Outline.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 3 Skin.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\SG Demo Assets\_Misc Assets\TCP2_Demo_3DText.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Include\TCP2_Outline_Include.cginc" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Cat\Style 6.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Water\Poison.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Desktop_OutlineBlending.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Mobile_Specular.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 4 Skin.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\TCP2_OutlineOnly Blended SM2.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_PBS_Main.cginc" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Water\Water WindWaker.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Cat\Style 5.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Include\TCP2_Outline_Stencil.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Include\TCP2_Outline_Behind.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\Ground.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Desktop_Specular.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnlitVertexColorsTransparent.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Water\Lava.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\TCP2_Desktop.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Demo TCP2\Cat Demo Assets\Shaders\Cat Demo\UnityChan\Style 5 Skin.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Include\TCP2_Outline_Behind_SM2.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Default\Subsurface Scattering.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Water\Reflection.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\TCP2_OutlineOnly SM2.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_PBS_BRDF.cginc" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Default\Sketch.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Include\TCP2_Include.cginc" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Default\HSV.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders PBS\TCP2_Standard PBS (Specular).shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0 Generated\Examples\Water\Water WindWaker2.shader" />
+     <None Include="Assets\JMO Assets\Toony Colors Pro\Shaders 2.0\Variants Base\TCP2_Desktop_Specular_OutlineBlending.shader" />
+ <Reference Include="Vuforia.UnityExtensions.Editor">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Vuforia.UnityExtensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TestRunner">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
@@ -136,29 +329,80 @@
  <Reference Include="UnityEngine.Timeline">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.Timeline">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UIAutomation">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.GoogleAudioSpatializer">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.GoogleAudioSpatializer">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEditor.HoloLens">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
  </Reference>
- <Reference Include="Vuforia.UnityExtensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
  </Reference>
- <Reference Include="GoogleAR.UnityNative">
- <HintPath>C:/Users/ry.seymour/Documents/GitHub/MuseumManager/Assets/GoogleARCore/SDK/Plugins/GoogleAR.UnityNative.dll</HintPath>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="JMOAssets">
+ <HintPath>C:/Users/rseymour/Documents/GitHub/MuseumManager/Assets/JMO Assets/Editor/JMOAssets.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Users/rseymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>C:/Users/rseymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Users/ry.seymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Users/rseymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Analytics">
+ <HintPath>C:/Users/rseymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Users/ry.seymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+ <HintPath>C:/Users/rseymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Purchasing">
+ <HintPath>C:/Users/rseymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>C:/Users/rseymour/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1121910078665496}
+  m_IsPrefabParent: 1
+--- !u!1 &1121910078665496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4918878516993560}
+  - component: {fileID: 114054821715155048}
+  - component: {fileID: 114501849456935072}
+  - component: {fileID: 114815409171060086}
+  - component: {fileID: 114978570655365348}
+  - component: {fileID: 114278344714844064}
+  m_Layer: 0
+  m_Name: GM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4918878516993560
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121910078665496}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 292.49805, y: 255.52344, z: 15.651703}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114054821715155048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121910078665496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107e1f483d0bc4f48a98eb2ad6ed8bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Wings:
+  - installations:
+    - {fileID: 0}
+    - {fileID: 0}
+    entrance: {fileID: 0}
+  - installations:
+    - {fileID: 0}
+    - {fileID: 0}
+    entrance: {fileID: 0}
+  - installations: []
+    entrance: {fileID: 0}
+  visible: 1
+--- !u!114 &114278344714844064
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121910078665496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d26da4b0518564e948217d1e0d0a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ResearchBranches: {fileID: 0}
+  art1: {fileID: 0}
+  art2: {fileID: 0}
+  art3: {fileID: 0}
+  artResearch: {fileID: 0}
+  rart: {fileID: 0}
+  Unlock2: {fileID: 0}
+  Research1: {fileID: 0}
+  Research2: {fileID: 0}
+  Research3: {fileID: 0}
+  RestoreButton: {fileID: 0}
+  CollectionPaintingButton: {fileID: 0}
+  MasterArtList:
+  - {fileID: 11400000, guid: 3fcd66b22abd0244993be86a7cc7c18e, type: 2}
+  - {fileID: 11400000, guid: 9c2a16d3234de4e409685238260b7d66, type: 2}
+  - {fileID: 11400000, guid: 36cf7b0e409d26649be357dadc4ec8c8, type: 2}
+  title1: {fileID: 0}
+  artist1: {fileID: 0}
+  artworkImage1: {fileID: 0}
+  Theme11: {fileID: 0}
+  Theme21: {fileID: 0}
+  title2: {fileID: 0}
+  artist2: {fileID: 0}
+  artworkImage2: {fileID: 0}
+  Theme12: {fileID: 0}
+  Theme22: {fileID: 0}
+  title3: {fileID: 0}
+  artist3: {fileID: 0}
+  artworkImage3: {fileID: 0}
+  Theme13: {fileID: 0}
+  Theme23: {fileID: 0}
+  countdownText: {fileID: 0}
+  tpress: 0
+  crop: 0
+  plot: 1
+  finishPlot: 0
+  n: 0
+  CommunityHealth: 50
+  timerText: 0
+  spawnpoint: {fileID: 0}
+  restoreThumbnails:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  collectionThumbnails:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  collectionLocations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  researchThumbnails:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  numbers: 
+  lastrando: 0
+  rend: {fileID: 0}
+--- !u!114 &114501849456935072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121910078665496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30db91966d7323d4780c115e2f80d797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 100
+  ArtifactsScreen: {fileID: 0}
+  MainScreen: {fileID: 0}
+  RestoreScreen: {fileID: 0}
+  PaintRestore: {fileID: 0}
+  ResearchScreen: {fileID: 0}
+  donateText: {fileID: 0}
+  artifactScore: 0
+  targetAngleIEO: {x: 0, y: 180, z: 0}
+  targetAngleO: {x: 0, y: 0, z: 0}
+  targetAngleNO: {x: 0, y: 90, z: 0}
+  targetAnglenNO: {x: 0, y: -90, z: 0}
+  objectRotate: {fileID: 0}
+  cameraObject: {fileID: 0}
+  CoreTech: {fileID: 0}
+  Movementbool: 0
+  Cameraup: {fileID: 0}
+  EObj: {fileID: 0}
+  EObjbool: 0
+  OneAObj: {fileID: 0}
+  OneAObjbool: 0
+  OneBObj: {fileID: 0}
+  OneBObjbool: 0
+  OneCObj: {fileID: 0}
+  OneCObjbool: 0
+  rotateSpeed: 10
+--- !u!114 &114815409171060086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121910078665496}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed79c2884c71c5c448eb7c1a970b3af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera1: {fileID: 0}
+  camera2: {fileID: 0}
+  camera1fps: {fileID: 0}
+  camera2fps: {fileID: 0}
+  cswitch: 1
+  ArtifactsScreen: {fileID: 0}
+  MainScreen: {fileID: 0}
+  RestoreScreen: {fileID: 0}
+  Exhibit1a: {fileID: 0}
+  PaintRestore: {fileID: 0}
+  donateText: {fileID: 0}
+  artifactScore: 0
+--- !u!114 &114978570655365348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121910078665496}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5c3706e8aebed741ab582766fa056b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownText: {fileID: 0}
+  tpress: 0
+  crop: 0
+  plot: 1
+  finishPlot: 0
+  CommunityHealth: 50
+  timerText: 0

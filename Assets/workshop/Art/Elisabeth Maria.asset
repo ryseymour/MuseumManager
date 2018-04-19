@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f64a8ff763788941ab11cc404ec018a, type: 3}
+  m_Name: Elisabeth Maria
+  m_EditorClassIdentifier: 
+  name: Portrait of Marie Antoinette
+  description: 
+  artist: Madame Le Brun
+  Theme1: 
+  Theme2: 
+  baseScore: 1
+  cleanScore: 1.5
+  startBid: 250
+  raiseAmount: 25
+  myCondition: 1
+  viewZone: {fileID: 0}
+  artObject: {fileID: 0}
+  view: {fileID: 21300000, guid: 48ce86b8fc2102949baefea4003a0d08, type: 3}
+  Restoreview: {fileID: 0}
+  researched: 0
+  restored: 0
+  displayed: 0
+  painting: 1
+  AR: 0
+  ARmodel: {fileID: 1305984184901418, guid: 63253490820f2294b838dcc1aeae672c, type: 2}
+  dirtyspots: {fileID: 0}
