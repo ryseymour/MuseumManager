@@ -18,6 +18,6 @@ public class WallTrigger : MonoBehaviour {
 	private void OnTriggerEnter ()
 	{
 		Cam.gameObject.transform.position = Startspot.transform.position;
-		Debug.Log ("transform");
+		
 	}
 }

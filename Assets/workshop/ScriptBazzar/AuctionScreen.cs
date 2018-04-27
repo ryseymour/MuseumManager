@@ -143,6 +143,10 @@ public class AuctionScreen : MonoBehaviour
 
     public void CloseBid()
     {
+        if (currentItem.bidActive)
+        {
+            UI_Manager.instance.donateMax += (currentItem.currentBidAmount/2);
+        }
         posID++;
         BidPanel.SetActive(false);
         BidBKG.SetActive(false);
@@ -153,12 +157,9 @@ public class AuctionScreen : MonoBehaviour
     public void AddBid()
     {
         if (bidEnabled) {
-            //check if there's enough money
+          
             currentItem.AddBid();
-            //currentItem.bidAmount += currentItem.myArt.raiseAmount;
-            //currentItem.currentBid.text = "Current Bid $" + currentItem.bidAmount;
-            Debug.Log(currentItem.bidAmount);
-            Debug.Log(currentItem.myArt.raiseAmount);
+
             bidEnabled = false;
         }
 
@@ -166,6 +167,12 @@ public class AuctionScreen : MonoBehaviour
 
     public void CloseAuction()
     {
+        if (currentItem.bidActive)
+        {                     
+            UI_Manager.instance.donateMax += (currentItem.currentBidAmount / 2);
+            UI_Manager.instance.donateText.text = "$" + UI_Manager.instance.donateMax;
+            currentItem.bidActive = false;
+        }
         this.gameObject.SetActive(false);
     }
  

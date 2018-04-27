@@ -19,7 +19,9 @@ public class auctionClass : MonoBehaviour {
     public Text bidDescription;
     public Art bidArt;
     public float maxCounter;
-   
+
+    public bool bidActive; //are you currently bidding on an item. Useful to return money when a bid has been left early
+    public float currentBidAmount; //how much has already been bid;
 
     public void ActivateItem(Art a)
     {
@@ -40,8 +42,8 @@ public class auctionClass : MonoBehaviour {
         raiseText.text = "+$" + myArt.raiseAmount.ToString();
         bidArt = myArt;
         maxCounter = bidAmount * 1.75f;
-        
-        Debug.Log(bidAmount + " : " + myArt.startBid + " max counter: " + maxCounter);
+        currentBidAmount = 0;
+        bidActive = true;
         
     }
 
@@ -49,16 +51,17 @@ public class auctionClass : MonoBehaviour {
     public void AddBid()
     {
         //check if there's enough money
-
-        if(bidAmount+myArt.raiseAmount <= UI_Manager.instance.donateMax)
+        Debug.Log(bidAmount + currentBidAmount + " vs. " + UI_Manager.instance.donateMax);
+        if(bidAmount + currentBidAmount <= UI_Manager.instance.donateMax)
         {
+            currentBidAmount += myArt.raiseAmount;
             UI_Manager.instance.Subtract(myArt.raiseAmount);
             AuctionScreen.instance.FundsUpdate(myArt.raiseAmount);
-            bidAmount += myArt.raiseAmount;
+            
             AuctionScreen.instance.anim_PlayerBid.GetComponent<Text>().text = "+" + myArt.raiseAmount;
             AuctionScreen.instance.anim_PlayerBid.GetComponent<Animator>().Play("playerBid");
             StartCoroutine("CounterBid");
-            currentBid.text = "Current Bid $" + bidAmount;
+            currentBid.text = "Current Bid $" + (bidAmount+currentBidAmount);
         }
         else
         {
@@ -77,15 +80,15 @@ public class auctionClass : MonoBehaviour {
             AuctionScreen.instance.anim_CompBid.GetComponent<Text>().text = "+" + myArt.raiseAmount;
             AuctionScreen.instance.anim_CompBid.GetComponent<Animator>().Play("compBid");
             yield return new WaitForSeconds(0.75f);
-            bidAmount += myArt.raiseAmount;
-            currentBid.text = "Current Bid $" + bidAmount;
-            
+            currentBidAmount += myArt.raiseAmount;
+            currentBid.text = "Current Bid $" + (bidAmount + currentBidAmount);            
             AuctionScreen.instance.bidEnabled = true;
         }
         else
         {
             AuctionScreen.instance.anim_CompBid.GetComponent<Text>().text = "withdraw";
             AuctionScreen.instance.anim_CompBid.GetComponent<Animator>().Play("compWithdraw");
+            
             yield return new WaitForSeconds(2);
             //int tempInt = AuctionScreen.instance.testArt.IndexOf(myArt);
 
@@ -95,7 +98,8 @@ public class auctionClass : MonoBehaviour {
             Master_Art.instance.MasterArtList[tempInt].researched = true;
             AuctionScreen.instance.CloseBid();
             AuctionScreen.instance.BidBKG.SetActive(false);
-           
+            bidActive = false;
+
         }
 
     }

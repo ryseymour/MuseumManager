@@ -55,8 +55,12 @@ public class GuestScript : MonoBehaviour {
             _Enter();
         }
 
+        /*  
+         *  Need to double check that the ---visible--- attribute is not used. Otherwise this can be deleted so we can remove the cube mesh renderer
+         *  
         if (GM_guestScript.instance.visible) //is there an open menu?
         {
+            
             if (gVisible) //is this model active in the scene?
             {
                 this.GetComponent<MeshRenderer>().enabled = true;
@@ -64,11 +68,13 @@ public class GuestScript : MonoBehaviour {
             {
                 this.GetComponent<MeshRenderer>().enabled = false;
             }
+            
            
         }
         else{             //a window is open, stop looking at the guests
             this.GetComponent<MeshRenderer>().enabled = false; 
         }
+        */
 
         if (active)
         {
