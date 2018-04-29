@@ -68,11 +68,17 @@ public class AuctionScreen : MonoBehaviour
     void PopulateSelect()
     {
         Debug.Log("populated");
+        int artSkipper = 0; //used to move through art that has already been researched
         for (int i = 0; i < auctionItems.Count; i++)
         {
-            if (!Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep)].researched)
+            auctionItems[i].ClearItems();
+            if (!Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep) + artSkipper].researched)
             {
-                auctionItems[i].ActivateItem(Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep)]);
+                auctionItems[i].ActivateItem(Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep) + artSkipper]);
+            }else
+            {
+                artSkipper++;
+                auctionItems[i].ActivateItem(Master_Art.instance.MasterArtList[i + Mathf.FloorToInt(posID * posStep) + artSkipper]);
             }
             /* Unit test code        
             if (!testArt[i + Mathf.FloorToInt(posID * posStep)].researched)

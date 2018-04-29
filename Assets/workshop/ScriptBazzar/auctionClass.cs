@@ -34,6 +34,18 @@ public class auctionClass : MonoBehaviour {
         myArt = a;
     }
 
+    public void ClearItems()
+    {
+        selectIcon.sprite = null;
+        selectName.text = null;
+        startBid.text = "$";
+        Theme.text = "";
+        Artist.text = "";
+        Condition.text ="";
+        myArt = null;
+        Debug.Log("cleared " + gameObject.transform.parent.name);
+    }
+
     public void ActivateBid()
     {
         bidAmount = myArt.startBid;
@@ -75,8 +87,9 @@ public class auctionClass : MonoBehaviour {
 
         yield return new WaitForSeconds(1.25f);
        
-        if(bidAmount < maxCounter)
+        if(bidAmount+currentBidAmount < maxCounter)
         {
+            Debug.Log(maxCounter);
             AuctionScreen.instance.anim_CompBid.GetComponent<Text>().text = "+" + myArt.raiseAmount;
             AuctionScreen.instance.anim_CompBid.GetComponent<Animator>().Play("compBid");
             yield return new WaitForSeconds(0.75f);
