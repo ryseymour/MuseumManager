@@ -67,7 +67,7 @@ public class AuctionScreen : MonoBehaviour
 
     void PopulateSelect()
     {
-        Debug.Log("populated");
+        
         int artSkipper = 0; //used to move through art that has already been researched
         for (int i = 0; i < auctionItems.Count; i++)
         {
@@ -134,10 +134,10 @@ public class AuctionScreen : MonoBehaviour
         BidPanel.SetActive(true);
         BidBKG.SetActive(true);
         bidEnabled = true;
-        currentItem = obj.transform.parent.GetComponent<auctionClass>();
-        obj.transform.parent.GetComponent<auctionClass>().ActivateBid();
+        currentItem = obj.transform.parent.transform.parent.GetComponent<auctionClass>();
+        obj.transform.parent.transform.parent.GetComponent<auctionClass>().ActivateBid();
         currentFunds.text = "$" + UI_Manager.instance.donateMax;
-        Debug.Log(obj.transform.parent.GetComponent<auctionClass>().myArt);
+        
     }
 
     public void FundsUpdate(float amount)
