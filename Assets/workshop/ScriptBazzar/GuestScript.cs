@@ -210,6 +210,8 @@ public class GuestScript : MonoBehaviour {
                         //Debug.Log(artQ[pos_artQ]);
                         if (artQ[pos_artQ].GetComponent<ArtInstallation>().myArt != null) {
                             score += artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.baseScore + artQ[pos_artQ].GetComponent<ArtInstallation>().myArt.cleanScore;
+							transform.GetChild(0).gameObject.SetActive(true);
+							StartCoroutine ("Happy");
                             //the second half of the line above, the calculation show sthe total score for the piece of art. 
                             //so make an if statement 
                             // float happyCheck = artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.baseScore + artQ [pos_artQ].GetComponent<ArtInstallation> ().myArt.cleanScore;
@@ -305,6 +307,12 @@ public class GuestScript : MonoBehaviour {
 		//GameObject.Find("GM").GetComponent<UI_Manager>().donateText.text = "Donations: $" + GameObject.Find("GM").GetComponent<UI_Manager>().donateMax;
 
     }
+
+	IEnumerator Happy()
+	{
+		yield return new WaitForSeconds (3);
+		transform.GetChild(0).gameObject.SetActive(false);
+	}
 
 
     private void OnTriggerEnter(Collider other)

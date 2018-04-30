@@ -54,6 +54,7 @@
      <Compile Include="Assets\ArtInstallation.cs" />
      <Compile Include="Assets\Buttonscript.cs" />
      <Compile Include="Assets\CameraMaster.cs" />
+     <Compile Include="Assets\CanvasLookAt.cs" />
      <Compile Include="Assets\CollectionButtonscript.cs" />
      <Compile Include="Assets\dirtspots.cs" />
      <Compile Include="Assets\gamestart.cs" />
