@@ -1,2 +1,186 @@
 Base path: C:/Program Files/Unity/Editor/Data
 Cmd: initializeCompiler
+Cmd: preprocess
+  error: 2 plat 20 at (117): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=8719 outsize=2492 ok=0
+Cmd: preprocess
+  insize=20212 outsize=5236 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (109): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=7728 outsize=2335 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (96): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=5493 outsize=1858 ok=0
+Cmd: preprocess
+  insize=11845 outsize=7537 ok=1
+Cmd: preprocess
+  insize=2518 outsize=2058 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (252): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=12062 outsize=3329 ok=0
+Cmd: preprocess
+  insize=2218 outsize=1982 ok=1
+Cmd: preprocess
+  insize=986 outsize=983 ok=1
+Cmd: preprocess
+  insize=2452 outsize=2216 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (125): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=6535 outsize=1973 ok=0
+Cmd: preprocess
+  insize=2614 outsize=2028 ok=1
+Cmd: preprocess
+  insize=2193 outsize=1319 ok=1
+Cmd: preprocess
+  insize=18766 outsize=4043 ok=1
+Cmd: preprocess
+  insize=2029 outsize=1305 ok=1
+Cmd: preprocess
+  insize=747 outsize=980 ok=1
+Cmd: preprocess
+  insize=2848 outsize=2262 ok=1
+Cmd: preprocess
+  insize=1467 outsize=1201 ok=1
+Cmd: preprocess
+  insize=1710 outsize=1477 ok=1
+Cmd: preprocess
+  insize=3553 outsize=2020 ok=1
+Cmd: preprocess
+  insize=3860 outsize=2331 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (117): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=5899 outsize=1839 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (139): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=9743 outsize=2959 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (86): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=4826 outsize=1695 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (274): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=13031 outsize=3387 ok=0
+Cmd: preprocess
+  insize=11730 outsize=7446 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (95): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=6219 outsize=1811 ok=0
+Cmd: preprocess
+  insize=1500 outsize=446 ok=1
+Cmd: preprocess
+  insize=19663 outsize=5192 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (120): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=8406 outsize=2766 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (234): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=11271 outsize=2916 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (132): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=9680 outsize=2545 ok=0
+Cmd: preprocess
+  insize=11010 outsize=6727 ok=1
+Cmd: preprocess
+  insize=11695 outsize=7387 ok=1
+Cmd: preprocess
+  insize=2060 outsize=1336 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (228): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=8565 outsize=2809 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (106): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=5457 outsize=1543 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (83): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=4641 outsize=1560 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (134): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=9465 outsize=2832 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (248): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=12063 outsize=3370 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (117): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=8834 outsize=2484 ok=0
+Cmd: preprocess
+  insize=22891 outsize=5290 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (99): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=5567 outsize=1904 ok=0
+Cmd: preprocess
+  insize=1206 outsize=647 ok=1
+Cmd: preprocess
+  insize=2056 outsize=1696 ok=1
+Cmd: preprocess
+  insize=2108 outsize=1521 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (73): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=4199 outsize=1371 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (66): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=3568 outsize=1191 ok=0
+Cmd: preprocess
+  insize=993 outsize=990 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (141): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=11244 outsize=3363 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (129): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=6384 outsize=1981 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (74): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=4256 outsize=1398 ok=0
+Cmd: preprocess
+  insize=1030 outsize=393 ok=1
+Cmd: preprocess
+  insize=1759 outsize=1302 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (262): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=12666 outsize=3461 ok=0
+Cmd: preprocess
+  insize=970 outsize=967 ok=1
+Cmd: preprocess
+  insize=2779 outsize=2421 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (260): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=12485 outsize=3455 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (126): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=8913 outsize=2598 ok=0
+Cmd: preprocess
+  insize=2284 outsize=1823 ok=1
+Cmd: preprocess
+  insize=963 outsize=960 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (68): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=3830 outsize=1243 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (76): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=4240 outsize=1420 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (117): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=6093 outsize=1741 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (101): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=5801 outsize=1911 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (89): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=4919 outsize=1691 ok=0
+Cmd: preprocess
+  error: 2 plat 20 at (127): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=6238 outsize=1975 ok=0
+Cmd: preprocess
+  insize=11869 outsize=7587 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (73): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=3957 outsize=1402 ok=0
+Cmd: preprocess
+  insize=10977 outsize=6673 ok=1
+Cmd: preprocess
+  error: 2 plat 20 at (117): Unexpected identifier "UNITY_INSTANCING_BUFFER_START". Expected one of: typedef const void inline uniform nointerpolation extern shared static volatile row_major column_major struct or a user-defined type
+  insize=5940 outsize=1834 ok=0
+Cmd: preprocess
+  insize=2545 outsize=2185 ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=2133 outsize=834 kw=UNITY_UI_ALPHACLIP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=2133 outsize=542 kw=UNITY_UI_ALPHACLIP pd=UNITY_ENABLE_REFLECTION_BUFFERS UNITY_USE_DITHER_MASK_FOR_ALPHABLENDED_SHADOWS UNITY_PBS_USE_BRDF1 UNITY_SPECCUBE_BOX_PROJECTION UNITY_SPECCUBE_BLENDING UNITY_ENABLE_DETAIL_NORMALMAP SHADER_API_DESKTOP UNITY_COLORSPACE_GAMMA UNITY_LIGHT_PROBE_PROXY_VOLUME ok=1
