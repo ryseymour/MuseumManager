@@ -1,6 +1,6 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\gamestart.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\workshop\Scene\QuizScripts\textmanager.cs">
     <Files>
       <File FileName="Assets\workshop\ScriptBazzar\_master\UI_Manager.cs" Line="1" Column="1" />
       <File FileName="Assets\Buttonscript.cs" Line="1" Column="1" />
@@ -14,12 +14,12 @@
       <File FileName="Assets\workshop\ScriptBazzar\Art.cs" Line="1" Column="1" />
       <File FileName="Assets\workshop\ScriptBazzar\AuctionScreen.cs" Line="1" Column="1" />
       <File FileName="Assets\workshop\ScriptBazzar\auctionClass.cs" Line="1" Column="1" />
-      <File FileName="Assets\workshop\Scene\QuizScripts\textmanager.cs" Line="1" Column="1" />
+      <File FileName="Assets\workshop\Scene\QuizScripts\textmanager.cs" Line="16" Column="32" />
       <File FileName="Assets\WallTrigger.cs" Line="1" Column="1" />
       <File FileName="Assets\workshop\Scene\QuizScripts\QuestionAnswer.cs" Line="1" Column="1" />
       <File FileName="Assets\QuizLocationScript.cs" Line="1" Column="1" />
       <File FileName="Assets\dirtspots.cs" Line="1" Column="1" />
-      <File FileName="Assets\gamestart.cs" Line="22" Column="1" />
+      <File FileName="Assets\gamestart.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

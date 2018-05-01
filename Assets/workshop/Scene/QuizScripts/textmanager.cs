@@ -17,6 +17,11 @@ public class textmanager : MonoBehaviour {
 	public GameObject ThreeQuestion;
 	public GameObject FourQuestion;
 
+	public Button OneA;
+	public Button TwoB;
+	public Button ThreeC;
+	public Button FourD;
+
 	public static int randQuestion;
 	public static int answer;
 
@@ -101,6 +106,8 @@ public class textmanager : MonoBehaviour {
 	}
 
 	public void Answer (){
+
+
 		if (choiceSelected == true) {
 
 			choiceSelected = false;
