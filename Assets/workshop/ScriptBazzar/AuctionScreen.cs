@@ -153,6 +153,9 @@ public class AuctionScreen : MonoBehaviour
         {
             UI_Manager.instance.donateMax += (currentItem.currentBidAmount/2);
         }
+        UI_Manager.instance.donateMax -= currentItem.bidAmount + currentItem.currentBidAmount ;
+        Debug.Log(currentItem.bidAmount + currentItem.currentBidAmount);
+        UI_Manager.instance.donateText.text = "$" + UI_Manager.instance.donateMax;
         posID++;
         BidPanel.SetActive(false);
         BidBKG.SetActive(false);
