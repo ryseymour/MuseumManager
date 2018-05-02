@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f64a8ff763788941ab11cc404ec018a, type: 3}
   m_Name: DV Portrait
   m_EditorClassIdentifier: 
-  name: Leonardo da Vinci Portrait
+  name: Da Vinci Portrait
   description: 
   artist: 'Leonardo da Vinci '
   Theme1: 

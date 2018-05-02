@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f64a8ff763788941ab11cc404ec018a, type: 3}
   m_Name: Elisabeth Baronne de Crussol
   m_EditorClassIdentifier: 
-  name: Baronne de Crussol
+  name: Baronness
   description: 
   artist: Madame Le Brun
   Theme1: 
