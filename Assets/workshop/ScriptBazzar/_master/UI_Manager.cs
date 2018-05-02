@@ -71,6 +71,10 @@ public class UI_Manager : MonoBehaviour {
 	public static bool SwabTwoOn;
 	public static bool SwabThreeOn;
 
+	public GameObject DustArrow;
+	public GameObject PatchArrow;
+	public GameObject VarnishArrow;
+
 	public float rotateSpeed = 3f;
 	bool rotateStatus = false;
 
@@ -233,6 +237,9 @@ public class UI_Manager : MonoBehaviour {
 		if (f == 1) {
 			Debug.Log ("swab");
 			SwabOn = true;
+			DustArrow.SetActive (true);
+			PatchArrow.SetActive (false);
+			VarnishArrow.SetActive (false);
 			Debug.Log (SwabOn);
 			SwabTwoOn = false;
 			SwabThreeOn = false;
@@ -243,12 +250,19 @@ public class UI_Manager : MonoBehaviour {
 			SwabTwoOn = true;
 			SwabOn = false;
 			SwabThreeOn = false;
+			VarnishArrow.SetActive (true);
+			DustArrow.SetActive (false);
+			PatchArrow.SetActive (false);
 		}
 
 		if (f == 3) {
 			SwabThreeOn = true;
 			SwabTwoOn = false;
 			SwabOn = false;
+			PatchArrow.SetActive (true);
+			DustArrow.SetActive (false);
+			VarnishArrow.SetActive (false);
+
 		}
 	}
 
