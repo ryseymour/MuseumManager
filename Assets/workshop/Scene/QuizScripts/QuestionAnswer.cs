@@ -18,6 +18,7 @@ public class QuestionAnswer : MonoBehaviour {
 	public void AnswerClick () {
 		textmanager.selectedAnswer = gameObject.name;
 		textmanager.choiceSelected = true;
+		Debug.Log (gameObject.name);
 		Debug.Log ("Answertest");
 		//QuestionManager.GetComponent<textmanager> ().Answer ();
 		textmanager answ = QuestionManager.GetComponent<textmanager>();
@@ -25,13 +26,13 @@ public class QuestionAnswer : MonoBehaviour {
 
 	}
 
-	void OnMouseDown () {
-		textmanager.selectedAnswer = gameObject.name;
-		textmanager.choiceSelected = true;
-		Debug.Log ("Answertest");
+	//void OnMouseDown () {
+		//textmanager.selectedAnswer = gameObject.name;
+	//	textmanager.choiceSelected = true;
+		//Debug.Log ("Answertest");
 		//QuestionManager.GetComponent<textmanager> ().Answer ();
-		textmanager answ = QuestionManager.GetComponent<textmanager>();
-		answ.Answer ();
+		//textmanager answ = QuestionManager.GetComponent<textmanager>();
+		//answ.Answer ();
 
-	}
+	//}
 }
