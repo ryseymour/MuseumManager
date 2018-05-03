@@ -93,7 +93,8 @@ public class textmanager : MonoBehaviour {
 	}
 
 	public void QuestionRand (){
-		randQuestion = Random.Range (0, 5);
+		randQuestion = Random.Range (0, 4);
+		Debug.Log ("rand" + randQuestion);
 		QuestionPop ();
 	}
 
@@ -117,17 +118,19 @@ public class textmanager : MonoBehaviour {
 				Debug.Log ("correct");
 				QuestionBlock.SetActive (false);
 				QuestionIntiate = true;
-				GuestScript.questionCorrect = 50f;
+				GuestScript.questionCorrect = 500f;
 				//Correct.SetActive (true);
 				answer = 1;
 				UI_Manager CR = GMObj.GetComponent<UI_Manager>();
 				CR.Answer(1);
-				QuestionOn ();
+				//QuestionOn ();
 
 
 			} else if (correctAnswer [randQuestion] != selectedAnswer) {
 				
 				Debug.Log ("incorrect");
+			Debug.Log ("correctanswer" + correctAnswer [randQuestion]);
+				Debug.Log ("selectedanswer" + selectedAnswer);
 				QuestionBlock.SetActive (false);
 				QuestionIntiate = true;
 				GuestScript.questionCorrect = -25f;
@@ -135,7 +138,7 @@ public class textmanager : MonoBehaviour {
 				answer = 2;
 				UI_Manager CR = GMObj.GetComponent<UI_Manager>();
 				CR.Answer(2);
-				QuestionOn ();
+				//QuestionOn ();
 			}
 		}
 	}

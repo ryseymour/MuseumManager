@@ -184,5 +184,11 @@ public class AuctionScreen : MonoBehaviour
         }
         this.gameObject.SetActive(false);
     }
+
+	public void BackAuction()
+	{
+		Debug.Log ("testauctionclose");
+		this.gameObject.SetActive (false);
+	}
  
 }

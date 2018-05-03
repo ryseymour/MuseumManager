@@ -16,8 +16,18 @@ public class QuizLocationScript : MonoBehaviour {
 	}
 
 	void OnMouseDown () {
-		Debug.Log ("test");
+		Debug.Log ("q1test");
+		//this.gameObject.SetActive (false);
 		textmanager QT = QTObj.GetComponent<textmanager>();
+
+		QT.QuestionOn();
+
+	}
+
+	public void QuizTest () {
+		Debug.Log ("q2test");
+		textmanager QT = QTObj.GetComponent<textmanager>();
+
 		QT.QuestionOn();
 	}
 }
