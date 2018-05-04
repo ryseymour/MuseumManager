@@ -437,5 +437,9 @@ public class Master_Art : MonoBehaviour {
 		if (placeclick >= 1) {
 
 		}
+        for(int i=0; i<collectionLocations.Count; i++)
+        {
+            Debug.DrawRay(collectionLocations[i].transform.position, collectionLocations[i].transform.forward * 3, Color.blue);
+        }
 	}
 }

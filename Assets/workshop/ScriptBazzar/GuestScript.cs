@@ -185,8 +185,9 @@ public class GuestScript : MonoBehaviour {
                 {
                     if (gVisible)
                     {
+                        Debug.DrawRay(artQ[pos_artQ].transform.position, artQ[pos_artQ].transform.forward * 3, Color.blue);
                         //transform.position = Vector3.Lerp(transform.position, artQ[pos_artQ].transform.position, speed * Time.deltaTime);
-                        myAgent.SetDestination(artQ[pos_artQ].transform.position);
+                        myAgent.SetDestination(artQ[pos_artQ].transform.position + (artQ[pos_artQ].transform.forward*3));
                     }else
                     {
                         //need a way to calculate the distance and the time it should take to travel to the exhibit, should be that final parameter in the lerp

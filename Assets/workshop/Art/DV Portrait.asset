@@ -25,10 +25,10 @@ MonoBehaviour:
   artObject: {fileID: 0}
   view: {fileID: 21300000, guid: fec951ec6e34e6f419b44dbd73ebadf2, type: 3}
   Restoreview: {fileID: 0}
-  researched: 0
-  restored: 0
-  displayed: 0
+  researched: 1
+  restored: 1
+  displayed: 1
   painting: 1
-  AR: 1
+  AR: 0
   ARmodel: {fileID: 1468554304261380, guid: 88a29daee9b7a2f428fd11707f2f259b, type: 2}
   dirtyspots: {fileID: 0}
