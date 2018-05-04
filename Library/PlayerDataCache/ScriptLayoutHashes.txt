@@ -1,4 +1,4 @@
-WebGL
+WindowsStandalone
 SceneListBegin?
 Assets/workshop/Scene/StartScene.unity
 Assets/workshop/guest/test.unity
