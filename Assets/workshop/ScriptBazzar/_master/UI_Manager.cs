@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_Manager : MonoBehaviour {
 
@@ -332,7 +333,10 @@ public class UI_Manager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.GetKeyDown ("escape")) {
+			SceneManager.LoadScene ("StartScene", LoadSceneMode.Single);
+		}
+			
 
 		if (rotateStatus == true) {
 			objectRotate.transform.Rotate (Vector3.back, rotateSpeed * Time.deltaTime);
