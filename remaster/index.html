@@ -344,7 +344,7 @@ sign.position.set(0, 2.08, 6.46); museum.add(sign);
 HALL_X.forEach((hx, i) => {
   const lbl = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 0.4),
     new THREE.MeshBasicMaterial({ map: textTexture(HALL_NAMES[i], { color: '#efe6d2' }), transparent: true, opacity: 0.85 }));
-  lbl.rotation.x = -Math.PI / 2; lbl.position.set(hx, 0.15, 2.2); museum.add(lbl);
+  lbl.rotation.x = -Math.PI / 2; lbl.position.set(hx, 0.15, 1.0); museum.add(lbl);
 });
 
 // Surrounding block: houses, trees, lamps, benches
