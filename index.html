@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Museum Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f6f1e7; --card:#fffdf8; --ink:#2a2420; --muted:#6d6259; --line:#e3d9c8; --accent:#9b3d25; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1b1815; --card:#25211d; --ink:#f1e9dc; --muted:#b3a796; --line:#3a332c; --accent:#e08a66; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 Figtree, system-ui, sans-serif; }
+  main { max-width:880px; margin:0 auto; padding:56px 16px 64px; }
+  h1 { font:400 clamp(2.2rem,6vw,3.4rem)/1.1 "Marcellus SC", serif; margin:0 0 12px; }
+  .lede { color:var(--muted); max-width:60ch; margin:0 0 40px; }
+  .grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+  a.card { display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px; color:inherit; text-decoration:none; transition:transform .15s, border-color .15s; }
+  a.card:hover { transform:translateY(-2px); border-color:var(--accent); }
+  .tag { font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-weight:600; }
+  h2 { font:400 1.5rem/1.2 "Marcellus SC", serif; margin:6px 0 8px; }
+  p { margin:0; color:var(--muted); }
+  .play { margin-top:auto; padding-top:16px; font-weight:600; color:var(--accent); }
+  footer { margin-top:48px; font-size:.9rem; color:var(--muted); }
+  footer a { color:inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Museum Manager</h1>
+  <p class="lede">A 2018 Unity game about running a small museum, made by Ryan Seymour, sourseymour and Cole Wrampelmeier, now rebuilt to play in the browser. Pick an edition.</p>
+  <div class="grid">
+    <a class="card" href="restoration/">
+      <span class="tag">Final build</span>
+      <h2>Restoration Edition</h2>
+      <p>Win paintings at auction, clean them in the conservatory, hang them in the halls, and fundraise until the museum reaches $5,000.</p>
+      <span class="play">Play →</span>
+    </a>
+    <a class="card" href="curator/">
+      <span class="tag">Expanded</span>
+      <h2>Curator Edition</h2>
+      <p>The early prototype grown into a full management game, with more to plan between visitors and donations.</p>
+      <span class="play">Play →</span>
+    </a>
+    <a class="card" href="remaster/">
+      <span class="tag">Original prototype</span>
+      <h2>Remaster</h2>
+      <p>A faithful remake of the AR prototype: place artifacts in three halls and watch guests tour and donate.</p>
+      <span class="play">Play →</span>
+    </a>
+  </div>
+  <footer>Source and the original Unity project: <a href="https://github.com/ryseymour/MuseumManager">github.com/ryseymour/MuseumManager</a></footer>
+</main>
+</body>
+</html>
