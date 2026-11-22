@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Museum Manager Curator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    color-scheme: dark;
+    --ink: #121a18;
+    --panel: rgba(20, 30, 27, 0.86);
+    --panel-solid: #17221f;
+    --line: rgba(201, 164, 92, 0.28);
+    --brass: #c9a45c;
+    --brass-hi: #e6c783;
+    --parchment: #efe6d2;
+    --muted: #a8ab9d;
+    --good: #8fc79a;
+    --bad: #e08a74;
+    --display: "Marcellus SC", "Trajan Pro", Georgia, serif;
+    --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  [hidden] { display: none !important; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--ink);
+    color: var(--parchment);
+    font: 14px/1.4 var(--body);
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #stage { position: fixed; inset: 0; }
+  #stage canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+
+  .hud {
+    position: fixed; left: 0; right: 0; top: 0;
+    padding: calc(env(safe-area-inset-top, 0px) + 12px) 16px 0;
+    display: flex; gap: 12px; align-items: flex-start; justify-content: space-between;
+    pointer-events: none;
+  }
+  .hud > * { pointer-events: auto; }
+  .plaque {
+    background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+    padding: 10px 14px; backdrop-filter: blur(6px);
+  }
+  .brand h1 {
+    font: 400 20px/1 var(--display); letter-spacing: 0.08em; margin: 0; color: var(--brass-hi);
+  }
+  .brand p { margin: 4px 0 0; font-size: 12px; color: var(--muted); letter-spacing: 0.02em; }
+  .stats { display: flex; gap: 18px; flex-wrap: wrap; }
+  .stat { display: grid; gap: 2px; min-width: 64px; }
+  .stat b { font: 500 18px/1 var(--mono); font-variant-numeric: tabular-nums; color: var(--parchment); }
+  .stat span { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .stat.money b { color: var(--brass-hi); }
+  .tools { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  button {
+    font: 500 13px/1 var(--body); color: var(--parchment); cursor: pointer;
+    background: var(--panel-solid); border: 1px solid var(--line); border-radius: 4px;
+    padding: 9px 12px;
+  }
+  button:hover { border-color: var(--brass); }
+  button:focus-visible { outline: 2px solid var(--brass-hi); outline-offset: 2px; }
+  button.on { background: var(--brass); color: var(--ink); border-color: var(--brass); }
+
+  .hint {
+    position: fixed; left: 50%; transform: translateX(-50%);
+    top: calc(env(safe-area-inset-top, 0px) + 84px);
+    max-width: min(560px, calc(100% - 32px)); text-align: center;
+    padding: 10px 16px; font-size: 14px; pointer-events: none;
+    transition: opacity .3s;
+  }
+  .hint button { pointer-events: auto; margin-left: 10px; padding: 6px 10px; font-size: 12px; }
+  .hint.withbtn { pointer-events: auto; }
+
+  .drawer {
+    position: fixed; left: 0; right: 0; bottom: 0;
+    padding: 0 16px calc(env(safe-area-inset-bottom, 0px) + 12px);
+    pointer-events: none;
+  }
+  .drawer-inner {
+    pointer-events: auto; margin: 0 auto; max-width: 1100px;
+    background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+    backdrop-filter: blur(6px); padding: 10px 12px 12px;
+  }
+  .drawer-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+  .drawer-head h2 { font: 400 14px/1 var(--display); letter-spacing: 0.14em; margin: 0; color: var(--brass-hi); }
+  .drawer-head span { font-size: 12px; color: var(--muted); }
+  .cards { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+  .card {
+    flex: 0 0 104px; display: grid; gap: 4px; justify-items: center; text-align: center;
+    background: rgba(255,255,255,0.03); border: 1px solid transparent; border-radius: 4px;
+    padding: 6px 6px 8px; cursor: pointer; color: var(--parchment); font: inherit;
+  }
+  .card img { width: 64px; height: 64px; border-radius: 3px; background: #0d1412; }
+  .card .name { font-size: 12px; font-weight: 600; line-height: 1.15; min-height: 2.3em; display: grid; place-items: center; }
+  .card .meta { font: 500 11px/1 var(--mono); color: var(--muted); }
+  .card .appeal { color: var(--brass); letter-spacing: 1px; font-size: 11px; }
+  .card.selected { border-color: var(--brass-hi); background: rgba(201,164,92,0.14); }
+  .card.placed { opacity: 0.55; }
+  .card.locked img { filter: grayscale(1) brightness(0.5); }
+  .card.locked .meta { color: var(--brass-hi); }
+  .card.affordable { border-color: var(--line); }
+  .card.affordable .meta { color: var(--good); }
+
+  .floater {
+    position: fixed; left: 0; top: 0; pointer-events: none;
+    font: 500 15px/1 var(--mono); color: var(--brass-hi);
+    text-shadow: 0 1px 3px rgba(0,0,0,.8); white-space: nowrap;
+  }
+  .banner {
+    position: fixed; inset: 0; display: grid; place-items: center; pointer-events: none;
+  }
+  .banner .plaque { pointer-events: auto; text-align: center; padding: 22px 28px; width: min(400px, calc(100% - 32px)); box-sizing: border-box; }
+  .banner { background: rgba(10, 14, 13, 0.45); }
+  .banner h3 { font: 400 26px/1.1 var(--display); letter-spacing: 0.06em; color: var(--brass-hi); margin: 0 0 8px; text-wrap: balance; }
+  .banner p { margin: 0 0 14px; color: var(--parchment); }
+
+  .stat:has(#s-inside) { display: none; } /* kept for the shared refresh code; hidden to fit the HUD */
+  .stat .rep { color: var(--brass-hi); letter-spacing: 1px; }
+  .stat .rep i { font-style: normal; color: rgba(239,230,210,0.25); }
+  .daybar { height: 3px; background: rgba(239,230,210,0.12); border-radius: 2px; overflow: hidden; margin-top: 3px; }
+  .daybar div { height: 100%; width: 0; background: var(--brass); }
+  .price { display: flex; align-items: center; gap: 8px; padding: 5px 8px; }
+  .price span { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .price b { font: 500 15px/1 var(--mono); min-width: 2.6em; text-align: center; }
+  .price button { padding: 6px 9px; }
+  .report { width: 100%; border-collapse: collapse; margin: 0 0 14px; font-variant-numeric: tabular-nums; }
+  .report td { padding: 5px 0; border-bottom: 1px solid var(--line); text-align: left; }
+  .report td + td { text-align: right; font-family: var(--mono); }
+  .report .neg { color: var(--bad); } .report .pos { color: var(--good); }
+  .banner p.note { font-size: 13px; color: var(--muted); }
+  .card .theme { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .floater.sad { color: var(--bad); }
+  @media (max-width: 640px) {
+    .brand p { display: none; }
+    .stats { gap: 12px; }
+    .stat { min-width: 48px; }
+    .stat b { font-size: 15px; }
+    .price { padding: 3px 6px; }
+    .hud { flex-wrap: wrap; }
+    .hint { top: calc(env(safe-area-inset-top, 0px) + 128px); font-size: 13px; }
+    .card { flex-basis: 88px; }
+    .card img { width: 52px; height: 52px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .hint { transition: none; } }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="stage"></div>
+
+<div class="hud">
+  <div class="plaque brand">
+    <h1>Museum Manager</h1>
+    <p>Ten days to earn a five-star reputation.</p>
+  </div>
+  <div class="plaque stats" aria-live="polite">
+    <div class="stat"><b id="s-day">Day 1</b><div class="daybar"><div id="s-daybar"></div></div></div>
+    <div class="stat money"><b id="s-money">$0</b><span>Funds</span></div>
+    <div class="stat"><b class="rep" id="s-rep"></b><span>Reputation</span></div>
+    <div class="stat"><b id="s-today">0</b><span>Visitors today</span></div>
+    <div class="stat"><b id="s-inside">0</b><span>Inside</span></div>
+  </div>
+  <div class="tools">
+    <div class="plaque price"><span>Ticket</span><button id="p-dn" type="button" aria-label="Lower ticket price">&minus;</button><b id="p-val">$2</b><button id="p-up" type="button" aria-label="Raise ticket price">+</button></div>
+    <button id="btn-cam" type="button" title="Ride along with a guest (the old CameraChange button)">Guest view</button>
+    <button id="btn-sound" type="button">Sound off</button>
+    <button id="btn-reset" type="button">New game</button>
+  </div>
+</div>
+
+<div class="hint plaque" id="hint"></div>
+
+<div class="drawer">
+  <div class="drawer-inner">
+    <div class="drawer-head">
+      <h2>Collection</h2>
+      <span id="drawer-note">Match an artifact to its hall theme for a 1.5&times; appeal bonus</span>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</div>
+
+<div class="banner" id="banner" hidden>
+  <div class="plaque">
+    <h3 id="banner-title"></h3>
+    <div id="banner-text"></div>
+    <button id="banner-close" type="button">Continue</button>
+  </div>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ---------------------------------------------------------------------------
+// Layout. Mirrors the 2018 NewCity scene: one museum on a city block, three
+// exhibit halls off a lobby, guests walking a waypoint loop.
+// ---------------------------------------------------------------------------
+const HALL_X = [-4.667, 0, 4.667];
+const THEMES = [
+  { name: 'Antiquities', color: '#d98b6f', shirts: [0x9c4a3a, 0xb7614a, 0x7c3b35] },
+  { name: 'Natural History', color: '#7fb3c9', shirts: [0x2f5364, 0x3b6e8f, 0x4a7f94] },
+  { name: 'Treasures', color: '#b9c77a', shirts: [0x4d5d33, 0x6b7c3a, 0x8a8f3e] },
+];
+const HALL_NAMES = THEMES.map(t => t.name); // hall i shows theme i
+const DAY_LEN = 80, SEASON_DAYS = 10;
+const PEDESTALS = []; // { x, z, hall, stand:{x,z} }
+HALL_X.forEach((hx, hall) => {
+  PEDESTALS.push({ x: hx - 1.3, z: -1.0, hall, stand: { x: hx - 1.3, z: -0.2 } });
+  PEDESTALS.push({ x: hx, z: -3.4, hall, stand: { x: hx, z: -2.55 } });
+  PEDESTALS.push({ x: hx + 1.3, z: -1.0, hall, stand: { x: hx + 1.3, z: -0.2 } });
+});
+
+const ARTIFACTS = [
+  { id: 'amphora',   name: 'Greek Amphora',    appeal: 2, cost: 0,   theme: 0 },
+  { id: 'geode',     name: 'Amethyst Geode',   appeal: 2, cost: 0,   theme: 1 },
+  { id: 'astrolabe', name: 'Brass Astrolabe',  appeal: 2, cost: 0,   theme: 2 },
+  { id: 'bust',      name: 'Marble Bust',      appeal: 3, cost: 30,  theme: 0 },
+  { id: 'meteorite', name: 'Iron Meteorite',   appeal: 4, cost: 50,  theme: 1 },
+  { id: 'vase',      name: 'Ming Vase',        appeal: 5, cost: 80,  theme: 2 },
+  { id: 'mask',      name: 'Funerary Mask',    appeal: 6, cost: 120, theme: 0 },
+  { id: 'idol',      name: 'Golden Idol',      appeal: 7, cost: 170, theme: 2 },
+  { id: 'skull',     name: 'Raptor Skull',     appeal: 8, cost: 230, theme: 1 },
+];
+const byId = Object.fromEntries(ARTIFACTS.map(a => [a.id, a]));
+
+// ---------------------------------------------------------------------------
+// State + persistence
+// ---------------------------------------------------------------------------
+const SAVE_KEY = 'museum-manager-curator-v1';
+function freshState() {
+  return {
+    money: 0, totalVisitors: 0,
+    owned: ARTIFACTS.filter(a => a.cost === 0).map(a => a.id),
+    placements: Array(PEDESTALS.length).fill(null),
+    tutorial: 0, celebrated: false,
+    day: 1, dayTime: 0, rep: 30, price: 2, season: 1, best: 0,
+    today: freshDay(),
+  };
+}
+function freshDay() {
+  return { visitors: 0, tickets: 0, donations: 0, happy: 0, unhappy: 0, repStart: null };
+}
+let state = freshState();
+try {
+  const raw = localStorage.getItem(SAVE_KEY);
+  if (raw) state = Object.assign(freshState(), JSON.parse(raw));
+} catch (e) { /* storage unavailable: play without saving */ }
+function save() {
+  try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+// ---------------------------------------------------------------------------
+// Renderer, camera, lights
+// ---------------------------------------------------------------------------
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+stage.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x121a18);
+scene.fog = new THREE.Fog(0x121a18, 38, 70);
+
+const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
+camera.position.set(0, 19, 15.5);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0, 2.6);
+controls.enableDamping = true;
+controls.maxPolarAngle = 1.32;
+controls.minDistance = 7;
+controls.maxDistance = 42;
+controls.enablePan = true;
+controls.screenSpacePanning = false;
+
+scene.add(new THREE.HemisphereLight(0xfff4e0, 0x2b3a30, 0.9));
+const sun = new THREE.DirectionalLight(0xffe9c4, 2.0);
+sun.position.set(-10, 20, 12);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -16, right: 16, top: 16, bottom: -16, near: 1, far: 60 });
+sun.shadow.bias = -0.0005;
+scene.add(sun);
+
+// ---------------------------------------------------------------------------
+// Materials + helpers
+// ---------------------------------------------------------------------------
+const M = (color, opts = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.8, ...opts });
+const mat = {
+  table: M(0x3a2a1e, { roughness: 0.6 }),
+  grass: M(0x5f8a4e), road: M(0x3b3f42), sidewalk: M(0xb9b3a4),
+  line: M(0xe8e1c9), stone: M(0xe9e1cf), stoneDark: M(0xcfc4ab),
+  floor: M(0xd8cdb4, { roughness: 0.5 }), lobby: M(0xbfae8a, { roughness: 0.5 }),
+  carpet: [M(0x7c3b35), M(0x2f5364), M(0x4d5d33)],
+  pedestal: M(0xf4efe4, { roughness: 0.4 }), pedestalTop: M(0x2a2622, { roughness: 0.5 }),
+  trunk: M(0x6b4a2f), leaf: M(0x467a3a), leafDark: M(0x355f2e),
+  roofs: [M(0x9c4a3a), M(0x5a6f7c), M(0x7c6a4a), M(0x4c5b44)],
+  walls: [M(0xe6d6b8), M(0xd8c3a5), M(0xc9d0c4), M(0xe9ddd0)],
+  lamp: M(0x2c2f30), glow: M(0xfff1c2, { emissive: 0xffd98a, emissiveIntensity: 0.8 }),
+  skin: [M(0xf1c6a2), M(0xd9a27c), M(0xa8704c), M(0x6e4630)],
+};
+
+function box(w, h, d, material, x, y, z, parent = scene) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), material);
+  m.position.set(x, y, z); m.castShadow = true; m.receiveShadow = true;
+  parent.add(m); return m;
+}
+function textTexture(text, { w = 512, h = 128, font = '64px "Marcellus SC", Georgia, serif', color = '#efe6d2', bg = null } = {}) {
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d');
+  if (bg) { g.fillStyle = bg; g.fillRect(0, 0, w, h); }
+  g.fillStyle = color; g.font = font; g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.fillText(text, w / 2, h / 2 + 4);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4;
+  return t;
+}
+
+// ---------------------------------------------------------------------------
+// The diorama: tabletop, city block, museum (the AR "table" feel of the original)
+// ---------------------------------------------------------------------------
+box(40, 1, 34, mat.table, 0, -0.62, 1).castShadow = false;
+box(30, 0.2, 26, mat.grass, 0, -0.1, 1).castShadow = false;
+box(30, 0.04, 3, mat.road, 0, 0.02, 9.5);
+for (let x = -13; x <= 13; x += 2.2) box(1.1, 0.01, 0.12, mat.line, x, 0.05, 9.5);
+box(30, 0.08, 1.4, mat.sidewalk, 0, 0.04, 7.3);
+box(1.8, 0.07, 2.2, mat.sidewalk, 0, 0.035, 6.1);
+
+// Museum shell
+const museum = new THREE.Group(); scene.add(museum);
+box(14.2, 0.12, 10.2, mat.floor, 0, 0.06, 0, museum);
+box(14, 0.02, 2, mat.lobby, 0, 0.13, 4, museum);
+HALL_X.forEach((hx, i) => box(4.4, 0.02, 7.8, mat.carpet[i], hx, 0.13, -1, museum));
+
+const WALL_H = 1.5, T = 0.2;
+function wall(x1, z1, x2, z2, m = mat.stone) {
+  const w = Math.abs(x2 - x1) || T, d = Math.abs(z2 - z1) || T;
+  box(w + (x1 === x2 ? 0 : T), WALL_H, d + (z1 === z2 ? 0 : T), m, (x1 + x2) / 2, WALL_H / 2 + 0.12, (z1 + z2) / 2, museum);
+}
+wall(-7, -5, 7, -5); wall(-7, -5, -7, 5); wall(7, -5, 7, 5);
+wall(-7, 5, -0.9, 5); wall(0.9, 5, 7, 5);
+wall(-2.333, -5, -2.333, 3, mat.stoneDark); wall(2.333, -5, 2.333, 3, mat.stoneDark);
+const DOOR = 0.65;
+wall(-7, 3, HALL_X[0] - DOOR, 3, mat.stoneDark);
+wall(HALL_X[0] + DOOR, 3, HALL_X[1] - DOOR, 3, mat.stoneDark);
+wall(HALL_X[1] + DOOR, 3, HALL_X[2] - DOOR, 3, mat.stoneDark);
+wall(HALL_X[2] + DOOR, 3, 7, 3, mat.stoneDark);
+
+// Portico: columns, steps, pediment sign
+for (const x of [-2.4, -1.2, 1.2, 2.4]) {
+  const col = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.19, 1.9, 14), mat.stone);
+  col.position.set(x, 1.05, 5.75); col.castShadow = true; museum.add(col);
+}
+box(5.6, 0.1, 1.3, mat.stoneDark, 0, 0.05, 5.75, museum);
+box(5.6, 0.16, 1.4, mat.stone, 0, 2.08, 5.75, museum);
+const sign = new THREE.Mesh(new THREE.PlaneGeometry(4.6, 0.55),
+  new THREE.MeshBasicMaterial({ map: textTexture('CITY MUSEUM', { w: 1024, h: 128, font: '84px "Marcellus SC", Georgia, serif', color: '#3b3226', bg: '#e9e1cf' }) }));
+sign.position.set(0, 2.08, 6.46); museum.add(sign);
+
+// Hall floor labels
+HALL_X.forEach((hx, i) => {
+  const lbl = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 0.33),
+    new THREE.MeshBasicMaterial({ map: textTexture(HALL_NAMES[i].toUpperCase(), { w: 1024, h: 128, font: '72px "Marcellus SC", Georgia, serif', color: THEMES[i].color }), transparent: true, opacity: 0.9 }));
+  lbl.rotation.x = -Math.PI / 2; lbl.position.set(hx, 0.15, 1.0); museum.add(lbl);
+});
+
+// Surrounding block: houses, trees, lamps, benches
+function house(x, z, w, d, h, i, rotY = 0) {
+  const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = rotY; scene.add(g);
+  box(w, h, d, mat.walls[i % 4], 0, h / 2, 0, g);
+  const roof = new THREE.Mesh(new THREE.ConeGeometry(Math.max(w, d) * 0.75, 1.1, 4), mat.roofs[i % 4]);
+  roof.position.y = h + 0.55; roof.rotation.y = Math.PI / 4; roof.scale.set(w / Math.max(w, d), 1, d / Math.max(w, d));
+  roof.castShadow = true; g.add(roof);
+  for (let k = -1; k <= 1; k += 2) box(0.35, 0.4, 0.02, mat.glow, k * w * 0.25, h * 0.6, d / 2 + 0.01, g).castShadow = false;
+}
+[[-11.5, -8, 3, 2.6, 2.2], [-7.5, -8.6, 2.4, 2.2, 1.8], [-3, -8.3, 3.2, 2.4, 2.6], [2.2, -8.5, 2.6, 2.2, 2],
+ [6.6, -8.2, 3, 2.6, 2.4], [11.2, -8, 2.8, 2.6, 1.9], [-11.6, -3, 2.6, 3, 2.1], [11.6, -2.6, 2.8, 3, 2.5],
+ [-11.8, 2.4, 2.4, 2.6, 1.8], [11.8, 2.8, 2.4, 2.8, 2.2]]
+  .forEach(([x, z, w, d, h], i) => house(x, z, w, d, h, i));
+
+function tree(x, z, s = 1) {
+  const t = new THREE.Mesh(new THREE.CylinderGeometry(0.08 * s, 0.11 * s, 0.7 * s, 6), mat.trunk);
+  t.position.set(x, 0.35 * s, z); t.castShadow = true; scene.add(t);
+  const l = new THREE.Mesh(new THREE.IcosahedronGeometry(0.6 * s, 0), (x + z) % 2 > 0 ? mat.leaf : mat.leafDark);
+  l.position.set(x, 1.05 * s, z); l.castShadow = true; scene.add(l);
+}
+[[-9, 6], [-5.5, 6.2], [5.5, 6.2], [9, 6], [-13, 6], [13, 6], [-9, -5.5], [9, -5.6], [-13.5, -5.5], [13.5, -5.4],
+ [-9.2, 0.5, 0.8], [9.3, 0.2, 0.8], [-13.6, -0.2, 1.2], [13.6, 0.4, 1.1], [0, -11, 1.2], [-6, -11.3], [6.5, -11]]
+  .forEach(([x, z, s]) => tree(x, z, s || 1));
+for (const x of [-7, 7]) {
+  const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.05, 2, 6), mat.lamp);
+  pole.position.set(x, 1, 7.9); pole.castShadow = true; scene.add(pole);
+  const bulb = new THREE.Mesh(new THREE.SphereGeometry(0.14, 10, 8), mat.glow); bulb.position.set(x, 2.05, 7.9); scene.add(bulb);
+}
+for (const x of [-3.8, 3.8]) { box(1.1, 0.08, 0.35, mat.trunk, x, 0.35, 7.0); box(1.1, 0.3, 0.06, mat.trunk, x, 0.55, 6.85); }
+
+// ---------------------------------------------------------------------------
+// Artifact models (procedural stand-ins for Artifact1..3 and friends)
+// ---------------------------------------------------------------------------
+function lathe(points, material) {
+  const m = new THREE.Mesh(new THREE.LatheGeometry(points.map(([r, y]) => new THREE.Vector2(r, y)), 32), material);
+  m.castShadow = true; return m;
+}
+function makeArtifact(id) {
+  const g = new THREE.Group();
+  const add = (mesh) => { mesh.castShadow = true; g.add(mesh); return mesh; };
+  switch (id) {
+    case 'amphora': {
+      const terracotta = M(0xb4643a, { roughness: 0.7 });
+      g.add(lathe([[0, 0], [0.09, 0], [0.12, 0.05], [0.22, 0.25], [0.2, 0.42], [0.09, 0.55], [0.08, 0.66], [0.11, 0.7], [0, 0.7]], terracotta));
+      const band = add(new THREE.Mesh(new THREE.TorusGeometry(0.215, 0.018, 8, 32), M(0x1f1a17)));
+      band.rotation.x = Math.PI / 2; band.position.y = 0.3;
+      for (const s of [-1, 1]) {
+        const h = add(new THREE.Mesh(new THREE.TorusGeometry(0.08, 0.018, 6, 12, Math.PI), terracotta));
+        h.position.set(s * 0.13, 0.55, 0); h.rotation.z = s * -Math.PI / 2;
+      }
+      break;
+    }
+    case 'geode': {
+      add(new THREE.Mesh(new THREE.SphereGeometry(0.28, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2), M(0x8a8278, { flatShading: true }))).rotation.x = Math.PI;
+      g.children[0].position.y = 0.28;
+      const crystal = add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.24, 0), M(0x8b5fbf, { roughness: 0.15, metalness: 0.2, flatShading: true, emissive: 0x3a1f66, emissiveIntensity: 0.4 })));
+      crystal.position.y = 0.3; crystal.scale.set(1, 0.7, 1);
+      break;
+    }
+    case 'bust': {
+      const marble = M(0xf3f0ea, { roughness: 0.35 });
+      add(new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.13, 0.12, 16), marble)).position.y = 0.06;
+      const sh = add(new THREE.Mesh(new THREE.SphereGeometry(0.2, 18, 10, 0, Math.PI * 2, 0, Math.PI / 2), marble));
+      sh.position.y = 0.12; sh.scale.set(1.25, 0.8, 0.7);
+      add(new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.07, 0.12, 12), marble)).position.y = 0.3;
+      const head = add(new THREE.Mesh(new THREE.SphereGeometry(0.12, 20, 16), marble)); head.position.y = 0.45; head.scale.set(0.9, 1.1, 1);
+      break;
+    }
+    case 'astrolabe': {
+      const brass = M(0xc9a45c, { roughness: 0.3, metalness: 0.8 });
+      add(new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.1, 0.2, 12), brass)).position.y = 0.1;
+      for (let k = 0; k < 3; k++) {
+        const r = add(new THREE.Mesh(new THREE.TorusGeometry(0.22 - k * 0.03, 0.012, 8, 40), brass));
+        r.position.y = 0.44; r.rotation.set(k * 0.9, k * 1.1, 0);
+      }
+      add(new THREE.Mesh(new THREE.SphereGeometry(0.06, 12, 10), M(0x2f5364, { roughness: 0.3, metalness: 0.5 }))).position.y = 0.44;
+      break;
+    }
+    case 'meteorite': {
+      const rock = add(new THREE.Mesh(new THREE.DodecahedronGeometry(0.26, 0), M(0x3d3a37, { roughness: 0.5, metalness: 0.7, flatShading: true })));
+      rock.position.y = 0.24; rock.scale.set(1.2, 0.85, 0.9); rock.rotation.set(0.4, 0.6, 0.2);
+      break;
+    }
+    case 'vase': {
+      g.add(lathe([[0, 0], [0.1, 0], [0.12, 0.04], [0.2, 0.2], [0.21, 0.3], [0.14, 0.5], [0.07, 0.62], [0.09, 0.7], [0, 0.7]], M(0xf2f0ea, { roughness: 0.2 })));
+      for (const [y, r] of [[0.14, 0.17], [0.3, 0.215], [0.6, 0.075]]) {
+        const b = add(new THREE.Mesh(new THREE.TorusGeometry(r, 0.014, 8, 32), M(0x26458f, { roughness: 0.2 })));
+        b.rotation.x = Math.PI / 2; b.position.y = y;
+      }
+      break;
+    }
+    case 'idol': {
+      const gold = M(0xd6a93a, { roughness: 0.25, metalness: 0.9, emissive: 0x3a2400, emissiveIntensity: 0.3 });
+      add(new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.15, 0.1, 8), gold)).position.y = 0.05;
+      add(new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.12, 0.3, 8), gold)).position.y = 0.25;
+      const hd = add(new THREE.Mesh(new THREE.SphereGeometry(0.1, 12, 10), gold)); hd.position.y = 0.47;
+      for (const s of [-1, 1]) add(new THREE.Mesh(new THREE.SphereGeometry(0.02, 6, 6), M(0x3fae6a, { roughness: 0.1 }))).position.set(s * 0.035, 0.49, 0.09);
+      break;
+    }
+    case 'mask': {
+      const gold = M(0xd9ae45, { roughness: 0.25, metalness: 0.9 });
+      const face = add(new THREE.Mesh(new THREE.SphereGeometry(0.2, 20, 16, -Math.PI / 2, Math.PI), gold)); face.position.y = 0.36; face.scale.set(0.85, 1.15, 0.6);
+      const nem = add(new THREE.Mesh(new THREE.CylinderGeometry(0.2, 0.28, 0.5, 20, 1, true, Math.PI / 2, Math.PI), M(0x25458a, { side: THREE.DoubleSide, roughness: 0.4 })));
+      nem.position.set(0, 0.3, -0.01);
+      add(new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.06, 0.2), gold)).position.y = 0.03;
+      break;
+    }
+    case 'skull': {
+      const bone = M(0xd9cdb0, { roughness: 0.8 });
+      const s = add(new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.2, 0.55, 2, 2, 4), bone)); s.position.set(0, 0.28, 0);
+      const pos = s.geometry.attributes.position;
+      for (let k = 0; k < pos.count; k++) { const z = pos.getZ(k); pos.setX(k, pos.getX(k) * (0.75 - z * 0.7)); pos.setY(k, pos.getY(k) * (0.8 - z * 0.6)); }
+      s.geometry.computeVertexNormals();
+      const jaw = add(new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.05, 0.45), bone)); jaw.position.set(0, 0.14, 0.03);
+      for (let k = 0; k < 6; k++) {
+        const tooth = add(new THREE.Mesh(new THREE.ConeGeometry(0.012, 0.05, 5), M(0xf2ead6)));
+        tooth.position.set(k % 2 ? 0.07 : -0.07, 0.2, 0.25 - Math.floor(k / 2) * 0.08); tooth.rotation.x = Math.PI;
+      }
+      add(new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.14, 0.08), M(0x5a4b3a))).position.set(0, 0.07, -0.15);
+      g.rotation.y = 0.5;
+      break;
+    }
+  }
+  return g;
+}
+
+// Thumbnails for the collection drawer
+const thumbs = {};
+{
+  const tr = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true });
+  tr.setSize(128, 128); tr.outputColorSpace = THREE.SRGBColorSpace;
+  const ts = new THREE.Scene();
+  ts.add(new THREE.HemisphereLight(0xffffff, 0x333333, 1.4));
+  const dl = new THREE.DirectionalLight(0xffffff, 2); dl.position.set(1, 2, 2); ts.add(dl);
+  const tc = new THREE.PerspectiveCamera(30, 1, 0.1, 10); tc.position.set(0.9, 0.8, 1.4); tc.lookAt(0, 0.33, 0);
+  for (const a of ARTIFACTS) {
+    const o = makeArtifact(a.id); ts.add(o);
+    tr.setClearColor(0x0d1412, 1); tr.render(ts, tc);
+    thumbs[a.id] = tr.domElement.toDataURL();
+    ts.remove(o);
+  }
+  tr.dispose();
+}
+
+// ---------------------------------------------------------------------------
+// Pedestals + spotlights (the original scene had 22 Spotlights for its halls)
+// ---------------------------------------------------------------------------
+const PED_H = 0.85;
+const pickables = [];
+const pedObjs = PEDESTALS.map((p, i) => {
+  const g = new THREE.Group(); g.position.set(p.x, 0.13, p.z); museum.add(g);
+  const base = box(0.62, PED_H, 0.62, mat.pedestal.clone(), 0, PED_H / 2, 0, g);
+  box(0.7, 0.05, 0.7, mat.pedestalTop, 0, PED_H + 0.025, 0, g);
+  const ring = new THREE.Mesh(new THREE.RingGeometry(0.42, 0.5, 32),
+    new THREE.MeshBasicMaterial({ color: 0xe6c783, transparent: true, opacity: 0, depthWrite: false }));
+  ring.rotation.x = -Math.PI / 2; ring.position.y = 0.03; g.add(ring);
+  const spot = new THREE.SpotLight(0xfff0d0, 0, 4.5, 0.45, 0.6, 1.2);
+  spot.position.set(0, 3.2, 0.6); spot.target.position.set(0, PED_H, 0); g.add(spot, spot.target);
+  const hit = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.9, 0.9), new THREE.MeshBasicMaterial({ visible: false }));
+  hit.position.y = 0.95; hit.userData.ped = i; g.add(hit); pickables.push(hit);
+  return { g, base, ring, spot, model: null, pop: 1 };
+});
+
+function setModel(i, id, animate = true) {
+  const p = pedObjs[i];
+  if (p.model) { p.g.remove(p.model); p.model = null; }
+  if (id) {
+    p.model = makeArtifact(id); p.model.userData.s = 1.45; p.model.scale.setScalar(1.45); p.model.position.y = PED_H + 0.05; p.g.add(p.model);
+    p.pop = animate ? 0 : 1;
+  }
+  p.spot.intensity = id ? 9 : 0;
+}
+state.placements.forEach((id, i) => setModel(i, id, false));
+
+// ---------------------------------------------------------------------------
+// Guests (GuestTimer + GuestWaypointMove, rebuilt)
+// ---------------------------------------------------------------------------
+const guests = [];
+const tmpV = new THREE.Vector3();
+const heartTex = (() => {
+  const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d');
+  g.fillStyle = '#e6c783'; g.font = '52px serif'; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText('★', 32, 34);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
+})();
+
+function jitter(p, a = 0.14) { return { x: p.x + (Math.random() - 0.5) * a * 2, z: p.z + (Math.random() - 0.5) * a * 2 }; }
+function buildRoute(fav) {
+  const route = [];
+  const street = (Math.random() - 0.5) * 20;
+  const hallOrder = [fav, (fav + 1) % 3, (fav + 2) % 3];
+  route.push({ x: street, z: 9.5 }, { x: 0, z: 7.4 }, { x: 0, z: 5.6 }, jitter({ x: 0, z: 4 }, 0.3));
+  for (const h of hallOrder) {
+    const hx = HALL_X[h];
+    const filled = [0, 1, 2].some(k => state.placements[h * 3 + k]);
+    if (!filled && Math.random() < 0.75) continue;
+    route.push({ x: hx, z: 4 }, { x: hx, z: 3 }, jitter({ x: hx, z: 1.6 }));
+    const order = [0, 1, 2];
+    for (const k of order) {
+      const ped = PEDESTALS[h * 3 + k];
+      if (k === 1 || k === 2) route.push(jitter({ x: hx, z: -1 }, 0.2));
+      route.push({ ...jitter(ped.stand, 0.12), ped: h * 3 + k });
+    }
+    route.push(jitter({ x: hx, z: 1.6 }), { x: hx, z: 3 }, { x: hx, z: 4 });
+  }
+  route.push({ x: 0, z: 4 }, { x: 0, z: 5.6, exit: true }, { x: 0, z: 7.4 }, { x: street + (Math.random() - 0.5) * 6, z: 9.8, despawn: true });
+  return route;
+}
+
+function spawnGuest() {
+  const g = new THREE.Group();
+  const fav = Math.floor(Math.random() * 3);
+  const palette = THEMES[fav].shirts;
+  const shirt = M(palette[Math.floor(Math.random() * palette.length)]);
+  const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.12, 0.28, 4, 10), shirt);
+  body.position.y = 0.28; body.castShadow = true; g.add(body);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.1, 12, 10), mat.skin[Math.floor(Math.random() * 4)]);
+  head.position.y = 0.6; head.castShadow = true; g.add(head);
+  const s = 0.9 + Math.random() * 0.25; g.scale.setScalar(s);
+  const route = buildRoute(fav);
+  g.position.set(route[0].x, 0.13, route[0].z);
+  scene.add(g);
+  guests.push({ g, body, route, i: 1, wait: 0, speed: 1.5 + Math.random() * 0.5, seen: 0, halls: new Set(), fav, phase: Math.random() * 6, inside: false });
+}
+
+function emote(pos) {
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: heartTex, transparent: true, depthWrite: false }));
+  sp.scale.setScalar(0.35); sp.position.copy(pos).add(new THREE.Vector3(0, 0.95, 0));
+  scene.add(sp); effects.push({ sp, t: 0 });
+}
+const effects = [];
+
+// A guest leaves happy when what they saw outweighs what they paid.
+// Curated halls (three pieces that all match the hall theme) add a bonus.
+function hallCurated(h) { return [0, 1, 2].every(k => { const id = state.placements[h * 3 + k]; return id && byId[id].theme === h; }); }
+function verdict(gu) {
+  let curated = 0;
+  for (const h of gu.halls) if (hallCurated(h)) curated++;
+  const happy = gu.seen + curated * 4 >= 4 + state.price * 1.6;
+  const amount = happy ? Math.round(1 + gu.seen * (0.3 + Math.random() * 0.25) + curated * 3) : Math.round(gu.seen * 0.1);
+  return { amount, happy, curated };
+}
+
+function updateGuests(dt) {
+  for (let n = guests.length - 1; n >= 0; n--) {
+    const gu = guests[n];
+    gu.phase += dt * 9;
+    if (gu.wait > 0) {
+      gu.wait -= dt;
+      gu.body.position.y = 0.28;
+      continue;
+    }
+    const wp = gu.route[gu.i];
+    const dx = wp.x - gu.g.position.x, dz = wp.z - gu.g.position.z;
+    const dist = Math.hypot(dx, dz);
+    const step = gu.speed * dt;
+    if (dist > 0.001) {
+      const targetYaw = Math.atan2(dx, dz);
+      let dy = targetYaw - gu.g.rotation.y; dy = Math.atan2(Math.sin(dy), Math.cos(dy));
+      gu.g.rotation.y += dy * Math.min(1, dt * 10);
+    }
+    gu.body.position.y = 0.28 + Math.abs(Math.sin(gu.phase)) * 0.035;
+    if (dist <= step) {
+      gu.g.position.x = wp.x; gu.g.position.z = wp.z;
+      if (gu.i === 3 && !gu.inside) {
+        gu.inside = true;
+        state.money += state.price; state.today.tickets += state.price; state.today.visitors += 1;
+      }
+      if (wp.ped !== undefined) {
+        const id = state.placements[wp.ped];
+        if (id) {
+          const ped = PEDESTALS[wp.ped];
+          gu.g.rotation.y = Math.atan2(ped.x - gu.g.position.x, ped.z - gu.g.position.z);
+          const a = byId[id];
+          const value = a.appeal * (a.theme === ped.hall ? 1.5 : 1) * (a.theme === gu.fav ? 1.4 : 1);
+          gu.wait = 1.2 + value * 0.15 + Math.random() * 0.8;
+          gu.seen += value; gu.halls.add(ped.hall);
+          emote(gu.g.position);
+        }
+      }
+      if (wp.exit) {
+        gu.inside = false;
+        const { amount, happy, curated } = verdict(gu);
+        state.money += amount; state.totalVisitors += 1;
+        state.today.donations += amount; state.today[happy ? 'happy' : 'unhappy'] += 1;
+        state.rep = Math.max(0, Math.min(100, state.rep + (happy ? 0.9 + curated * 0.4 : -1.4)));
+        save();
+        floatText(happy ? `+$${amount} \u2605` : (amount ? `+$${amount} meh` : 'meh'), tmpV.set((Math.random() - 0.5) * 1.2, 1.4, 5.8), !happy);
+        if (happy) chime(amount); else tone(220, 0.2, 'triangle', 0.04);
+        refreshUI();
+      }
+      if (wp.despawn) {
+        scene.remove(gu.g); guests.splice(n, 1);
+        if (followed === gu) followNext();
+        continue;
+      }
+      gu.i++;
+    } else {
+      gu.g.position.x += (dx / dist) * step; gu.g.position.z += (dz / dist) * step;
+    }
+  }
+}
+
+let spawnClock = 1.5;
+function placedCount() { return state.placements.filter(Boolean).length; }
+function spawnInterval() {
+  const base = 9 - state.rep * 0.06 - placedCount() * 0.25;
+  return Math.max(1.2, base * (1 + state.price * 0.09));
+}
+function repStars() { return Math.min(5, Math.round(state.rep / 20)); } // five stars from 90
+
+// ---------------------------------------------------------------------------
+// Floating DOM text + audio
+// ---------------------------------------------------------------------------
+const floaters = [];
+function floatText(text, worldPos, sad = false) {
+  const el = document.createElement('div'); el.className = 'floater' + (sad ? ' sad' : ''); el.textContent = text;
+  document.body.appendChild(el);
+  floaters.push({ el, pos: worldPos.clone(), t: 0 });
+}
+let audio = null, soundOn = false;
+function tone(freq, dur = 0.18, type = 'sine', vol = 0.07, delay = 0) {
+  if (!soundOn || !audio) return;
+  const t0 = audio.currentTime + delay;
+  const o = audio.createOscillator(), g = audio.createGain();
+  o.type = type; o.frequency.value = freq; g.gain.setValueAtTime(0, t0);
+  g.gain.linearRampToValueAtTime(vol, t0 + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+  o.connect(g).connect(audio.destination); o.start(t0); o.stop(t0 + dur + 0.02);
+}
+function chime(amount) { tone(880, 0.25); if (amount >= 10) tone(1320, 0.3, 'sine', 0.05, 0.08); }
+
+// ---------------------------------------------------------------------------
+// UI: collection drawer, HUD, hints
+// ---------------------------------------------------------------------------
+let selected = null; // artifact id being placed or moved
+const $ = (id) => document.getElementById(id);
+const cardsEl = $('cards');
+function stars(n) { return '★'.repeat(Math.min(5, Math.ceil(n / 2))); }
+
+function refreshUI() {
+  $('s-money').textContent = (state.money < 0 ? '-$' : '$') + Math.abs(state.money);
+  $('s-inside').textContent = guests.filter(g => g.inside).length;
+  $('s-today').textContent = state.today.visitors;
+  $('s-day').textContent = `Day ${Math.min(state.day, SEASON_DAYS)}/${SEASON_DAYS}`;
+  const st = repStars();
+  $('s-rep').innerHTML = '\u2605'.repeat(st) + '<i>' + '\u2605'.repeat(5 - st) + '</i>';
+  $('s-rep').parentElement.title = `Reputation ${Math.round(state.rep)}/100`;
+  $('p-val').textContent = '$' + state.price;
+  cardsEl.innerHTML = '';
+  for (const a of ARTIFACTS) {
+    const owned = state.owned.includes(a.id);
+    const placed = state.placements.includes(a.id);
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'card';
+    if (!owned) b.classList.add('locked');
+    if (!owned && state.money >= a.cost) b.classList.add('affordable');
+    if (placed) b.classList.add('placed');
+    if (selected === a.id) b.classList.add('selected');
+    const meta = !owned ? `Acquire $${a.cost}` : placed ? 'On display' : 'In storage';
+    b.innerHTML = `<img alt="" src="${thumbs[a.id]}"><span class="name">${a.name}</span><span class="theme" style="color:${THEMES[a.theme].color}">${THEMES[a.theme].name}</span><span class="appeal" title="Appeal ${a.appeal}">${stars(a.appeal)}</span><span class="meta">${meta}</span>`;
+    b.setAttribute('aria-label', `${a.name}, ${THEMES[a.theme].name}, appeal ${a.appeal}, ${meta}`);
+    b.addEventListener('click', () => onCard(a));
+    cardsEl.appendChild(b);
+  }
+}
+
+function refreshStats() {
+  $('s-money').textContent = money(state.money);
+  $('s-inside').textContent = guests.filter(g => g.inside).length;
+  $('s-today').textContent = state.today.visitors;
+  const st = repStars();
+  $('s-rep').innerHTML = '\u2605'.repeat(st) + '<i>' + '\u2605'.repeat(5 - st) + '</i>';
+}
+
+function onCard(a) {
+  unlockAudio();
+  if (!state.owned.includes(a.id)) {
+    if (state.money < a.cost) { hint(`${a.name} costs $${a.cost}. Keep guests happy to raise donations.`, 2600); return; }
+    state.money -= a.cost; state.owned.push(a.id); save();
+    tone(523, 0.2); tone(784, 0.3, 'sine', 0.06, 0.1);
+    selected = a.id; refreshUI();
+    hint(`Acquired the ${a.name}. Tap a glowing pedestal to display it.`);
+    return;
+  }
+  selected = selected === a.id ? null : a.id;
+  refreshUI();
+  if (selected) {
+    const where = state.placements.indexOf(a.id);
+    hint(where >= 0 ? `Moving the ${a.name}. Tap another pedestal, or put it back in storage.` : `Tap a glowing pedestal to display the ${a.name}.`, 0, where >= 0);
+  } else hint('');
+}
+
+function placeOn(i) {
+  const current = state.placements[i];
+  if (!selected) {
+    if (current) { onCard(byId[current]); }
+    return;
+  }
+  const from = state.placements.indexOf(selected);
+  if (from === i) { selected = null; hint(''); refreshUI(); return; }
+  if (from >= 0) { state.placements[from] = current; setModel(from, current); } // swap
+  state.placements[i] = selected; setModel(i, selected);
+  const name = byId[selected].name;
+  selected = null; save(); refreshUI();
+  tone(392, 0.12, 'triangle'); tone(587, 0.22, 'triangle', 0.06, 0.07);
+  const h = PEDESTALS[i].hall;
+  const match = byId[state.placements[i]].theme === h;
+  if (state.tutorial === 0) { state.tutorial = 1; save(); hint('Guests pay the ticket price on entry. If the exhibits beat the price, they leave happy, donate, and your reputation grows.', 6500); }
+  else if (hallCurated(h)) hint(`${HALL_NAMES[h]} is fully curated. Visitors who see it give a bonus.`, 3200);
+  else hint(match ? `${name} fits ${HALL_NAMES[h]}: 1.5\u00d7 appeal.` : `${name} is off-theme in ${HALL_NAMES[h]}. It belongs in ${THEMES[byId[state.placements[i]].theme].name}.`, 2800);
+}
+
+function storeSelected() {
+  const from = state.placements.indexOf(selected);
+  if (from >= 0) { state.placements[from] = null; setModel(from, null); }
+  hint(`${byId[selected].name} moved to storage.`, 2000);
+  selected = null; save(); refreshUI();
+}
+
+let hintTimer = 0;
+function hint(text, ms = 0, withStore = false) {
+  const el = $('hint');
+  el.hidden = !text;
+  el.classList.toggle('withbtn', withStore);
+  el.textContent = text;
+  if (withStore) {
+    const b = document.createElement('button'); b.type = 'button'; b.textContent = 'Put in storage';
+    b.addEventListener('click', storeSelected); el.appendChild(b);
+  }
+  clearTimeout(hintTimer);
+  if (ms) hintTimer = setTimeout(() => { if (el.textContent.startsWith(text.slice(0, 20))) el.hidden = true; }, ms);
+}
+
+let bannerAction = null;
+function showBanner(title, html, label = 'Continue', action = null) {
+  $('banner-title').textContent = title; $('banner-text').innerHTML = html;
+  $('banner-close').textContent = label; bannerAction = action; $('banner').hidden = false;
+  $('banner-close').focus();
+}
+$('banner-close').addEventListener('click', () => { $('banner').hidden = true; const a = bannerAction; bannerAction = null; if (a) a(); });
+
+// Ticket price
+function setPrice(v) { state.price = Math.max(0, Math.min(10, v)); save(); refreshUI(); }
+$('p-dn').addEventListener('click', () => setPrice(state.price - 1));
+$('p-up').addEventListener('click', () => setPrice(state.price + 1));
+
+// Days and the season
+let paused = false;
+function money(v) { return (v < 0 ? '-$' : '$') + Math.abs(v); }
+function endDay() {
+  paused = true;
+  const t = state.today;
+  const upkeep = placedCount() * 2;
+  state.money -= upkeep;
+  const repDelta = Math.round(state.rep - (t.repStart ?? state.rep));
+  const last = state.day >= SEASON_DAYS;
+  const rows = [
+    ['Visitors', t.visitors], ['Left happy', `${t.happy} of ${t.happy + t.unhappy}`],
+    ['Ticket sales', money(t.tickets)], ['Donations', money(t.donations)],
+    ['Exhibit upkeep', `<span class="neg">-$${upkeep}</span>`],
+    ['Reputation', `<span class="${repDelta >= 0 ? 'pos' : 'neg'}">${repDelta >= 0 ? '+' : ''}${repDelta}</span> (${Math.round(state.rep)}/100)`],
+  ];
+  let html = `<table class="report">${rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('')}</table>`;
+  const tip = t.unhappy > t.happy ? 'Most visitors felt the ticket was not worth it. Lower the price or add stronger exhibits.'
+    : state.price < 3 && t.happy > 3 ? 'Visitors loved it. You could charge a little more.' : 'Tip: a hall of three on-theme pieces counts as curated and earns a bonus.';
+  save();
+  if (!last) {
+    showBanner(`Day ${state.day} report`, html + `<p class="note">${tip}</p>`, `Open day ${state.day + 1}`, () => {
+      state.day += 1; state.dayTime = 0; state.today = freshDay(); save(); paused = false; refreshUI();
+    });
+  } else {
+    const s = repStars();
+    state.best = Math.max(state.best || 0, s);
+    const verdictText = s >= 5 ? 'A five-star museum. The city will be talking about this collection for years.'
+      : s >= 3 ? `A respectable ${s}-star museum. Fill every hall with on-theme pieces to reach five.`
+      : `${s} star${s === 1 ? '' : 's'}. Try a lower ticket price early on to build your reputation.`;
+    showBanner(`Season complete: ${'\u2605'.repeat(s) || 'no stars'}`, html + `<p class="note">${verdictText}</p>`, 'Start a new season', () => {
+      const best = state.best; state = freshState(); state.best = best; save();
+      pedObjs.forEach((_, i) => setModel(i, null));
+      guests.splice(0).forEach(g => scene.remove(g.g));
+      paused = false; refreshUI(); intro();
+    });
+  }
+  refreshUI();
+}
+
+function unlockAudio() {
+  if (!audio) { try { audio = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} }
+}
+$('btn-sound').addEventListener('click', () => {
+  unlockAudio(); soundOn = !soundOn;
+  $('btn-sound').textContent = soundOn ? 'Sound on' : 'Sound off';
+  $('btn-sound').classList.toggle('on', soundOn);
+  if (soundOn) tone(660, 0.15);
+});
+let resetArmed = false;
+$('btn-reset').addEventListener('click', () => {
+  if (!resetArmed) { resetArmed = true; $('btn-reset').textContent = 'Tap to confirm'; setTimeout(() => { resetArmed = false; $('btn-reset').textContent = 'New game'; }, 2500); return; }
+  resetArmed = false; $('btn-reset').textContent = 'New game';
+  state = freshState(); save(); paused = false; $('banner').hidden = true;
+  pedObjs.forEach((_, i) => setModel(i, null));
+  guests.splice(0).forEach(g => scene.remove(g.g));
+  followNext(true); selected = null; refreshUI(); intro();
+});
+
+// Guest view (the original CameraChange / guestviewmove idea)
+let followed = null;
+function followNext(stop = false) {
+  const candidates = guests.filter(g => g !== followed && g.route.length - g.i > 4);
+  followed = stop || !candidates.length ? null : candidates[Math.floor(Math.random() * candidates.length)];
+  controls.enabled = !followed;
+  $('btn-cam').textContent = followed ? 'Next guest' : 'Guest view';
+  $('btn-cam').classList.toggle('on', !!followed);
+  if (!followed) { camera.position.set(0, 19, 15.5); controls.target.set(0, 0, 2.6); }
+}
+$('btn-cam').addEventListener('click', () => {
+  if (followed && guests.length < 2) { followNext(true); return; }
+  followNext();
+  if (!followed) hint('No guests yet. Put something on display to draw a crowd.', 2400);
+});
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { if (followed) followNext(true); else if (selected) { selected = null; hint(''); refreshUI(); } }
+});
+
+// Pointer picking (tap vs drag)
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+let downAt = null, hovered = -1;
+function pickAt(ev) {
+  const r = renderer.domElement.getBoundingClientRect();
+  ndc.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
+  ray.setFromCamera(ndc, camera);
+  const hit = ray.intersectObjects(pickables, false)[0];
+  return hit ? hit.object.userData.ped : -1;
+}
+renderer.domElement.addEventListener('pointerdown', (e) => { downAt = { x: e.clientX, y: e.clientY }; unlockAudio(); });
+renderer.domElement.addEventListener('pointermove', (e) => {
+  if (e.pointerType !== 'mouse') return;
+  hovered = pickAt(e);
+  renderer.domElement.style.cursor = hovered >= 0 && (selected || state.placements[hovered]) ? 'pointer' : '';
+});
+renderer.domElement.addEventListener('pointerup', (e) => {
+  if (!downAt || Math.hypot(e.clientX - downAt.x, e.clientY - downAt.y) > 8) return;
+  const i = pickAt(e);
+  if (i >= 0) placeOn(i);
+  else if (followed) followNext(true);
+});
+
+function intro() {
+  if (state.tutorial === 0) hint('Welcome, curator. You have ten days to earn five stars. Start by putting an artifact on display in its matching hall.');
+  else hint('');
+}
+
+// ---------------------------------------------------------------------------
+// Main loop
+// ---------------------------------------------------------------------------
+function resize() {
+  const w = stage.clientWidth, h = stage.clientHeight;
+  renderer.setSize(w, h, false); camera.aspect = w / h;
+  camera.fov = w < 640 ? 58 : 45; camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize); resize();
+
+const clock = new THREE.Clock();
+const dawn = new THREE.Color(0xfff1d6), dusk = new THREE.Color(0xff9a5c);
+const camGoal = new THREE.Vector3(), lookGoal = new THREE.Vector3();
+let uiTick = 0, t = 0, timeScale = 1;
+function frame() {
+  const dt = Math.min(clock.getDelta(), 0.05) * timeScale; t += dt;
+
+  if (!paused) {
+    if (state.today.repStart === null) state.today.repStart = state.rep;
+    state.dayTime += dt;
+    const closing = state.dayTime > DAY_LEN * 0.85;
+    spawnClock -= dt;
+    if (!closing && spawnClock <= 0 && guests.length < 36) { spawnGuest(); spawnClock = spawnInterval() * (0.7 + Math.random() * 0.6); }
+    updateGuests(dt);
+    if (state.dayTime >= DAY_LEN && (!guests.some(g => g.inside) || state.dayTime > DAY_LEN + 25)) {
+      guests.splice(0).forEach(g => scene.remove(g.g)); if (followed) followNext(true);
+      endDay();
+    }
+    const f = Math.min(1, state.dayTime / DAY_LEN);
+    sun.color.lerpColors(dawn, dusk, f); sun.intensity = 2.1 - f * 0.9;
+    mat.glow.emissiveIntensity = 0.3 + f * 1.6;
+    $('s-daybar').style.width = (f * 100).toFixed(1) + '%';
+  }
+
+  pedObjs.forEach((p, i) => {
+    const empty = !state.placements[i];
+    const target = selected && (empty || state.placements[i] !== selected) ? (i === hovered ? 1 : 0.55 + Math.sin(t * 4) * 0.25) : (i === hovered && !empty ? 0.4 : 0);
+    p.ring.material.opacity += (target - p.ring.material.opacity) * Math.min(1, dt * 10);
+    if (p.model) {
+      if (p.pop < 1) { p.pop = Math.min(1, p.pop + dt * 2.5); const k = p.pop; p.model.scale.setScalar(p.model.userData.s * (0.4 + 0.6 * k + Math.sin(k * Math.PI) * 0.15)); p.model.position.y = PED_H + 0.05 + (1 - k) * 0.6; }
+      p.model.rotation.y += dt * 0.25;
+    }
+  });
+
+  for (let n = effects.length - 1; n >= 0; n--) {
+    const e = effects[n]; e.t += dt;
+    e.sp.position.y += dt * 0.5; e.sp.material.opacity = Math.max(0, 1 - e.t / 1.2);
+    if (e.t > 1.2) { scene.remove(e.sp); e.sp.material.dispose(); effects.splice(n, 1); }
+  }
+  const w = stage.clientWidth, h = stage.clientHeight;
+  for (let n = floaters.length - 1; n >= 0; n--) {
+    const f = floaters[n]; f.t += dt;
+    tmpV.copy(f.pos); tmpV.y += f.t * 0.8; tmpV.project(camera);
+    f.el.style.transform = `translate(${(tmpV.x * 0.5 + 0.5) * w}px, ${(-tmpV.y * 0.5 + 0.5) * h}px) translate(-50%, -50%)`;
+    f.el.style.opacity = String(Math.max(0, 1 - f.t / 1.6));
+    if (f.t > 1.6 || tmpV.z > 1) { f.el.remove(); floaters.splice(n, 1); }
+  }
+
+  if (followed) {
+    const gp = followed.g.position, yaw = followed.g.rotation.y;
+    camGoal.set(gp.x - Math.sin(yaw) * 1.6, 1.5, gp.z - Math.cos(yaw) * 1.6);
+    lookGoal.set(gp.x + Math.sin(yaw) * 1.2, 0.7, gp.z + Math.cos(yaw) * 1.2);
+    camera.position.lerp(camGoal, Math.min(1, dt * 3));
+    controls.target.lerp(lookGoal, Math.min(1, dt * 4));
+    camera.lookAt(controls.target);
+  } else controls.update();
+
+  uiTick += dt;
+  if (uiTick > 0.5) { uiTick = 0; refreshStats(); }
+
+  renderer.render(scene, camera);
+  requestAnimationFrame(frame);
+}
+
+refreshUI(); intro();
+requestAnimationFrame(frame);
+window.__museum = { get state() { return state; }, guests, endDay, placeOn, onCard: (id) => onCard(byId[id]), get selected() { return selected; }, set timeScale(v) { timeScale = v; } };
+</script>
+</body>
+</html>
